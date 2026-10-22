@@ -1,0 +1,174 @@
+{
+  "verdict": "FAIL",
+  "mode": "preflight",
+  "started": "2026-10-22T22:01:16.175Z",
+  "commit": "2d28e0e (modifications non commitées)",
+  "facts": {},
+  "checks": [
+    {
+      "id": "env",
+      "section": "preflight",
+      "title": "Variables d'environnement",
+      "files": [
+        "src/lib/env-schema.ts",
+        ".env.example",
+        "docs/E2E.md#comptes-et-clés"
+      ],
+      "status": "fail",
+      "detail": "manquantes ou invalides : DATABASE_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, RESEND_API_KEY, EMAIL_FROM, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET, ANTHROPIC_API_KEY, WORKER_URL"
+    },
+    {
+      "id": "inngest-config",
+      "section": "preflight",
+      "title": "Envoi d'événements Inngest configuré",
+      "files": [
+        "src/inngest/client.ts",
+        "docs/E2E.md#inngest"
+      ],
+      "status": "pass",
+      "detail": "serveur de dev local (INNGEST_DEV=1)"
+    },
+    {
+      "id": "db",
+      "section": "preflight",
+      "title": "Postgres joignable et migrations appliquées",
+      "files": [
+        "src/db/schema.ts",
+        "drizzle/",
+        "docs/E2E.md#base"
+      ],
+      "status": "fail",
+      "detail": "à renseigner : DATABASE_URL"
+    },
+    {
+      "id": "r2",
+      "section": "preflight",
+      "title": "R2 : écriture signée, lecture, suppression",
+      "files": [
+        "src/lib/storage.ts",
+        "docs/E2E.md#r2"
+      ],
+      "status": "fail",
+      "detail": "à renseigner : R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET"
+    },
+    {
+      "id": "anthropic",
+      "section": "preflight",
+      "title": "API Claude : modèle claude-sonnet-5-5 accessible",
+      "files": [
+        "src/lib/clip-selection.ts"
+      ],
+      "status": "fail",
+      "detail": "à renseigner : ANTHROPIC_API_KEY"
+    },
+    {
+      "id": "worker",
+      "section": "preflight",
+      "title": "Worker Modal joignable, jeton vérifié",
+      "files": [
+        "worker/app.py",
+        "src/lib/worker.ts",
+        "docs/E2E.md#worker"
+      ],
+      "status": "fail",
+      "detail": "à renseigner : WORKER_URL"
+    },
+    {
+      "id": "app",
+      "section": "preflight",
+      "title": "App joignable et fonctions Inngest servies",
+      "files": [
+        "src/app/api/inngest/route.ts",
+        "docs/E2E.md#app-joignable"
+      ],
+      "status": "fail",
+      "detail": "fetch failed / ECONNREFUSED",
+      "ms": 80
+    },
+    {
+      "id": "callback-public",
+      "section": "preflight",
+      "title": "Callback du worker joignable depuis Internet",
+      "files": [
+        "src/app/api/inngest/route.ts",
+        "docs/E2E.md#app-joignable"
+      ],
+      "status": "warn",
+      "detail": "APP_URL est local : Modal ne pourra pas appeler /api/worker/callback. Utiliser un tunnel (cloudflared) ou un déploiement de preview"
+    },
+    {
+      "id": "inngest-dev",
+      "section": "preflight",
+      "title": "Serveur de dev Inngest lancé",
+      "files": [
+        "src/inngest/client.ts",
+        "docs/E2E.md#inngest"
+      ],
+      "status": "fail",
+      "detail": "fetch failed / ECONNREFUSED",
+      "ms": 2
+    },
+    {
+      "id": "ssrf-metadata",
+      "section": "security",
+      "title": "Lien vers le service de métadonnées cloud bloqué",
+      "files": [
+        "src/sources/safe-fetch.ts"
+      ],
+      "status": "pass",
+      "ms": 0
+    },
+    {
+      "id": "ssrf-dns",
+      "section": "security",
+      "title": "Nom DNS résolu vers 127.0.0.1 bloqué à la connexion",
+      "files": [
+        "src/sources/safe-fetch.ts"
+      ],
+      "status": "pass",
+      "ms": 18
+    },
+    {
+      "id": "demo-inspect",
+      "section": "preflight",
+      "title": "Vidéo de démo joignable et vraie vidéo (domaine public, NASA SVS)",
+      "files": [
+        "src/lib/imports.ts",
+        "src/inngest/functions.ts",
+        "src/sources/direct.ts",
+        "src/sources/pipe.ts"
+      ],
+      "status": "pass",
+      "detail": "matroska, 32242743 octets (attendu 32242743)",
+      "ms": 285
+    },
+    {
+      "id": "start",
+      "section": "flow",
+      "title": "Import",
+      "status": "skip",
+      "detail": "configuration incomplète : le parcours a besoin de toutes les variables"
+    },
+    {
+      "id": "transcript",
+      "section": "flow",
+      "title": "Transcription",
+      "status": "skip",
+      "detail": "configuration incomplète : le parcours a besoin de toutes les variables"
+    },
+    {
+      "id": "clips",
+      "section": "flow",
+      "title": "Extraits",
+      "status": "skip",
+      "detail": "configuration incomplète : le parcours a besoin de toutes les variables"
+    },
+    {
+      "id": "previews",
+      "section": "flow",
+      "title": "Aperçus",
+      "status": "skip",
+      "detail": "configuration incomplète : le parcours a besoin de toutes les variables"
+    }
+  ]
+}
