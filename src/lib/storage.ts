@@ -1,0 +1,23 @@
+import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { Upload } from "@aws-sdk/lib-storage";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import type { Readable } from "node:stream";
+import { env } from "./env";
+
+// R2 bucket in the EU jurisdiction; objects are private, access is via short-lived signed URLs only.
+export const s3 = new S3Client({
+  region: "auto",
+  endpoint: `https://${env.R2_ACCOUNT_ID}.eu.r2.cloudflarestorage.com`,
+  credentials: { accessKeyId: env.R2_ACCESS_KEY_ID, secretAccessKey: env.R2_SECRET_ACCESS_KEY },
+});
+
+/** Streams to R2 in 16 MB parts; at most ~64 MB in memory whatever the file size. */
+export async function putStream(key: string, body: Readable, contentType: string) {
+  await new Upload({ client: s3, params: { Bucket: env.R2_BUCKET, Key: key, Body: body, ContentType: contentType }, partSize: 16 * 1024 * 1024, queueSize: 4 }).done();
+}
+
+export const signedGetUrl = (key: string, expiresIn = 900) =>
+  getSignedUrl(s3, new GetObjectCommand({ Bucket: env.R2_BUCKET, Key: key }), { expiresIn });
+
+// Workspace prefix on every key: keys are never shared or guessable across workspaces.
+export const sourceKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/source`;

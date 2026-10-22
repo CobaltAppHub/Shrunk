@@ -1,0 +1,93 @@
+{
+  "meta": { "title": "Shrunk — Tu contenido, multiplicado. Con honestidad.", "description": "Convierte un vídeo largo en clips cortos subtitulados, listos para compartir." },
+  "nav": { "pricing": "Precios", "signIn": "Iniciar sesión", "billing": "Facturación", "skip": "Ir al contenido" },
+  "landing": {
+    "tagline": "Tu contenido, multiplicado. Con honestidad.",
+    "title": "Un vídeo largo. Varios clips listos para compartir.",
+    "linkLabel": "Pega el enlace de tu vídeo",
+    "linkPlaceholder": "https://…/mi-video.mp4",
+    "continue": "Continuar",
+    "orUpload": "O subir un archivo",
+    "worksWith": "Funciona con: enlaces directos a un archivo de vídeo{platforms, select, none {} other {, {platforms}}}.",
+    "youtubeNote": "¿Enlace de YouTube? Mostramos la ficha del vídeo y luego subes el archivo: YouTube no permite que servicios de terceros lo descarguen.",
+    "rightsNote": "Un vídeo público no es automáticamente libre de reutilizar. Confirmas tus derechos antes de cada importación."
+  },
+  "auth": {
+    "title": "Iniciar sesión",
+    "google": "Continuar con Google",
+    "emailLabel": "Correo electrónico",
+    "sendLink": "Recibir un enlace de acceso",
+    "linkSent": "Enlace enviado. Revisa tu bandeja de entrada (válido 10 minutos).",
+    "error": "Se ha producido un error. Inténtalo de nuevo."
+  },
+  "terms": {
+    "title": "Antes de empezar",
+    "checkbox": "Acepto las <cgv>condiciones generales de venta</cgv> y he leído la <privacy>política de privacidad</privacy>.",
+    "accept": "Continuar",
+    "required": "Marca la casilla para continuar."
+  },
+  "billing": {
+    "title": "Facturación",
+    "balance": "Saldo: {credits, plural, =0 {ningún crédito} one {# crédito} other {# créditos}}",
+    "expiry": "Los créditos mensuales caducan al final del mes siguiente a su asignación. Los packs no caducan.",
+    "plan": "Plan actual: {plan}",
+    "renews": "Próxima renovación: {date}",
+    "endsAt": "Cancelación programada: acceso hasta el {date}.",
+    "history": "Historial de créditos",
+    "date": "Fecha", "change": "Variación", "type": "Tipo",
+    "kinds": { "grant": "Créditos mensuales", "purchase": "Compra de pack", "reserve": "Reservado para un renderizado", "capture": "Renderizado entregado", "release": "Créditos devueltos", "refund": "Reembolso", "expire": "Caducidad" },
+    "choosePlan": "Elegir un plan",
+    "interval": "Facturación",
+    "monthly": "Mensual",
+    "yearly": "Anual (-20 %)",
+    "pickInterval": "Elige una periodicidad.",
+    "perMonth": "{price} / mes IVA incl.",
+    "perYear": "{price} / año IVA incl.",
+    "credits": "{n} créditos / mes",
+    "subscribe": "Suscribirse",
+    "buyPack": "Comprar {n} créditos — {price} IVA incl.",
+    "invoices": "Facturas y método de pago",
+    "cancel": "Cancelar",
+    "cancelTitle": "¿Cancelar tu suscripción?",
+    "cancelBody": "Tu suscripción terminará al final del periodo actual. Conservas el acceso y tus créditos hasta entonces. No se realizará ningún otro cobro.",
+    "cancelConfirm": "Confirmar la cancelación",
+    "keep": "Mantener mi suscripción",
+    "cancelled": "Cancelación registrada. Te hemos enviado un correo de confirmación.",
+    "withdrawal": "Solicitar el reembolso (desistimiento de 14 días)",
+    "withdrawalHelp": "Posible en los 14 días siguientes a la suscripción si se han entregado menos de 5 renderizados.",
+    "withdrawalDone": "Reembolso solicitado. La suscripción se ha detenido.",
+    "errors": { "not_eligible": "Han pasado más de 14 días o se han entregado 5 renderizados o más.", "no_subscription": "No hay ninguna suscripción activa.", "already_subscribed": "Ya tienes una suscripción: cambia de plan desde «Facturas y método de pago»." }
+  },
+  "plans": { "free": "Gratis", "starter": "Starter", "pro": "Pro", "agency": "Agencia" },
+  "import": {
+    "rightsCheckbox": "Soy titular de este contenido o dispongo de las autorizaciones necesarias para importarlo, modificarlo y utilizar los clips.",
+    "basis": { "own": "Mi contenido", "authorized": "Contenido de un cliente o socio", "licensed": "Contenido con una licencia que permite este uso" },
+    "license": "Referencia de la licencia",
+    "credit": "Crédito mostrado",
+    "attribution": "Esta licencia puede exigir atribución: revisa el crédito mostrado.",
+    "steps": { "check": "Verificación del enlace", "import": "Importación", "transcribe": "Transcripción", "select": "Selección de clips", "preview": "Preparación de vistas previas" },
+    "uploadInstead": "Subir el archivo correspondiente",
+    "errors": {
+      "invalid_link": "Este enlace no es válido.",
+      "unsupported_source": "Esta fuente no es compatible.",
+      "video_unavailable": "Este vídeo no está disponible (eliminado o privado).",
+      "access_required": "Se necesita acceso para recuperar este vídeo.",
+      "retrieval_failed": "No se ha podido recuperar el archivo.",
+      "link_expired": "Este enlace ha caducado. Genera un enlace nuevo y pégalo de nuevo.",
+      "size_exceeded": "El archivo supera los 4 GB.",
+      "duration_exceeded": "El vídeo dura más de 3 horas.",
+      "quota_reached": "Límite alcanzado. Inténtalo más tarde o cambia a un plan superior.",
+      "provider_unavailable": "La fuente no responde en este momento. Inténtalo dentro de unos minutos.",
+      "not_a_video": "Este enlace no lleva a un archivo de vídeo.",
+      "blocked_destination": "Esta dirección no está permitida.",
+      "source_file_required": "Podemos mostrar este vídeo, pero no recuperarlo. Sube el archivo correspondiente."
+    }
+  },
+  "email": {
+    "magicLink": { "subject": "Tu enlace de acceso a Shrunk", "body": "Haz clic para acceder (válido 10 minutos): {url}\n\nSi no lo has solicitado, ignora este correo." },
+    "annualRenewal": { "subject": "Tu suscripción anual se renueva en 7 días", "body": "Tu suscripción anual a Shrunk se renovará el {date}. Para detenerla: Ajustes › Facturación › Cancelar." },
+    "cancelConfirmed": { "subject": "Cancelación confirmada", "body": "Tu suscripción terminará el {date}. No se realizará ningún otro cobro." },
+    "withdrawalConfirmed": { "subject": "Reembolso en curso", "body": "Hemos tramitado tu desistimiento: se reembolsa tu primer pago y la suscripción se ha detenido." },
+    "creditsReturned": { "subject": "Créditos devueltos", "body": "Un renderizado no se ha podido completar. Los créditos reservados se han devuelto a tu saldo." }
+  }
+}

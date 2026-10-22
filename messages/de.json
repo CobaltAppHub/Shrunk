@@ -1,0 +1,93 @@
+{
+  "meta": { "title": "Shrunk — Deine Inhalte, vervielfacht. Ehrlich.", "description": "Verwandle ein langes Video in kurze untertitelte Clips, bereit zum Teilen." },
+  "nav": { "pricing": "Preise", "signIn": "Anmelden", "billing": "Abrechnung", "skip": "Zum Inhalt springen" },
+  "landing": {
+    "tagline": "Deine Inhalte, vervielfacht. Ehrlich.",
+    "title": "Ein langes Video. Mehrere Clips, bereit zum Teilen.",
+    "linkLabel": "Füge den Link zu deinem Video ein",
+    "linkPlaceholder": "https://…/mein-video.mp4",
+    "continue": "Weiter",
+    "orUpload": "Oder eine Datei hochladen",
+    "worksWith": "Funktioniert mit: direkten Links zu einer Videodatei{platforms, select, none {} other {, {platforms}}}.",
+    "youtubeNote": "YouTube-Link? Wir zeigen die Angaben zum Video, danach lädst du die Datei hoch: YouTube erlaubt Drittdiensten nicht, sie herunterzuladen.",
+    "rightsNote": "Ein öffentliches Video ist nicht automatisch frei wiederverwendbar. Du bestätigst deine Rechte vor jedem Import."
+  },
+  "auth": {
+    "title": "Anmelden",
+    "google": "Weiter mit Google",
+    "emailLabel": "E-Mail-Adresse",
+    "sendLink": "Anmeldelink per E-Mail erhalten",
+    "linkSent": "Link gesendet. Sieh in deinem Posteingang nach (10 Minuten gültig).",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "terms": {
+    "title": "Bevor es losgeht",
+    "checkbox": "Ich akzeptiere die <cgv>Allgemeinen Geschäftsbedingungen</cgv> und habe die <privacy>Datenschutzerklärung</privacy> gelesen.",
+    "accept": "Weiter",
+    "required": "Setze das Häkchen, um fortzufahren."
+  },
+  "billing": {
+    "title": "Abrechnung",
+    "balance": "Guthaben: {credits, plural, =0 {keine Credits} one {# Credit} other {# Credits}}",
+    "expiry": "Monatliche Credits verfallen am Ende des Folgemonats ihrer Gutschrift. Pakete verfallen nicht.",
+    "plan": "Aktueller Tarif: {plan}",
+    "renews": "Nächste Verlängerung: {date}",
+    "endsAt": "Kündigung vorgemerkt: Zugang bis {date}.",
+    "history": "Credit-Verlauf",
+    "date": "Datum", "change": "Änderung", "type": "Art",
+    "kinds": { "grant": "Monatliche Credits", "purchase": "Paketkauf", "reserve": "Für ein Rendering reserviert", "capture": "Rendering geliefert", "release": "Credits zurückgebucht", "refund": "Erstattung", "expire": "Verfallen" },
+    "choosePlan": "Tarif wählen",
+    "interval": "Abrechnung",
+    "monthly": "Monatlich",
+    "yearly": "Jährlich (-20 %)",
+    "pickInterval": "Wähle einen Abrechnungszeitraum.",
+    "perMonth": "{price} / Monat inkl. MwSt.",
+    "perYear": "{price} / Jahr inkl. MwSt.",
+    "credits": "{n} Credits / Monat",
+    "subscribe": "Abonnieren",
+    "buyPack": "{n} Credits kaufen — {price} inkl. MwSt.",
+    "invoices": "Rechnungen und Zahlungsmethode",
+    "cancel": "Kündigen",
+    "cancelTitle": "Abo kündigen?",
+    "cancelBody": "Dein Abo endet zum Ende des laufenden Zeitraums. Bis dahin behältst du Zugang und Credits. Es erfolgen keine weiteren Abbuchungen.",
+    "cancelConfirm": "Kündigung bestätigen",
+    "keep": "Abo behalten",
+    "cancelled": "Kündigung erfasst. Eine Bestätigung ist per E-Mail unterwegs.",
+    "withdrawal": "Erstattung beantragen (14-tägiger Widerruf)",
+    "withdrawalHelp": "Möglich innerhalb von 14 Tagen nach Abschluss, wenn weniger als 5 Renderings geliefert wurden.",
+    "withdrawalDone": "Erstattung beantragt. Das Abo ist beendet.",
+    "errors": { "not_eligible": "Die 14-Tage-Frist ist abgelaufen oder es wurden 5 oder mehr Renderings geliefert.", "no_subscription": "Kein aktives Abo.", "already_subscribed": "Du hast bereits ein Abo: Wechsle den Tarif unter „Rechnungen und Zahlungsmethode“." }
+  },
+  "plans": { "free": "Kostenlos", "starter": "Starter", "pro": "Pro", "agency": "Agentur" },
+  "import": {
+    "rightsCheckbox": "Ich besitze diesen Inhalt oder verfüge über die nötigen Genehmigungen, um ihn zu importieren, zu bearbeiten und die Clips zu nutzen.",
+    "basis": { "own": "Mein Inhalt", "authorized": "Inhalt eines Kunden oder Partners", "licensed": "Inhalt unter einer Lizenz, die diese Nutzung erlaubt" },
+    "license": "Lizenzangabe",
+    "credit": "Angezeigte Quellenangabe",
+    "attribution": "Diese Lizenz kann eine Namensnennung verlangen: Prüfe die angezeigte Quellenangabe.",
+    "steps": { "check": "Link wird geprüft", "import": "Import", "transcribe": "Transkription", "select": "Auswahl der Clips", "preview": "Vorschauen werden vorbereitet" },
+    "uploadInstead": "Passende Datei hochladen",
+    "errors": {
+      "invalid_link": "Dieser Link ist ungültig.",
+      "unsupported_source": "Diese Quelle wird nicht unterstützt.",
+      "video_unavailable": "Dieses Video ist nicht verfügbar (entfernt oder privat).",
+      "access_required": "Für dieses Video ist ein Zugang erforderlich.",
+      "retrieval_failed": "Die Datei konnte nicht abgerufen werden.",
+      "link_expired": "Dieser Link ist abgelaufen. Erstelle einen neuen Link und füge ihn erneut ein.",
+      "size_exceeded": "Die Datei ist größer als 4 GB.",
+      "duration_exceeded": "Das Video ist länger als 3 Stunden.",
+      "quota_reached": "Limit erreicht. Versuche es später erneut oder wechsle in einen höheren Tarif.",
+      "provider_unavailable": "Die Quelle antwortet gerade nicht. Versuche es in ein paar Minuten erneut.",
+      "not_a_video": "Dieser Link führt nicht zu einer Videodatei.",
+      "blocked_destination": "Diese Adresse ist nicht erlaubt.",
+      "source_file_required": "Wir können dieses Video anzeigen, aber nicht abrufen. Lade die passende Datei hoch."
+    }
+  },
+  "email": {
+    "magicLink": { "subject": "Dein Shrunk-Anmeldelink", "body": "Klicke hier, um dich anzumelden (10 Minuten gültig): {url}\n\nWenn du das nicht angefordert hast, ignoriere diese E-Mail." },
+    "annualRenewal": { "subject": "Dein Jahresabo verlängert sich in 7 Tagen", "body": "Dein Shrunk-Jahresabo verlängert sich am {date}. Zum Beenden: Einstellungen › Abrechnung › Kündigen." },
+    "cancelConfirmed": { "subject": "Kündigung bestätigt", "body": "Dein Abo endet am {date}. Es erfolgen keine weiteren Abbuchungen." },
+    "withdrawalConfirmed": { "subject": "Erstattung in Bearbeitung", "body": "Dein Widerruf wurde bearbeitet: Deine erste Zahlung wird erstattet und das Abo ist beendet." },
+    "creditsReturned": { "subject": "Credits zurückgebucht", "body": "Ein Rendering konnte nicht abgeschlossen werden. Die reservierten Credits wurden deinem Guthaben gutgeschrieben." }
+  }
+}

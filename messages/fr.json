@@ -1,0 +1,93 @@
+{
+  "meta": { "title": "Shrunk — Ton contenu, multiplié. Honnêtement.", "description": "Transforme une vidéo longue en extraits courts sous-titrés, prêts à partager." },
+  "nav": { "pricing": "Tarifs", "signIn": "Connexion", "billing": "Facturation", "skip": "Aller au contenu" },
+  "landing": {
+    "tagline": "Ton contenu, multiplié. Honnêtement.",
+    "title": "Une vidéo longue. Plusieurs extraits prêts à partager.",
+    "linkLabel": "Colle le lien de ta vidéo",
+    "linkPlaceholder": "https://…/ma-video.mp4",
+    "continue": "Continuer",
+    "orUpload": "Ou importer un fichier",
+    "worksWith": "Fonctionne avec : liens directs vers un fichier vidéo{platforms, select, none {} other {, {platforms}}}.",
+    "youtubeNote": "Lien YouTube ? On affiche la fiche de la vidéo, puis tu importes le fichier : YouTube n'autorise pas son téléchargement par des services tiers.",
+    "rightsNote": "Une vidéo publique n'est pas automatiquement libre de réutilisation. Tu confirmes tes droits avant chaque import."
+  },
+  "auth": {
+    "title": "Connexion",
+    "google": "Continuer avec Google",
+    "emailLabel": "Adresse e-mail",
+    "sendLink": "Recevoir un lien de connexion",
+    "linkSent": "Lien envoyé. Vérifie ta boîte de réception (valable 10 minutes).",
+    "error": "Une erreur est survenue. Réessaie."
+  },
+  "terms": {
+    "title": "Avant de commencer",
+    "checkbox": "J'accepte les <cgv>conditions générales</cgv> et j'ai lu la <privacy>politique de confidentialité</privacy>.",
+    "accept": "Continuer",
+    "required": "Coche la case pour continuer."
+  },
+  "billing": {
+    "title": "Facturation",
+    "balance": "Solde : {credits, plural, =0 {aucun crédit} one {# crédit} other {# crédits}}",
+    "expiry": "Les crédits mensuels expirent à la fin du mois suivant leur attribution. Les packs n'expirent pas.",
+    "plan": "Formule actuelle : {plan}",
+    "renews": "Prochain renouvellement : {date}",
+    "endsAt": "Résiliation programmée : accès jusqu'au {date}.",
+    "history": "Historique des crédits",
+    "date": "Date", "change": "Variation", "type": "Type",
+    "kinds": { "grant": "Crédits mensuels", "purchase": "Achat de pack", "reserve": "Réservé pour un rendu", "capture": "Rendu livré", "release": "Crédits rendus", "refund": "Remboursement", "expire": "Expiration" },
+    "choosePlan": "Choisir une formule",
+    "interval": "Facturation",
+    "monthly": "Mensuelle",
+    "yearly": "Annuelle (-20 %)",
+    "pickInterval": "Choisis une périodicité.",
+    "perMonth": "{price} / mois TTC",
+    "perYear": "{price} / an TTC",
+    "credits": "{n} crédits / mois",
+    "subscribe": "S'abonner",
+    "buyPack": "Acheter {n} crédits — {price} TTC",
+    "invoices": "Factures et moyen de paiement",
+    "cancel": "Résilier",
+    "cancelTitle": "Résilier ton abonnement ?",
+    "cancelBody": "Ton abonnement s'arrêtera à la fin de la période en cours. Tu gardes l'accès et tes crédits jusque-là. Aucun autre prélèvement ne sera effectué.",
+    "cancelConfirm": "Confirmer la résiliation",
+    "keep": "Garder mon abonnement",
+    "cancelled": "Résiliation enregistrée. Un e-mail de confirmation t'a été envoyé.",
+    "withdrawal": "Demander le remboursement (rétractation 14 jours)",
+    "withdrawalHelp": "Possible dans les 14 jours suivant la souscription si moins de 5 rendus ont été livrés.",
+    "withdrawalDone": "Remboursement demandé. L'abonnement est arrêté.",
+    "errors": { "not_eligible": "Le délai de 14 jours est dépassé ou 5 rendus ou plus ont été livrés.", "no_subscription": "Aucun abonnement actif.", "already_subscribed": "Tu as déjà un abonnement : change de formule depuis « Factures et moyen de paiement »." }
+  },
+  "plans": { "free": "Gratuit", "starter": "Starter", "pro": "Pro", "agency": "Agence" },
+  "import": {
+    "rightsCheckbox": "Je possède ce contenu ou dispose des autorisations nécessaires pour l'importer, le modifier et utiliser les extraits.",
+    "basis": { "own": "Mon contenu", "authorized": "Contenu d'un client ou d'un partenaire", "licensed": "Contenu sous licence autorisant cet usage" },
+    "license": "Référence de la licence",
+    "credit": "Crédit affiché",
+    "attribution": "Cette licence peut exiger une attribution : vérifie le crédit affiché.",
+    "steps": { "check": "Vérification du lien", "import": "Importation", "transcribe": "Transcription", "select": "Sélection des extraits", "preview": "Préparation des aperçus" },
+    "uploadInstead": "Importer le fichier correspondant",
+    "errors": {
+      "invalid_link": "Ce lien n'est pas valide.",
+      "unsupported_source": "Cette source n'est pas prise en charge.",
+      "video_unavailable": "Cette vidéo est indisponible (supprimée ou privée).",
+      "access_required": "Un accès est requis pour récupérer cette vidéo.",
+      "retrieval_failed": "Impossible de récupérer le fichier.",
+      "link_expired": "Ce lien a expiré. Génère un nouveau lien et colle-le à nouveau.",
+      "size_exceeded": "Le fichier dépasse 4 Go.",
+      "duration_exceeded": "La vidéo dépasse 3 heures.",
+      "quota_reached": "Limite atteinte. Réessaie plus tard ou passe à une formule supérieure.",
+      "provider_unavailable": "La source ne répond pas pour le moment. Réessaie dans quelques minutes.",
+      "not_a_video": "Ce lien ne mène pas à un fichier vidéo.",
+      "blocked_destination": "Cette adresse n'est pas autorisée.",
+      "source_file_required": "On peut afficher cette vidéo, mais pas la récupérer. Importe le fichier correspondant."
+    }
+  },
+  "email": {
+    "magicLink": { "subject": "Ton lien de connexion Shrunk", "body": "Clique pour te connecter (valable 10 minutes) : {url}\n\nSi tu n'as rien demandé, ignore cet e-mail." },
+    "annualRenewal": { "subject": "Ton abonnement annuel est renouvelé dans 7 jours", "body": "Ton abonnement annuel Shrunk sera renouvelé le {date}. Pour l'arrêter : Paramètres › Facturation › Résilier." },
+    "cancelConfirmed": { "subject": "Résiliation confirmée", "body": "Ton abonnement prendra fin le {date}. Aucun autre prélèvement ne sera effectué." },
+    "withdrawalConfirmed": { "subject": "Remboursement en cours", "body": "Ta demande de rétractation est prise en compte : ton premier paiement est remboursé et l'abonnement est arrêté." },
+    "creditsReturned": { "subject": "Crédits rendus", "body": "Un rendu n'a pas pu aboutir. Les crédits réservés ont été remis sur ton solde." }
+  }
+}

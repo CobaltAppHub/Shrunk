@@ -1,0 +1,93 @@
+{
+  "meta": { "title": "Shrunk — Your content, multiplied. Honestly.", "description": "Turn one long video into short captioned clips, ready to share." },
+  "nav": { "pricing": "Pricing", "signIn": "Sign in", "billing": "Billing", "skip": "Skip to content" },
+  "landing": {
+    "tagline": "Your content, multiplied. Honestly.",
+    "title": "One long video. Several clips ready to share.",
+    "linkLabel": "Paste your video link",
+    "linkPlaceholder": "https://…/my-video.mp4",
+    "continue": "Continue",
+    "orUpload": "Or upload a file",
+    "worksWith": "Works with: direct links to a video file{platforms, select, none {} other {, {platforms}}}.",
+    "youtubeNote": "YouTube link? We show the video's details, then you upload the file: YouTube does not allow third-party services to download it.",
+    "rightsNote": "A public video is not automatically free to reuse. You confirm your rights before every import."
+  },
+  "auth": {
+    "title": "Sign in",
+    "google": "Continue with Google",
+    "emailLabel": "Email address",
+    "sendLink": "Email me a sign-in link",
+    "linkSent": "Link sent. Check your inbox (valid for 10 minutes).",
+    "error": "Something went wrong. Please try again."
+  },
+  "terms": {
+    "title": "Before you start",
+    "checkbox": "I accept the <cgv>terms of sale</cgv> and have read the <privacy>privacy policy</privacy>.",
+    "accept": "Continue",
+    "required": "Tick the box to continue."
+  },
+  "billing": {
+    "title": "Billing",
+    "balance": "Balance: {credits, plural, =0 {no credits} one {# credit} other {# credits}}",
+    "expiry": "Monthly credits expire at the end of the month after they are granted. Packs never expire.",
+    "plan": "Current plan: {plan}",
+    "renews": "Next renewal: {date}",
+    "endsAt": "Cancellation scheduled: access until {date}.",
+    "history": "Credit history",
+    "date": "Date", "change": "Change", "type": "Type",
+    "kinds": { "grant": "Monthly credits", "purchase": "Pack purchase", "reserve": "Reserved for a render", "capture": "Render delivered", "release": "Credits returned", "refund": "Refund", "expire": "Expired" },
+    "choosePlan": "Choose a plan",
+    "interval": "Billing",
+    "monthly": "Monthly",
+    "yearly": "Yearly (-20%)",
+    "pickInterval": "Choose a billing period.",
+    "perMonth": "{price} / month incl. VAT",
+    "perYear": "{price} / year incl. VAT",
+    "credits": "{n} credits / month",
+    "subscribe": "Subscribe",
+    "buyPack": "Buy {n} credits — {price} incl. VAT",
+    "invoices": "Invoices and payment method",
+    "cancel": "Cancel",
+    "cancelTitle": "Cancel your subscription?",
+    "cancelBody": "Your subscription will end at the end of the current period. You keep access and your credits until then. You will not be charged again.",
+    "cancelConfirm": "Confirm cancellation",
+    "keep": "Keep my subscription",
+    "cancelled": "Cancellation recorded. A confirmation email is on its way.",
+    "withdrawal": "Request a refund (14-day withdrawal)",
+    "withdrawalHelp": "Available within 14 days of subscribing if fewer than 5 renders were delivered.",
+    "withdrawalDone": "Refund requested. The subscription has ended.",
+    "errors": { "not_eligible": "The 14-day period has passed or 5 or more renders were delivered.", "no_subscription": "No active subscription.", "already_subscribed": "You already have a subscription: change plans from “Invoices and payment method”." }
+  },
+  "plans": { "free": "Free", "starter": "Starter", "pro": "Pro", "agency": "Agency" },
+  "import": {
+    "rightsCheckbox": "I own this content or have the permissions needed to import it, edit it and use the clips.",
+    "basis": { "own": "My content", "authorized": "A client's or partner's content", "licensed": "Content under a licence that allows this use" },
+    "license": "Licence reference",
+    "credit": "Displayed credit",
+    "attribution": "This licence may require attribution: check the displayed credit.",
+    "steps": { "check": "Checking the link", "import": "Importing", "transcribe": "Transcribing", "select": "Selecting clips", "preview": "Preparing previews" },
+    "uploadInstead": "Upload the matching file",
+    "errors": {
+      "invalid_link": "This link is not valid.",
+      "unsupported_source": "This source is not supported.",
+      "video_unavailable": "This video is unavailable (removed or private).",
+      "access_required": "Access is required to fetch this video.",
+      "retrieval_failed": "The file could not be retrieved.",
+      "link_expired": "This link has expired. Generate a new link and paste it again.",
+      "size_exceeded": "The file is larger than 4 GB.",
+      "duration_exceeded": "The video is longer than 3 hours.",
+      "quota_reached": "Limit reached. Try again later or upgrade your plan.",
+      "provider_unavailable": "The source is not responding right now. Try again in a few minutes.",
+      "not_a_video": "This link does not point to a video file.",
+      "blocked_destination": "This address is not allowed.",
+      "source_file_required": "We can show this video but not fetch it. Upload the matching file."
+    }
+  },
+  "email": {
+    "magicLink": { "subject": "Your Shrunk sign-in link", "body": "Click to sign in (valid for 10 minutes): {url}\n\nIf you didn't ask for this, ignore this email." },
+    "annualRenewal": { "subject": "Your yearly subscription renews in 7 days", "body": "Your Shrunk yearly subscription renews on {date}. To stop it: Settings › Billing › Cancel." },
+    "cancelConfirmed": { "subject": "Cancellation confirmed", "body": "Your subscription will end on {date}. You will not be charged again." },
+    "withdrawalConfirmed": { "subject": "Refund in progress", "body": "Your withdrawal request has been processed: your first payment is being refunded and the subscription has ended." },
+    "creditsReturned": { "subject": "Credits returned", "body": "A render could not be completed. The reserved credits are back in your balance." }
+  }
+}

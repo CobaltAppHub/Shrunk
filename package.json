@@ -1,0 +1,54 @@
+{
+  "name": "shrunk",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "inngest:dev": "npx inngest-cli@latest dev -u http://localhost:3000/api/inngest"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1156.0",
+    "@aws-sdk/lib-storage": "^3.1156.0",
+    "@aws-sdk/s3-request-presigner": "^3.1156.0",
+    "better-auth": "^1.7.12",
+    "drizzle-orm": "^0.45.4",
+    "inngest": "^4.25.0",
+    "next": "15.5.28",
+    "next-intl": "^4.14.9",
+    "postgres": "^3.4.9",
+    "react": "19",
+    "react-dom": "19",
+    "resend": "^6.34.1",
+    "stripe": "^23.0.1",
+    "undici": "^8.12.3",
+    "zod": "^4.6.7"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.25.12"
+    }
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.11",
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "9",
+    "eslint-config-next": "15.5.28",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  }
+}
