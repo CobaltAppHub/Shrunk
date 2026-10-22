@@ -12,4 +12,5 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
+      - run: sudo apt-get install -y ffmpeg && python3 -I worker/test_media.py
 # Preview deployments: connect the repo in Vercel (Git integration builds every PR).

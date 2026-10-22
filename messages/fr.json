@@ -1,6 +1,14 @@
 {
-  "meta": { "title": "Shrunk — Ton contenu, multiplié. Honnêtement.", "description": "Transforme une vidéo longue en extraits courts sous-titrés, prêts à partager." },
-  "nav": { "pricing": "Tarifs", "signIn": "Connexion", "billing": "Facturation", "skip": "Aller au contenu" },
+  "meta": {
+    "title": "Shrunk — Ton contenu, multiplié. Honnêtement.",
+    "description": "Transforme une vidéo longue en extraits courts sous-titrés, prêts à partager."
+  },
+  "nav": {
+    "pricing": "Tarifs",
+    "signIn": "Connexion",
+    "billing": "Facturation",
+    "skip": "Aller au contenu"
+  },
   "landing": {
     "tagline": "Ton contenu, multiplié. Honnêtement.",
     "title": "Une vidéo longue. Plusieurs extraits prêts à partager.",
@@ -34,8 +42,18 @@
     "renews": "Prochain renouvellement : {date}",
     "endsAt": "Résiliation programmée : accès jusqu'au {date}.",
     "history": "Historique des crédits",
-    "date": "Date", "change": "Variation", "type": "Type",
-    "kinds": { "grant": "Crédits mensuels", "purchase": "Achat de pack", "reserve": "Réservé pour un rendu", "capture": "Rendu livré", "release": "Crédits rendus", "refund": "Remboursement", "expire": "Expiration" },
+    "date": "Date",
+    "change": "Variation",
+    "type": "Type",
+    "kinds": {
+      "grant": "Crédits mensuels",
+      "purchase": "Achat de pack",
+      "reserve": "Réservé pour un rendu",
+      "capture": "Rendu livré",
+      "release": "Crédits rendus",
+      "refund": "Remboursement",
+      "expire": "Expiration"
+    },
     "choosePlan": "Choisir une formule",
     "interval": "Facturation",
     "monthly": "Mensuelle",
@@ -56,16 +74,35 @@
     "withdrawal": "Demander le remboursement (rétractation 14 jours)",
     "withdrawalHelp": "Possible dans les 14 jours suivant la souscription si moins de 5 rendus ont été livrés.",
     "withdrawalDone": "Remboursement demandé. L'abonnement est arrêté.",
-    "errors": { "not_eligible": "Le délai de 14 jours est dépassé ou 5 rendus ou plus ont été livrés.", "no_subscription": "Aucun abonnement actif.", "already_subscribed": "Tu as déjà un abonnement : change de formule depuis « Factures et moyen de paiement »." }
+    "errors": {
+      "not_eligible": "Le délai de 14 jours est dépassé ou 5 rendus ou plus ont été livrés.",
+      "no_subscription": "Aucun abonnement actif.",
+      "already_subscribed": "Tu as déjà un abonnement : change de formule depuis « Factures et moyen de paiement »."
+    }
   },
-  "plans": { "free": "Gratuit", "starter": "Starter", "pro": "Pro", "agency": "Agence" },
+  "plans": {
+    "free": "Gratuit",
+    "starter": "Starter",
+    "pro": "Pro",
+    "agency": "Agence"
+  },
   "import": {
     "rightsCheckbox": "Je possède ce contenu ou dispose des autorisations nécessaires pour l'importer, le modifier et utiliser les extraits.",
-    "basis": { "own": "Mon contenu", "authorized": "Contenu d'un client ou d'un partenaire", "licensed": "Contenu sous licence autorisant cet usage" },
+    "basis": {
+      "own": "Mon contenu",
+      "authorized": "Contenu d'un client ou d'un partenaire",
+      "licensed": "Contenu sous licence autorisant cet usage"
+    },
     "license": "Référence de la licence",
     "credit": "Crédit affiché",
     "attribution": "Cette licence peut exiger une attribution : vérifie le crédit affiché.",
-    "steps": { "check": "Vérification du lien", "import": "Importation", "transcribe": "Transcription", "select": "Sélection des extraits", "preview": "Préparation des aperçus" },
+    "steps": {
+      "check": "Vérification du lien",
+      "import": "Importation",
+      "transcribe": "Transcription",
+      "select": "Sélection des extraits",
+      "preview": "Préparation des aperçus"
+    },
     "uploadInstead": "Importer le fichier correspondant",
     "errors": {
       "invalid_link": "Ce lien n'est pas valide.",
@@ -84,10 +121,84 @@
     }
   },
   "email": {
-    "magicLink": { "subject": "Ton lien de connexion Shrunk", "body": "Clique pour te connecter (valable 10 minutes) : {url}\n\nSi tu n'as rien demandé, ignore cet e-mail." },
-    "annualRenewal": { "subject": "Ton abonnement annuel est renouvelé dans 7 jours", "body": "Ton abonnement annuel Shrunk sera renouvelé le {date}. Pour l'arrêter : Paramètres › Facturation › Résilier." },
-    "cancelConfirmed": { "subject": "Résiliation confirmée", "body": "Ton abonnement prendra fin le {date}. Aucun autre prélèvement ne sera effectué." },
-    "withdrawalConfirmed": { "subject": "Remboursement en cours", "body": "Ta demande de rétractation est prise en compte : ton premier paiement est remboursé et l'abonnement est arrêté." },
-    "creditsReturned": { "subject": "Crédits rendus", "body": "Un rendu n'a pas pu aboutir. Les crédits réservés ont été remis sur ton solde." }
+    "magicLink": {
+      "subject": "Ton lien de connexion Shrunk",
+      "body": "Clique pour te connecter (valable 10 minutes) : {url}\n\nSi tu n'as rien demandé, ignore cet e-mail."
+    },
+    "annualRenewal": {
+      "subject": "Ton abonnement annuel est renouvelé dans 7 jours",
+      "body": "Ton abonnement annuel Shrunk sera renouvelé le {date}. Pour l'arrêter : Paramètres › Facturation › Résilier."
+    },
+    "cancelConfirmed": {
+      "subject": "Résiliation confirmée",
+      "body": "Ton abonnement prendra fin le {date}. Aucun autre prélèvement ne sera effectué."
+    },
+    "withdrawalConfirmed": {
+      "subject": "Remboursement en cours",
+      "body": "Ta demande de rétractation est prise en compte : ton premier paiement est remboursé et l'abonnement est arrêté."
+    },
+    "creditsReturned": {
+      "subject": "Crédits rendus",
+      "body": "Un rendu n'a pas pu aboutir. Les crédits réservés ont été remis sur ton solde."
+    }
+  },
+  "newProject": {
+    "title": "Nouveau projet",
+    "tabLink": "Coller un lien",
+    "tabUpload": "Importer un fichier",
+    "linkLabel": "Lien de la vidéo",
+    "check": "Vérifier le lien",
+    "checking": "Vérification…",
+    "retry": "Réessayer",
+    "unsupportedHelp": "Tu peux importer le fichier vidéo à la place.",
+    "authHelp": "Ce lien demande une connexion. Génère un lien de partage public ou importe le fichier.",
+    "temporaryHelp": "Ce n'est pas une incompatibilité : la source ne répond pas pour l'instant.",
+    "source": "Source",
+    "platform": "Plateforme",
+    "creator": "Créateur",
+    "size": "Taille",
+    "originalUrl": "Lien d'origine",
+    "rightsTitle": "Droits d'utilisation",
+    "basisLegend": "Ce contenu est…",
+    "start": "Lancer l'import",
+    "starting": "Lancement…",
+    "file": "Fichier vidéo (4 Go, 3 h max.)",
+    "upload": "Importer et analyser",
+    "uploading": "Envoi : {percent} %",
+    "uploadFailed": "L'envoi a échoué. Réessaie.",
+    "attachFor": "Fichier correspondant à : {title}",
+    "freeNote": "L'import et l'analyse ne consomment pas de crédits de rendu."
+  },
+  "project": {
+    "steps": {
+      "check": "Vérification du lien",
+      "import": "Importation",
+      "transcribe": "Transcription",
+      "select": "Sélection des extraits",
+      "preview": "Préparation des aperçus"
+    },
+    "state": {
+      "done": "terminé",
+      "active": "en cours",
+      "pending": "à venir",
+      "failed": "échec"
+    },
+    "failed": "Le traitement s'est arrêté. Le projet est conservé.",
+    "ready": "{count, plural, =0 {Aucun moment ne fonctionne comme extrait autonome dans cette vidéo.} one {# extrait proposé} other {# extraits proposés}}",
+    "score": "Score {score}/100",
+    "previewUnavailable": "Aperçu indisponible",
+    "criteria": {
+      "hook": "Accroche (0-3 s)",
+      "standalone": "Autonomie du propos",
+      "emotion": "Émotion",
+      "pace": "Rythme",
+      "duration": "Durée"
+    },
+    "durationReason": "{seconds} s (idéal : 20 à 45 s)",
+    "credit": "Crédit : {credit}",
+    "errors": {
+      "no_audio": "Cette vidéo n'a pas de piste audio : impossible de la transcrire.",
+      "worker_failed": "Le traitement a échoué de notre côté. Réessaie plus tard."
+    }
   }
 }

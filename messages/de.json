@@ -1,6 +1,14 @@
 {
-  "meta": { "title": "Shrunk — Deine Inhalte, vervielfacht. Ehrlich.", "description": "Verwandle ein langes Video in kurze untertitelte Clips, bereit zum Teilen." },
-  "nav": { "pricing": "Preise", "signIn": "Anmelden", "billing": "Abrechnung", "skip": "Zum Inhalt springen" },
+  "meta": {
+    "title": "Shrunk — Deine Inhalte, vervielfacht. Ehrlich.",
+    "description": "Verwandle ein langes Video in kurze untertitelte Clips, bereit zum Teilen."
+  },
+  "nav": {
+    "pricing": "Preise",
+    "signIn": "Anmelden",
+    "billing": "Abrechnung",
+    "skip": "Zum Inhalt springen"
+  },
   "landing": {
     "tagline": "Deine Inhalte, vervielfacht. Ehrlich.",
     "title": "Ein langes Video. Mehrere Clips, bereit zum Teilen.",
@@ -34,8 +42,18 @@
     "renews": "Nächste Verlängerung: {date}",
     "endsAt": "Kündigung vorgemerkt: Zugang bis {date}.",
     "history": "Credit-Verlauf",
-    "date": "Datum", "change": "Änderung", "type": "Art",
-    "kinds": { "grant": "Monatliche Credits", "purchase": "Paketkauf", "reserve": "Für ein Rendering reserviert", "capture": "Rendering geliefert", "release": "Credits zurückgebucht", "refund": "Erstattung", "expire": "Verfallen" },
+    "date": "Datum",
+    "change": "Änderung",
+    "type": "Art",
+    "kinds": {
+      "grant": "Monatliche Credits",
+      "purchase": "Paketkauf",
+      "reserve": "Für ein Rendering reserviert",
+      "capture": "Rendering geliefert",
+      "release": "Credits zurückgebucht",
+      "refund": "Erstattung",
+      "expire": "Verfallen"
+    },
     "choosePlan": "Tarif wählen",
     "interval": "Abrechnung",
     "monthly": "Monatlich",
@@ -56,16 +74,35 @@
     "withdrawal": "Erstattung beantragen (14-tägiger Widerruf)",
     "withdrawalHelp": "Möglich innerhalb von 14 Tagen nach Abschluss, wenn weniger als 5 Renderings geliefert wurden.",
     "withdrawalDone": "Erstattung beantragt. Das Abo ist beendet.",
-    "errors": { "not_eligible": "Die 14-Tage-Frist ist abgelaufen oder es wurden 5 oder mehr Renderings geliefert.", "no_subscription": "Kein aktives Abo.", "already_subscribed": "Du hast bereits ein Abo: Wechsle den Tarif unter „Rechnungen und Zahlungsmethode“." }
+    "errors": {
+      "not_eligible": "Die 14-Tage-Frist ist abgelaufen oder es wurden 5 oder mehr Renderings geliefert.",
+      "no_subscription": "Kein aktives Abo.",
+      "already_subscribed": "Du hast bereits ein Abo: Wechsle den Tarif unter „Rechnungen und Zahlungsmethode“."
+    }
   },
-  "plans": { "free": "Kostenlos", "starter": "Starter", "pro": "Pro", "agency": "Agentur" },
+  "plans": {
+    "free": "Kostenlos",
+    "starter": "Starter",
+    "pro": "Pro",
+    "agency": "Agentur"
+  },
   "import": {
     "rightsCheckbox": "Ich besitze diesen Inhalt oder verfüge über die nötigen Genehmigungen, um ihn zu importieren, zu bearbeiten und die Clips zu nutzen.",
-    "basis": { "own": "Mein Inhalt", "authorized": "Inhalt eines Kunden oder Partners", "licensed": "Inhalt unter einer Lizenz, die diese Nutzung erlaubt" },
+    "basis": {
+      "own": "Mein Inhalt",
+      "authorized": "Inhalt eines Kunden oder Partners",
+      "licensed": "Inhalt unter einer Lizenz, die diese Nutzung erlaubt"
+    },
     "license": "Lizenzangabe",
     "credit": "Angezeigte Quellenangabe",
     "attribution": "Diese Lizenz kann eine Namensnennung verlangen: Prüfe die angezeigte Quellenangabe.",
-    "steps": { "check": "Link wird geprüft", "import": "Import", "transcribe": "Transkription", "select": "Auswahl der Clips", "preview": "Vorschauen werden vorbereitet" },
+    "steps": {
+      "check": "Link wird geprüft",
+      "import": "Import",
+      "transcribe": "Transkription",
+      "select": "Auswahl der Clips",
+      "preview": "Vorschauen werden vorbereitet"
+    },
     "uploadInstead": "Passende Datei hochladen",
     "errors": {
       "invalid_link": "Dieser Link ist ungültig.",
@@ -84,10 +121,84 @@
     }
   },
   "email": {
-    "magicLink": { "subject": "Dein Shrunk-Anmeldelink", "body": "Klicke hier, um dich anzumelden (10 Minuten gültig): {url}\n\nWenn du das nicht angefordert hast, ignoriere diese E-Mail." },
-    "annualRenewal": { "subject": "Dein Jahresabo verlängert sich in 7 Tagen", "body": "Dein Shrunk-Jahresabo verlängert sich am {date}. Zum Beenden: Einstellungen › Abrechnung › Kündigen." },
-    "cancelConfirmed": { "subject": "Kündigung bestätigt", "body": "Dein Abo endet am {date}. Es erfolgen keine weiteren Abbuchungen." },
-    "withdrawalConfirmed": { "subject": "Erstattung in Bearbeitung", "body": "Dein Widerruf wurde bearbeitet: Deine erste Zahlung wird erstattet und das Abo ist beendet." },
-    "creditsReturned": { "subject": "Credits zurückgebucht", "body": "Ein Rendering konnte nicht abgeschlossen werden. Die reservierten Credits wurden deinem Guthaben gutgeschrieben." }
+    "magicLink": {
+      "subject": "Dein Shrunk-Anmeldelink",
+      "body": "Klicke hier, um dich anzumelden (10 Minuten gültig): {url}\n\nWenn du das nicht angefordert hast, ignoriere diese E-Mail."
+    },
+    "annualRenewal": {
+      "subject": "Dein Jahresabo verlängert sich in 7 Tagen",
+      "body": "Dein Shrunk-Jahresabo verlängert sich am {date}. Zum Beenden: Einstellungen › Abrechnung › Kündigen."
+    },
+    "cancelConfirmed": {
+      "subject": "Kündigung bestätigt",
+      "body": "Dein Abo endet am {date}. Es erfolgen keine weiteren Abbuchungen."
+    },
+    "withdrawalConfirmed": {
+      "subject": "Erstattung in Bearbeitung",
+      "body": "Dein Widerruf wurde bearbeitet: Deine erste Zahlung wird erstattet und das Abo ist beendet."
+    },
+    "creditsReturned": {
+      "subject": "Credits zurückgebucht",
+      "body": "Ein Rendering konnte nicht abgeschlossen werden. Die reservierten Credits wurden deinem Guthaben gutgeschrieben."
+    }
+  },
+  "newProject": {
+    "title": "Neues Projekt",
+    "tabLink": "Link einfügen",
+    "tabUpload": "Datei hochladen",
+    "linkLabel": "Videolink",
+    "check": "Link prüfen",
+    "checking": "Wird geprüft…",
+    "retry": "Erneut versuchen",
+    "unsupportedHelp": "Du kannst stattdessen die Videodatei hochladen.",
+    "authHelp": "Dieser Link erfordert eine Anmeldung. Erstelle einen öffentlichen Freigabelink oder lade die Datei hoch.",
+    "temporaryHelp": "Das ist keine Inkompatibilität: Die Quelle antwortet gerade nicht.",
+    "source": "Quelle",
+    "platform": "Plattform",
+    "creator": "Urheber",
+    "size": "Größe",
+    "originalUrl": "Ursprünglicher Link",
+    "rightsTitle": "Nutzungsrechte",
+    "basisLegend": "Dieser Inhalt ist…",
+    "start": "Import starten",
+    "starting": "Wird gestartet…",
+    "file": "Videodatei (max. 4 GB, 3 Std.)",
+    "upload": "Hochladen und analysieren",
+    "uploading": "Upload: {percent} %",
+    "uploadFailed": "Der Upload ist fehlgeschlagen. Versuche es erneut.",
+    "attachFor": "Passende Datei zu: {title}",
+    "freeNote": "Import und Analyse verbrauchen keine Rendering-Credits."
+  },
+  "project": {
+    "steps": {
+      "check": "Link wird geprüft",
+      "import": "Import",
+      "transcribe": "Transkription",
+      "select": "Auswahl der Clips",
+      "preview": "Vorschauen werden vorbereitet"
+    },
+    "state": {
+      "done": "fertig",
+      "active": "läuft",
+      "pending": "ausstehend",
+      "failed": "fehlgeschlagen"
+    },
+    "failed": "Die Verarbeitung wurde gestoppt. Das Projekt bleibt erhalten.",
+    "ready": "{count, plural, =0 {Kein Moment dieses Videos funktioniert als eigenständiger Clip.} one {# Clip vorgeschlagen} other {# Clips vorgeschlagen}}",
+    "score": "Score {score}/100",
+    "previewUnavailable": "Vorschau nicht verfügbar",
+    "criteria": {
+      "hook": "Hook (0-3 s)",
+      "standalone": "Für sich verständlich",
+      "emotion": "Emotion",
+      "pace": "Tempo",
+      "duration": "Länge"
+    },
+    "durationReason": "{seconds} s (ideal: 20 bis 45 s)",
+    "credit": "Quelle: {credit}",
+    "errors": {
+      "no_audio": "Dieses Video hat keine Tonspur und kann nicht transkribiert werden.",
+      "worker_failed": "Die Verarbeitung ist bei uns fehlgeschlagen. Versuche es später erneut."
+    }
   }
 }

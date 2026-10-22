@@ -67,7 +67,8 @@ export async function releaseTimedOut(db: Db, olderThan: Date): Promise<string[]
   const stuck = await db
     .select({ id: jobs.id })
     .from(jobs)
-    .where(and(eq(jobs.status, "running"), sql`${jobs.startedAt} < ${olderThan}`));
+    // Only paid jobs: free analysis jobs legitimately run for hours on long sources.
+    .where(and(eq(jobs.status, "running"), sql`${jobs.creditCost} > 0`, sql`${jobs.startedAt} < ${olderThan}`));
   const released: string[] = [];
   for (const j of stuck) {
     await db.update(jobs).set({ status: "failed", error: "timeout", finishedAt: new Date() }).where(eq(jobs.id, j.id));

@@ -40,7 +40,7 @@ export const clipStatusEnum = pgEnum("clip_status", [
   "candidate", "selected", "rendering", "rendered", "failed",
 ]);
 export const jobTypeEnum = pgEnum("job_type", [
-  "ingest", "analyze", "render", "tts", "ai_video", "publish",
+  "ingest", "analyze", "transcribe", "preview", "render", "tts", "ai_video", "publish",
 ]);
 export const jobStatusEnum = pgEnum("job_status", [
   "queued", "running", "succeeded", "failed", "cancelled",
@@ -192,6 +192,9 @@ export const projects = pgTable("projects", {
   mode: projectModeEnum("mode").notNull().default("clips"),
   settings: jsonb("settings").$type<Record<string, unknown>>().notNull().default({}),
   status: projectStatusEnum("status").notNull().default("draft"),
+  // Real pipeline step shown to the user: import | transcribe | select | preview.
+  stage: text("stage"),
+  errorCode: text("error_code"),
   createdAt: createdAt(),
 });
 
@@ -224,6 +227,7 @@ export const jobs = pgTable("jobs", {
   progress: real("progress"), // 0..1 only when measurable
   attempts: integer("attempts").notNull().default(0),
   error: text("error"),
+  result: jsonb("result"), // worker callback payload; the DB, not the event, is the source of truth
   creditCost: integer("credit_cost").notNull().default(0),
   startedAt: ts("started_at"),
   finishedAt: ts("finished_at"),

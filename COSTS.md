@@ -20,6 +20,8 @@ from jobs where status = 'succeeded' and finished_at > now() - interval '30 days
 group by type;
 ```
 
+Coût LLM par source : ligne `jobs` de clé `select:<asset>` (calculé depuis `usage` au tarif `claude-sonnet-5-5`, 2 $ / 10 $ par MTok). Coût GPU/CPU : lignes `transcribe:<asset>` et `previews:<asset>`.
+
 ## Tableau (à remplir avec des mesures)
 
 | Formule | Prix TTC | Revenu HT net | Crédits | Coût pire cas | Marge |

@@ -1,4 +1,4 @@
-import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand, HeadObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import type { Readable } from "node:stream";
@@ -19,5 +19,23 @@ export async function putStream(key: string, body: Readable, contentType: string
 export const signedGetUrl = (key: string, expiresIn = 900) =>
   getSignedUrl(s3, new GetObjectCommand({ Bucket: env.R2_BUCKET, Key: key }), { expiresIn });
 
+export const signedPutUrl = (key: string, contentType: string, expiresIn = 3600) =>
+  getSignedUrl(s3, new PutObjectCommand({ Bucket: env.R2_BUCKET, Key: key, ContentType: contentType }), { expiresIn });
+
+export async function getJson<T>(key: string): Promise<T> {
+  const res = await s3.send(new GetObjectCommand({ Bucket: env.R2_BUCKET, Key: key }));
+  return JSON.parse(await res.Body!.transformToString("utf-8")) as T;
+}
+
+export async function headSize(key: string): Promise<number | null> {
+  try {
+    return (await s3.send(new HeadObjectCommand({ Bucket: env.R2_BUCKET, Key: key }))).ContentLength ?? null;
+  } catch {
+    return null;
+  }
+}
+
 // Workspace prefix on every key: keys are never shared or guessable across workspaces.
 export const sourceKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/source`;
+export const transcriptKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/transcript.json`;
+export const previewKey = (workspaceId: string, clipId: string) => `ws/${workspaceId}/previews/${clipId}.mp4`;

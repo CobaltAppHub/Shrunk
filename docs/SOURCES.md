@@ -9,7 +9,7 @@ Vérifiée le 22/10/2026. Trois questions distinctes par source : **reconnaître
 | **Vimeo** | `vimeo.com/<id>`, `player.vimeo.com` | oEmbed public | champ `download` de l'API (liens expirant à 24 h, redirections 302 vers CDN) | OAuth utilisateur, scopes `public private video_files` | Liens fournis seulement si le propriétaire a un plan payant et autorise le téléchargement, ou s'il s'agit de ses propres vidéos | ⏳ à faire (après le flux OAuth) |
 | **Google Drive** | `drive.google.com/file/d/<id>` | `files.get` | `files.get?alt=media` (Range supporté) | OAuth, scope `drive.readonly` (restreint → vérification Google + audit CASA) ou `drive.file` + Google Picker | respecter `capabilities.canDownload` et les restrictions de téléchargement posées par le propriétaire | ⏳ à faire |
 | **Dropbox** | `dropbox.com/s/…`, `/scl/fi/…` | `sharing/get_shared_link_metadata` | `sharing/get_shared_link_file` (contenu brut) | app Dropbox, scope `sharing.read` (à reconfirmer dans la doc officielle : rapports contradictoires sur le forum) | support des liens `/scl/fi/` à valider en test | ⏳ à faire |
-| **Upload local** | — | ffprobe | upload multipart direct vers R2 (URL signée) | aucun | 4 Go / 3 h | ⏳ J2 |
+| **Upload local** | — | ffprobe (worker) | PUT direct vers R2 (URL signée 6 h) ; taille revérifiée côté serveur sur l'objet stocké | aucun | 4 Go / 3 h | ✅ J2 |
 
 ## Ce qui bloque l'import YouTube en production
 

@@ -1,6 +1,14 @@
 {
-  "meta": { "title": "Shrunk — I tuoi contenuti, moltiplicati. Onestamente.", "description": "Trasforma un video lungo in clip brevi sottotitolate, pronte da condividere." },
-  "nav": { "pricing": "Prezzi", "signIn": "Accedi", "billing": "Fatturazione", "skip": "Vai al contenuto" },
+  "meta": {
+    "title": "Shrunk — I tuoi contenuti, moltiplicati. Onestamente.",
+    "description": "Trasforma un video lungo in clip brevi sottotitolate, pronte da condividere."
+  },
+  "nav": {
+    "pricing": "Prezzi",
+    "signIn": "Accedi",
+    "billing": "Fatturazione",
+    "skip": "Vai al contenuto"
+  },
   "landing": {
     "tagline": "I tuoi contenuti, moltiplicati. Onestamente.",
     "title": "Un video lungo. Più clip pronte da condividere.",
@@ -34,8 +42,18 @@
     "renews": "Prossimo rinnovo: {date}",
     "endsAt": "Disdetta programmata: accesso fino al {date}.",
     "history": "Cronologia dei crediti",
-    "date": "Data", "change": "Variazione", "type": "Tipo",
-    "kinds": { "grant": "Crediti mensili", "purchase": "Acquisto pacchetto", "reserve": "Riservati per un rendering", "capture": "Rendering consegnato", "release": "Crediti restituiti", "refund": "Rimborso", "expire": "Scadenza" },
+    "date": "Data",
+    "change": "Variazione",
+    "type": "Tipo",
+    "kinds": {
+      "grant": "Crediti mensili",
+      "purchase": "Acquisto pacchetto",
+      "reserve": "Riservati per un rendering",
+      "capture": "Rendering consegnato",
+      "release": "Crediti restituiti",
+      "refund": "Rimborso",
+      "expire": "Scadenza"
+    },
     "choosePlan": "Scegli un piano",
     "interval": "Fatturazione",
     "monthly": "Mensile",
@@ -56,16 +74,35 @@
     "withdrawal": "Richiedi il rimborso (recesso entro 14 giorni)",
     "withdrawalHelp": "Possibile entro 14 giorni dalla sottoscrizione se sono stati consegnati meno di 5 rendering.",
     "withdrawalDone": "Rimborso richiesto. L'abbonamento è terminato.",
-    "errors": { "not_eligible": "Sono trascorsi più di 14 giorni o sono stati consegnati 5 o più rendering.", "no_subscription": "Nessun abbonamento attivo.", "already_subscribed": "Hai già un abbonamento: cambia piano da «Fatture e metodo di pagamento»." }
+    "errors": {
+      "not_eligible": "Sono trascorsi più di 14 giorni o sono stati consegnati 5 o più rendering.",
+      "no_subscription": "Nessun abbonamento attivo.",
+      "already_subscribed": "Hai già un abbonamento: cambia piano da «Fatture e metodo di pagamento»."
+    }
   },
-  "plans": { "free": "Gratuito", "starter": "Starter", "pro": "Pro", "agency": "Agenzia" },
+  "plans": {
+    "free": "Gratuito",
+    "starter": "Starter",
+    "pro": "Pro",
+    "agency": "Agenzia"
+  },
   "import": {
     "rightsCheckbox": "Sono titolare di questo contenuto o dispongo delle autorizzazioni necessarie per importarlo, modificarlo e utilizzare le clip.",
-    "basis": { "own": "Il mio contenuto", "authorized": "Contenuto di un cliente o partner", "licensed": "Contenuto con una licenza che consente questo uso" },
+    "basis": {
+      "own": "Il mio contenuto",
+      "authorized": "Contenuto di un cliente o partner",
+      "licensed": "Contenuto con una licenza che consente questo uso"
+    },
     "license": "Riferimento della licenza",
     "credit": "Credito visualizzato",
     "attribution": "Questa licenza può richiedere l'attribuzione: verifica il credito visualizzato.",
-    "steps": { "check": "Verifica del link", "import": "Importazione", "transcribe": "Trascrizione", "select": "Selezione delle clip", "preview": "Preparazione delle anteprime" },
+    "steps": {
+      "check": "Verifica del link",
+      "import": "Importazione",
+      "transcribe": "Trascrizione",
+      "select": "Selezione delle clip",
+      "preview": "Preparazione delle anteprime"
+    },
     "uploadInstead": "Carica il file corrispondente",
     "errors": {
       "invalid_link": "Questo link non è valido.",
@@ -84,10 +121,84 @@
     }
   },
   "email": {
-    "magicLink": { "subject": "Il tuo link di accesso a Shrunk", "body": "Clicca per accedere (valido 10 minuti): {url}\n\nSe non l'hai richiesto, ignora questa e-mail." },
-    "annualRenewal": { "subject": "Il tuo abbonamento annuale si rinnova tra 7 giorni", "body": "Il tuo abbonamento annuale a Shrunk si rinnoverà il {date}. Per interromperlo: Impostazioni › Fatturazione › Disdici." },
-    "cancelConfirmed": { "subject": "Disdetta confermata", "body": "Il tuo abbonamento terminerà il {date}. Non ci saranno altri addebiti." },
-    "withdrawalConfirmed": { "subject": "Rimborso in corso", "body": "La tua richiesta di recesso è stata elaborata: il primo pagamento viene rimborsato e l'abbonamento è terminato." },
-    "creditsReturned": { "subject": "Crediti restituiti", "body": "Un rendering non è stato completato. I crediti riservati sono stati riaccreditati sul tuo saldo." }
+    "magicLink": {
+      "subject": "Il tuo link di accesso a Shrunk",
+      "body": "Clicca per accedere (valido 10 minuti): {url}\n\nSe non l'hai richiesto, ignora questa e-mail."
+    },
+    "annualRenewal": {
+      "subject": "Il tuo abbonamento annuale si rinnova tra 7 giorni",
+      "body": "Il tuo abbonamento annuale a Shrunk si rinnoverà il {date}. Per interromperlo: Impostazioni › Fatturazione › Disdici."
+    },
+    "cancelConfirmed": {
+      "subject": "Disdetta confermata",
+      "body": "Il tuo abbonamento terminerà il {date}. Non ci saranno altri addebiti."
+    },
+    "withdrawalConfirmed": {
+      "subject": "Rimborso in corso",
+      "body": "La tua richiesta di recesso è stata elaborata: il primo pagamento viene rimborsato e l'abbonamento è terminato."
+    },
+    "creditsReturned": {
+      "subject": "Crediti restituiti",
+      "body": "Un rendering non è stato completato. I crediti riservati sono stati riaccreditati sul tuo saldo."
+    }
+  },
+  "newProject": {
+    "title": "Nuovo progetto",
+    "tabLink": "Incolla un link",
+    "tabUpload": "Carica un file",
+    "linkLabel": "Link del video",
+    "check": "Verifica il link",
+    "checking": "Verifica in corso…",
+    "retry": "Riprova",
+    "unsupportedHelp": "Puoi caricare il file video al suo posto.",
+    "authHelp": "Questo link richiede l'accesso. Crea un link di condivisione pubblico o carica il file.",
+    "temporaryHelp": "Non è un'incompatibilità: la fonte al momento non risponde.",
+    "source": "Fonte",
+    "platform": "Piattaforma",
+    "creator": "Autore",
+    "size": "Dimensione",
+    "originalUrl": "Link originale",
+    "rightsTitle": "Diritti di utilizzo",
+    "basisLegend": "Questo contenuto è…",
+    "start": "Avvia l'importazione",
+    "starting": "Avvio…",
+    "file": "File video (max 4 GB, 3 h)",
+    "upload": "Carica e analizza",
+    "uploading": "Caricamento: {percent}%",
+    "uploadFailed": "Caricamento non riuscito. Riprova.",
+    "attachFor": "File corrispondente a: {title}",
+    "freeNote": "Importazione e analisi non consumano crediti di rendering."
+  },
+  "project": {
+    "steps": {
+      "check": "Verifica del link",
+      "import": "Importazione",
+      "transcribe": "Trascrizione",
+      "select": "Selezione delle clip",
+      "preview": "Preparazione delle anteprime"
+    },
+    "state": {
+      "done": "completato",
+      "active": "in corso",
+      "pending": "in attesa",
+      "failed": "errore"
+    },
+    "failed": "L'elaborazione si è interrotta. Il progetto è stato conservato.",
+    "ready": "{count, plural, =0 {Nessun momento di questo video funziona come clip autonoma.} one {# clip proposta} other {# clip proposte}}",
+    "score": "Punteggio {score}/100",
+    "previewUnavailable": "Anteprima non disponibile",
+    "criteria": {
+      "hook": "Gancio (0-3 s)",
+      "standalone": "Comprensibile da solo",
+      "emotion": "Emozione",
+      "pace": "Ritmo",
+      "duration": "Durata"
+    },
+    "durationReason": "{seconds} s (ideale: da 20 a 45 s)",
+    "credit": "Credito: {credit}",
+    "errors": {
+      "no_audio": "Questo video non ha una traccia audio: impossibile trascriverlo.",
+      "worker_failed": "L'elaborazione non è riuscita da parte nostra. Riprova più tardi."
+    }
   }
 }

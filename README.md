@@ -13,7 +13,7 @@ pnpm inngest:dev
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
-`pnpm test` : 58 tests (barème, ledger, idempotence Stripe sur un vrai Postgres embarqué via PGlite, SSRF, détection de contenu). Ils ne nécessitent ni réseau ni base de données, sauf le test DNS anti-rebinding qui résout `127.0.0.1.nip.io`.
+`pnpm test` : 74 tests (barème, ledger, idempotence Stripe sur un vrai Postgres embarqué via PGlite, SSRF, détection de contenu, fenêtrage/score/dédoublonnage des extraits, signature du worker compatible Python). Ils ne nécessitent ni réseau ni base de données, sauf le test DNS anti-rebinding qui résout `127.0.0.1.nip.io`.
 
 ## Configuration Stripe (une fois)
 
@@ -22,6 +22,25 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 3. Portail client : autoriser la résiliation, le changement de formule et l'accès aux factures.
 4. Billing › Subscriptions › « Upcoming renewal events » réglé sur **7 jours**. Le webhook `invoice.upcoming` déclenche l'e-mail de rappel annuel.
 5. Webhook `/api/stripe/webhook` avec les événements `checkout.session.completed`, `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.paid` et `invoice.upcoming`.
+
+## Worker vidéo (Modal, région UE)
+
+```bash
+pip install modal && modal setup
+modal secret create shrunk-worker WORKER_TOKEN=... CALLBACK_SECRET=... CALLBACK_URL=https://<app>/api/worker/callback HF_TOKEN=...
+modal deploy worker/app.py      # → WORKER_URL = l'URL de la fonction `api`
+python -I worker/test_media.py  # vérif locale ffprobe / audio / aperçu (ffmpeg requis)
+```
+
+- Le sandbox ne reçoit **aucun identifiant de stockage ni de base** : seulement des URL R2 signées (lecture de la source, écriture des sorties) et le secret de callback. ffmpeg est limité aux protocoles `file,https,tls,tcp,crypto`.
+- `HF_TOKEN` (facultatif) active la diarisation pyannote ; il faut accepter les conditions du modèle sur Hugging Face. Sans lui, pas de locuteurs.
+- `GPU_USD_PER_S` / `CPU_USD_PER_S` (facultatifs) : tarif Modal en vigueur, pour remplir `jobs.cost_usd`. Absents, le coût reste `null` (inconnu) plutôt qu'inventé.
+- Pipeline : ffprobe (3 h max, quota de minutes d'analyse) → WhisperX large-v3 + alignement mot à mot → fenêtres de 60-90 s envoyées à `claude-sonnet-5-5` (sortie JSON validée par Zod) → 10-30 meilleurs extraits → aperçus 480p gratuits.
+- Le résultat de chaque worker est écrit en base par `/api/worker/callback` (HMAC + horodatage, fenêtre 5 min). L'événement Inngest ne sert qu'à réveiller le pipeline, la base fait foi.
+
+## R2 : CORS pour l'upload direct
+
+Le navigateur envoie le fichier directement sur R2 (URL signée PUT, 4 Go max). Règle CORS du bucket : origine `APP_URL`, méthode `PUT`, en-tête `content-type`.
 
 ## Règles d'argent (dans `src/lib`)
 
@@ -42,5 +61,6 @@ Voir [docs/SOURCES.md](docs/SOURCES.md) : matrice, conditions vérifiées, dépe
 ## Jalons
 
 - [x] **J1** : auth (Google + magic link, case CGU explicite), Stripe (abonnements, packs, portail, résiliation en un écran, rétractation 14 j, rappel annuel), ledger de crédits ; cœur d'import par URL (SSRF, flux vers R2, job idempotent)
-- [ ] **J2** : worker Modal (ffprobe → WhisperX → scènes et visages → sélection Claude → aperçus 480p), écran Nouveau projet, upload multipart, progression SSE
+- [x] **J2** : worker Modal (ffprobe → WhisperX → sélection Claude → aperçus 480p), écran Nouveau projet (lien → fiche source → droits → import, ou fichier), upload direct R2, progression SSE, grille d'extraits avec score détaillé
+- [ ] J2 bis : détection de scènes, visages et pics audio (servent au recadrage 9:16 du rendu J3)
 - [ ] J3 éditeur · J4 publication · J5 faceless + Veo · J6 analytics + équipes

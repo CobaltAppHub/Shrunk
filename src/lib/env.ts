@@ -18,6 +18,10 @@ const schema = z.object({
   R2_ACCESS_KEY_ID: z.string().min(1),
   R2_SECRET_ACCESS_KEY: z.string().min(1),
   R2_BUCKET: z.string().min(1),
+  ANTHROPIC_API_KEY: z.string().min(1),
+  WORKER_URL: z.url(), // Modal asgi app base URL
+  WORKER_TOKEN: z.string().min(32),
+  WORKER_CALLBACK_SECRET: z.string().min(32),
   VIMEO_CLIENT_ID: z.string().optional(),
   VIMEO_CLIENT_SECRET: z.string().optional(),
   GOOGLE_PICKER_API_KEY: z.string().optional(),

@@ -1,6 +1,14 @@
 {
-  "meta": { "title": "Shrunk — Tu contenido, multiplicado. Con honestidad.", "description": "Convierte un vídeo largo en clips cortos subtitulados, listos para compartir." },
-  "nav": { "pricing": "Precios", "signIn": "Iniciar sesión", "billing": "Facturación", "skip": "Ir al contenido" },
+  "meta": {
+    "title": "Shrunk — Tu contenido, multiplicado. Con honestidad.",
+    "description": "Convierte un vídeo largo en clips cortos subtitulados, listos para compartir."
+  },
+  "nav": {
+    "pricing": "Precios",
+    "signIn": "Iniciar sesión",
+    "billing": "Facturación",
+    "skip": "Ir al contenido"
+  },
   "landing": {
     "tagline": "Tu contenido, multiplicado. Con honestidad.",
     "title": "Un vídeo largo. Varios clips listos para compartir.",
@@ -34,8 +42,18 @@
     "renews": "Próxima renovación: {date}",
     "endsAt": "Cancelación programada: acceso hasta el {date}.",
     "history": "Historial de créditos",
-    "date": "Fecha", "change": "Variación", "type": "Tipo",
-    "kinds": { "grant": "Créditos mensuales", "purchase": "Compra de pack", "reserve": "Reservado para un renderizado", "capture": "Renderizado entregado", "release": "Créditos devueltos", "refund": "Reembolso", "expire": "Caducidad" },
+    "date": "Fecha",
+    "change": "Variación",
+    "type": "Tipo",
+    "kinds": {
+      "grant": "Créditos mensuales",
+      "purchase": "Compra de pack",
+      "reserve": "Reservado para un renderizado",
+      "capture": "Renderizado entregado",
+      "release": "Créditos devueltos",
+      "refund": "Reembolso",
+      "expire": "Caducidad"
+    },
     "choosePlan": "Elegir un plan",
     "interval": "Facturación",
     "monthly": "Mensual",
@@ -56,16 +74,35 @@
     "withdrawal": "Solicitar el reembolso (desistimiento de 14 días)",
     "withdrawalHelp": "Posible en los 14 días siguientes a la suscripción si se han entregado menos de 5 renderizados.",
     "withdrawalDone": "Reembolso solicitado. La suscripción se ha detenido.",
-    "errors": { "not_eligible": "Han pasado más de 14 días o se han entregado 5 renderizados o más.", "no_subscription": "No hay ninguna suscripción activa.", "already_subscribed": "Ya tienes una suscripción: cambia de plan desde «Facturas y método de pago»." }
+    "errors": {
+      "not_eligible": "Han pasado más de 14 días o se han entregado 5 renderizados o más.",
+      "no_subscription": "No hay ninguna suscripción activa.",
+      "already_subscribed": "Ya tienes una suscripción: cambia de plan desde «Facturas y método de pago»."
+    }
   },
-  "plans": { "free": "Gratis", "starter": "Starter", "pro": "Pro", "agency": "Agencia" },
+  "plans": {
+    "free": "Gratis",
+    "starter": "Starter",
+    "pro": "Pro",
+    "agency": "Agencia"
+  },
   "import": {
     "rightsCheckbox": "Soy titular de este contenido o dispongo de las autorizaciones necesarias para importarlo, modificarlo y utilizar los clips.",
-    "basis": { "own": "Mi contenido", "authorized": "Contenido de un cliente o socio", "licensed": "Contenido con una licencia que permite este uso" },
+    "basis": {
+      "own": "Mi contenido",
+      "authorized": "Contenido de un cliente o socio",
+      "licensed": "Contenido con una licencia que permite este uso"
+    },
     "license": "Referencia de la licencia",
     "credit": "Crédito mostrado",
     "attribution": "Esta licencia puede exigir atribución: revisa el crédito mostrado.",
-    "steps": { "check": "Verificación del enlace", "import": "Importación", "transcribe": "Transcripción", "select": "Selección de clips", "preview": "Preparación de vistas previas" },
+    "steps": {
+      "check": "Verificación del enlace",
+      "import": "Importación",
+      "transcribe": "Transcripción",
+      "select": "Selección de clips",
+      "preview": "Preparación de vistas previas"
+    },
     "uploadInstead": "Subir el archivo correspondiente",
     "errors": {
       "invalid_link": "Este enlace no es válido.",
@@ -84,10 +121,84 @@
     }
   },
   "email": {
-    "magicLink": { "subject": "Tu enlace de acceso a Shrunk", "body": "Haz clic para acceder (válido 10 minutos): {url}\n\nSi no lo has solicitado, ignora este correo." },
-    "annualRenewal": { "subject": "Tu suscripción anual se renueva en 7 días", "body": "Tu suscripción anual a Shrunk se renovará el {date}. Para detenerla: Ajustes › Facturación › Cancelar." },
-    "cancelConfirmed": { "subject": "Cancelación confirmada", "body": "Tu suscripción terminará el {date}. No se realizará ningún otro cobro." },
-    "withdrawalConfirmed": { "subject": "Reembolso en curso", "body": "Hemos tramitado tu desistimiento: se reembolsa tu primer pago y la suscripción se ha detenido." },
-    "creditsReturned": { "subject": "Créditos devueltos", "body": "Un renderizado no se ha podido completar. Los créditos reservados se han devuelto a tu saldo." }
+    "magicLink": {
+      "subject": "Tu enlace de acceso a Shrunk",
+      "body": "Haz clic para acceder (válido 10 minutos): {url}\n\nSi no lo has solicitado, ignora este correo."
+    },
+    "annualRenewal": {
+      "subject": "Tu suscripción anual se renueva en 7 días",
+      "body": "Tu suscripción anual a Shrunk se renovará el {date}. Para detenerla: Ajustes › Facturación › Cancelar."
+    },
+    "cancelConfirmed": {
+      "subject": "Cancelación confirmada",
+      "body": "Tu suscripción terminará el {date}. No se realizará ningún otro cobro."
+    },
+    "withdrawalConfirmed": {
+      "subject": "Reembolso en curso",
+      "body": "Hemos tramitado tu desistimiento: se reembolsa tu primer pago y la suscripción se ha detenido."
+    },
+    "creditsReturned": {
+      "subject": "Créditos devueltos",
+      "body": "Un renderizado no se ha podido completar. Los créditos reservados se han devuelto a tu saldo."
+    }
+  },
+  "newProject": {
+    "title": "Nuevo proyecto",
+    "tabLink": "Pegar un enlace",
+    "tabUpload": "Subir un archivo",
+    "linkLabel": "Enlace del vídeo",
+    "check": "Verificar el enlace",
+    "checking": "Verificando…",
+    "retry": "Reintentar",
+    "unsupportedHelp": "Puedes subir el archivo de vídeo en su lugar.",
+    "authHelp": "Este enlace requiere iniciar sesión. Crea un enlace público o sube el archivo.",
+    "temporaryHelp": "No es una incompatibilidad: la fuente no responde en este momento.",
+    "source": "Fuente",
+    "platform": "Plataforma",
+    "creator": "Creador",
+    "size": "Tamaño",
+    "originalUrl": "Enlace original",
+    "rightsTitle": "Derechos de uso",
+    "basisLegend": "Este contenido es…",
+    "start": "Iniciar la importación",
+    "starting": "Iniciando…",
+    "file": "Archivo de vídeo (4 GB, 3 h máx.)",
+    "upload": "Subir y analizar",
+    "uploading": "Subiendo: {percent} %",
+    "uploadFailed": "La subida ha fallado. Inténtalo de nuevo.",
+    "attachFor": "Archivo correspondiente a: {title}",
+    "freeNote": "La importación y el análisis no consumen créditos de renderizado."
+  },
+  "project": {
+    "steps": {
+      "check": "Verificación del enlace",
+      "import": "Importación",
+      "transcribe": "Transcripción",
+      "select": "Selección de clips",
+      "preview": "Preparación de vistas previas"
+    },
+    "state": {
+      "done": "terminado",
+      "active": "en curso",
+      "pending": "pendiente",
+      "failed": "error"
+    },
+    "failed": "El procesamiento se ha detenido. El proyecto se conserva.",
+    "ready": "{count, plural, =0 {Ningún momento de este vídeo funciona como clip independiente.} one {# clip propuesto} other {# clips propuestos}}",
+    "score": "Puntuación {score}/100",
+    "previewUnavailable": "Vista previa no disponible",
+    "criteria": {
+      "hook": "Gancho (0-3 s)",
+      "standalone": "Se entiende por sí solo",
+      "emotion": "Emoción",
+      "pace": "Ritmo",
+      "duration": "Duración"
+    },
+    "durationReason": "{seconds} s (ideal: de 20 a 45 s)",
+    "credit": "Crédito: {credit}",
+    "errors": {
+      "no_audio": "Este vídeo no tiene pista de audio: no se puede transcribir.",
+      "worker_failed": "El procesamiento ha fallado por nuestra parte. Inténtalo más tarde."
+    }
   }
 }

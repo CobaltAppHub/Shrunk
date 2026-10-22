@@ -1,6 +1,14 @@
 {
-  "meta": { "title": "Shrunk — Your content, multiplied. Honestly.", "description": "Turn one long video into short captioned clips, ready to share." },
-  "nav": { "pricing": "Pricing", "signIn": "Sign in", "billing": "Billing", "skip": "Skip to content" },
+  "meta": {
+    "title": "Shrunk — Your content, multiplied. Honestly.",
+    "description": "Turn one long video into short captioned clips, ready to share."
+  },
+  "nav": {
+    "pricing": "Pricing",
+    "signIn": "Sign in",
+    "billing": "Billing",
+    "skip": "Skip to content"
+  },
   "landing": {
     "tagline": "Your content, multiplied. Honestly.",
     "title": "One long video. Several clips ready to share.",
@@ -34,8 +42,18 @@
     "renews": "Next renewal: {date}",
     "endsAt": "Cancellation scheduled: access until {date}.",
     "history": "Credit history",
-    "date": "Date", "change": "Change", "type": "Type",
-    "kinds": { "grant": "Monthly credits", "purchase": "Pack purchase", "reserve": "Reserved for a render", "capture": "Render delivered", "release": "Credits returned", "refund": "Refund", "expire": "Expired" },
+    "date": "Date",
+    "change": "Change",
+    "type": "Type",
+    "kinds": {
+      "grant": "Monthly credits",
+      "purchase": "Pack purchase",
+      "reserve": "Reserved for a render",
+      "capture": "Render delivered",
+      "release": "Credits returned",
+      "refund": "Refund",
+      "expire": "Expired"
+    },
     "choosePlan": "Choose a plan",
     "interval": "Billing",
     "monthly": "Monthly",
@@ -56,16 +74,35 @@
     "withdrawal": "Request a refund (14-day withdrawal)",
     "withdrawalHelp": "Available within 14 days of subscribing if fewer than 5 renders were delivered.",
     "withdrawalDone": "Refund requested. The subscription has ended.",
-    "errors": { "not_eligible": "The 14-day period has passed or 5 or more renders were delivered.", "no_subscription": "No active subscription.", "already_subscribed": "You already have a subscription: change plans from “Invoices and payment method”." }
+    "errors": {
+      "not_eligible": "The 14-day period has passed or 5 or more renders were delivered.",
+      "no_subscription": "No active subscription.",
+      "already_subscribed": "You already have a subscription: change plans from “Invoices and payment method”."
+    }
   },
-  "plans": { "free": "Free", "starter": "Starter", "pro": "Pro", "agency": "Agency" },
+  "plans": {
+    "free": "Free",
+    "starter": "Starter",
+    "pro": "Pro",
+    "agency": "Agency"
+  },
   "import": {
     "rightsCheckbox": "I own this content or have the permissions needed to import it, edit it and use the clips.",
-    "basis": { "own": "My content", "authorized": "A client's or partner's content", "licensed": "Content under a licence that allows this use" },
+    "basis": {
+      "own": "My content",
+      "authorized": "A client's or partner's content",
+      "licensed": "Content under a licence that allows this use"
+    },
     "license": "Licence reference",
     "credit": "Displayed credit",
     "attribution": "This licence may require attribution: check the displayed credit.",
-    "steps": { "check": "Checking the link", "import": "Importing", "transcribe": "Transcribing", "select": "Selecting clips", "preview": "Preparing previews" },
+    "steps": {
+      "check": "Checking the link",
+      "import": "Importing",
+      "transcribe": "Transcribing",
+      "select": "Selecting clips",
+      "preview": "Preparing previews"
+    },
     "uploadInstead": "Upload the matching file",
     "errors": {
       "invalid_link": "This link is not valid.",
@@ -84,10 +121,84 @@
     }
   },
   "email": {
-    "magicLink": { "subject": "Your Shrunk sign-in link", "body": "Click to sign in (valid for 10 minutes): {url}\n\nIf you didn't ask for this, ignore this email." },
-    "annualRenewal": { "subject": "Your yearly subscription renews in 7 days", "body": "Your Shrunk yearly subscription renews on {date}. To stop it: Settings › Billing › Cancel." },
-    "cancelConfirmed": { "subject": "Cancellation confirmed", "body": "Your subscription will end on {date}. You will not be charged again." },
-    "withdrawalConfirmed": { "subject": "Refund in progress", "body": "Your withdrawal request has been processed: your first payment is being refunded and the subscription has ended." },
-    "creditsReturned": { "subject": "Credits returned", "body": "A render could not be completed. The reserved credits are back in your balance." }
+    "magicLink": {
+      "subject": "Your Shrunk sign-in link",
+      "body": "Click to sign in (valid for 10 minutes): {url}\n\nIf you didn't ask for this, ignore this email."
+    },
+    "annualRenewal": {
+      "subject": "Your yearly subscription renews in 7 days",
+      "body": "Your Shrunk yearly subscription renews on {date}. To stop it: Settings › Billing › Cancel."
+    },
+    "cancelConfirmed": {
+      "subject": "Cancellation confirmed",
+      "body": "Your subscription will end on {date}. You will not be charged again."
+    },
+    "withdrawalConfirmed": {
+      "subject": "Refund in progress",
+      "body": "Your withdrawal request has been processed: your first payment is being refunded and the subscription has ended."
+    },
+    "creditsReturned": {
+      "subject": "Credits returned",
+      "body": "A render could not be completed. The reserved credits are back in your balance."
+    }
+  },
+  "newProject": {
+    "title": "New project",
+    "tabLink": "Paste a link",
+    "tabUpload": "Upload a file",
+    "linkLabel": "Video link",
+    "check": "Check link",
+    "checking": "Checking…",
+    "retry": "Try again",
+    "unsupportedHelp": "You can upload the video file instead.",
+    "authHelp": "This link requires signing in. Create a public share link or upload the file.",
+    "temporaryHelp": "This is not an incompatibility: the source is not responding right now.",
+    "source": "Source",
+    "platform": "Platform",
+    "creator": "Creator",
+    "size": "Size",
+    "originalUrl": "Original link",
+    "rightsTitle": "Usage rights",
+    "basisLegend": "This content is…",
+    "start": "Start import",
+    "starting": "Starting…",
+    "file": "Video file (4 GB, 3 h max.)",
+    "upload": "Upload and analyse",
+    "uploading": "Uploading: {percent}%",
+    "uploadFailed": "The upload failed. Try again.",
+    "attachFor": "File matching: {title}",
+    "freeNote": "Import and analysis do not use render credits."
+  },
+  "project": {
+    "steps": {
+      "check": "Checking the link",
+      "import": "Importing",
+      "transcribe": "Transcribing",
+      "select": "Selecting clips",
+      "preview": "Preparing previews"
+    },
+    "state": {
+      "done": "done",
+      "active": "in progress",
+      "pending": "pending",
+      "failed": "failed"
+    },
+    "failed": "Processing stopped. The project has been kept.",
+    "ready": "{count, plural, =0 {No moment in this video works as a standalone clip.} one {# clip suggested} other {# clips suggested}}",
+    "score": "Score {score}/100",
+    "previewUnavailable": "Preview unavailable",
+    "criteria": {
+      "hook": "Hook (0-3 s)",
+      "standalone": "Stands on its own",
+      "emotion": "Emotion",
+      "pace": "Pace",
+      "duration": "Length"
+    },
+    "durationReason": "{seconds} s (ideal: 20 to 45 s)",
+    "credit": "Credit: {credit}",
+    "errors": {
+      "no_audio": "This video has no audio track, so it cannot be transcribed.",
+      "worker_failed": "Processing failed on our side. Try again later."
+    }
   }
 }

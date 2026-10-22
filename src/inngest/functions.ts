@@ -9,6 +9,7 @@ import { decrypt } from "@/lib/secrets";
 import { sourceKey } from "@/lib/storage";
 import { emailWorkspaceOwner } from "@/lib/stripe";
 import { providerById } from "@/sources";
+import { analyzeSource } from "./analyze";
 import { inngest } from "./client";
 
 const MAX_SOURCE_BYTES = 4 * 1024 ** 3;
@@ -18,7 +19,7 @@ async function failIngest(jobId: string, code: string) {
   if (!job) return;
   // The project is kept (status failed) so the user can attach the file instead.
   await db.update(sourceAssets).set({ importStatus: "failed", importErrorCode: code }).where(eq(sourceAssets.id, job.refId));
-  await db.update(projects).set({ status: "failed" }).where(eq(projects.sourceAssetId, job.refId));
+  await db.update(projects).set({ status: "failed", errorCode: code }).where(eq(projects.sourceAssetId, job.refId));
 }
 
 export const ingestSource = inngest.createFunction(
@@ -72,10 +73,9 @@ export const ingestSource = inngest.createFunction(
         purgeAfter: new Date(Date.now() + 30 * 86_400_000),
       }).where(eq(sourceAssets.id, ctx.assetId));
       await db.update(jobs).set({ status: "succeeded", finishedAt: new Date(), progress: 1 }).where(eq(jobs.id, jobId));
-      await db.update(projects).set({ status: "analyzing" }).where(eq(projects.sourceAssetId, ctx.assetId));
+      await db.update(projects).set({ status: "analyzing", stage: "transcribe" }).where(eq(projects.sourceAssetId, ctx.assetId));
     });
 
-    // Next stage (J2): ffprobe duration/size check + transcription on the GPU worker, in its sandbox.
     await step.sendEvent("analyze", { name: "source/analyze.requested", data: { assetId: ctx.assetId, workspaceId: ctx.workspaceId }, id: `analyze:${ctx.assetId}` });
     return result;
   },
@@ -121,4 +121,4 @@ export const expireCredits = inngest.createFunction(
   },
 );
 
-export const functions = [ingestSource, releaseStuckJobs, monthlyGrants, expireCredits];
+export const functions = [ingestSource, analyzeSource, releaseStuckJobs, monthlyGrants, expireCredits];
