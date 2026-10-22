@@ -1,8 +1,8 @@
 # Rapport E2E — FAIL
 
-- Date : 2026-10-22T21:54:59.850Z
+- Date : 2026-10-22T21:57:24.849Z
 - Mode : préflight seul (aucun service payant appelé)
-- Commit : `a71e1fb (modifications non commitées)`
+- Commit : `7a32963`
 - Durée totale : 0 s
 - Résultat : 0 OK, 2 échec(s), 0 avertissement(s), 4 non exécuté(s)
 

@@ -1,0 +1,60 @@
+{
+  "verdict": "FAIL",
+  "mode": "preflight",
+  "started": "2026-10-22T21:57:24.849Z",
+  "commit": "7a32963 (modifications non commitées)",
+  "facts": {},
+  "checks": [
+    {
+      "id": "env",
+      "section": "preflight",
+      "title": "Variables d'environnement",
+      "files": [
+        "src/lib/env-schema.ts",
+        ".env.example",
+        "docs/E2E.md#comptes-et-clés"
+      ],
+      "status": "fail",
+      "detail": "manquantes ou invalides : APP_URL, DATABASE_URL, BETTER_AUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, RESEND_API_KEY, EMAIL_FROM, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, DATA_ENCRYPTION_KEY, R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET, ANTHROPIC_API_KEY, WORKER_URL, WORKER_TOKEN, WORKER_CALLBACK_SECRET"
+    },
+    {
+      "id": "inngest-config",
+      "section": "preflight",
+      "title": "Envoi d'événements Inngest configuré",
+      "files": [
+        "src/inngest/client.ts",
+        "docs/E2E.md#inngest"
+      ],
+      "status": "fail",
+      "detail": "définir INNGEST_DEV=1 (local) ou INNGEST_EVENT_KEY (cloud)"
+    },
+    {
+      "id": "start",
+      "section": "flow",
+      "title": "Import",
+      "status": "skip",
+      "detail": "configuration incomplète"
+    },
+    {
+      "id": "transcript",
+      "section": "flow",
+      "title": "Transcription",
+      "status": "skip",
+      "detail": "configuration incomplète"
+    },
+    {
+      "id": "clips",
+      "section": "flow",
+      "title": "Extraits",
+      "status": "skip",
+      "detail": "configuration incomplète"
+    },
+    {
+      "id": "previews",
+      "section": "flow",
+      "title": "Aperçus",
+      "status": "skip",
+      "detail": "configuration incomplète"
+    }
+  ]
+}
