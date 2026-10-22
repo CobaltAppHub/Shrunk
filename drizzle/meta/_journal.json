@@ -15,6 +15,13 @@
       "when": 1792705131832,
       "tag": "0001_j2_pipeline",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792707076128,
+      "tag": "0002_j3_render",
+      "breakpoints": true
     }
   ]
 }

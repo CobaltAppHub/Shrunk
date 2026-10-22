@@ -27,11 +27,18 @@ export const workerCallback = z.discriminatedUnion("kind", [
     failed: z.array(z.uuid()).default([]),
     cost_usd: z.number().nullable().optional(),
   }),
+  z.object({
+    kind: z.enum(["vision", "render"]),
+    ref: z.uuid(), // vision: asset id; render: job id
+    ok: z.boolean(),
+    error_code: z.string().max(64).optional(),
+    cost_usd: z.number().nullable().optional(),
+  }),
 ]);
 export type WorkerCallback = z.infer<typeof workerCallback>;
 
 /** Job keys shared by the dispatcher (Inngest) and the callback route. */
-export const workerJobKey = (kind: "transcribe" | "previews", assetId: string) => `${kind}:${assetId}`;
+export const workerJobKey = (kind: "transcribe" | "previews" | "vision", assetId: string) => `${kind}:${assetId}`;
 
 export async function submitWorkerJob(baseUrl: string, token: string, body: Record<string, unknown>) {
   const res = await fetch(`${baseUrl}/jobs`, {

@@ -30,6 +30,7 @@ pip install modal && modal setup
 modal secret create shrunk-worker WORKER_TOKEN=... CALLBACK_SECRET=... CALLBACK_URL=https://<app>/api/worker/callback HF_TOKEN=...
 modal deploy worker/app.py      # → WORKER_URL = l'URL de la fonction `api`
 python -I worker/test_media.py  # vérif locale ffprobe / audio / aperçu (ffmpeg requis)
+pip install -r worker/requirements-dev.txt && python -I worker/test_render.py  # scènes, recadrage, sous-titres, rendu 9:16
 ```
 
 - Le sandbox ne reçoit **aucun identifiant de stockage ni de base** : seulement des URL R2 signées (lecture de la source, écriture des sorties) et le secret de callback. ffmpeg est limité aux protocoles `file,https,tls,tcp,crypto`.
@@ -66,5 +67,7 @@ Voir [docs/SOURCES.md](docs/SOURCES.md) : matrice, conditions vérifiées, dépe
 
 - [x] **J1** : auth (Google + magic link, case CGU explicite), Stripe (abonnements, packs, portail, résiliation en un écran, rétractation 14 j, rappel annuel), ledger de crédits ; cœur d'import par URL (SSRF, flux vers R2, job idempotent)
 - [x] **J2** : worker Modal (ffprobe → WhisperX → sélection Claude → aperçus 480p), écran Nouveau projet (lien → fiche source → droits → import, ou fichier), upload direct R2, progression SSE, grille d'extraits avec score détaillé
-- [ ] J2 bis : détection de scènes, visages et pics audio (servent au recadrage 9:16 du rendu J3)
-- [ ] J3 éditeur · J4 publication · J5 faceless + Veo · J6 analytics + équipes
+- [x] **J2 bis** : scènes (PySceneDetect), visages (MediaPipe Tasks), pics audio → trajectoire de recadrage 9:16 par scène
+- [x] **J3** (cœur) : éditeur (découpe, sous-titres éditables mot à mot avec mise en avant, style, cadrage auto/centré/fixe, aperçu des sous-titres en direct), rendu payant 1 crédit (réservé, débité seulement si le fichier est livré), 1080p ou 720p + filigrane selon la formule, -14 LUFS, téléchargement
+- [ ] J3 reste : timeline visuelle, B-roll, emoji, brand kits (Pro), bibliothèque musicale sous licence (le rendu sait déjà atténuer une musique sous la voix)
+- [ ] J4 publication · J5 faceless + Veo · J6 analytics + équipes

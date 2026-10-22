@@ -52,7 +52,7 @@ def make_preview(src: str, start: float, end: float, dst: str) -> None:
     ], timeout=600)
 
 
-def run(cmd: list, timeout: int) -> None:
-    out = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+def run(cmd: list, timeout: int, cwd: str | None = None) -> None:
+    out = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=cwd)
     if out.returncode != 0:
         raise MediaError("retrieval_failed")

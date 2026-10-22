@@ -13,7 +13,8 @@ export async function POST(req: Request) {
   const parsed = workerCallback.safeParse(JSON.parse(body));
   if (!parsed.success) return new Response("bad payload", { status: 400 });
   const cb = parsed.data;
-  const key = workerJobKey(cb.kind, cb.ref);
+  // A render job is addressed by its id (its idempotency key comes from the client); the others by asset.
+  const key = cb.kind === "render" ? null : workerJobKey(cb.kind, cb.ref);
 
   // Persist first: the pipeline reads the job row, the event only wakes it up early.
   // Only a running job can be settled, so a replayed callback changes nothing.
@@ -23,8 +24,8 @@ export async function POST(req: Request) {
     result: cb,
     costUsd: cb.cost_usd != null ? String(cb.cost_usd) : null,
     finishedAt: new Date(),
-  }).where(and(eq(jobs.idempotencyKey, key), eq(jobs.status, "running")));
+  }).where(and(key ? eq(jobs.idempotencyKey, key) : eq(jobs.id, cb.ref), eq(jobs.status, "running")));
 
-  await inngest.send({ name: "worker/done", data: { key } });
+  await inngest.send({ name: "worker/done", data: { key: key ?? `job:${cb.ref}` } });
   return Response.json({ ok: true });
 }

@@ -27,6 +27,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
   const t = await getTranslations("project");
   const ti = await getTranslations("import");
+  const te = await getTranslations("editor");
   const steps = pipelineSteps(p.status, p.stage);
   const list = p.status === "ready" ? await db.select().from(clips).where(eq(clips.projectId, p.id)).orderBy(desc(clips.score)) : [];
   const previews = await Promise.all(list.map((c) => (c.previewKey ? signedGetUrl(c.previewKey, 3600) : null)));
@@ -84,6 +85,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                     </dl>
                   </details>
                   {c.hashtags.length > 0 && <p className="text-xs text-muted">{c.hashtags.join(" ")}</p>}
+                  <Link href={`/projects/${p.id}/clips/${c.id}`} className="mt-auto self-start rounded-[var(--r-full)] border border-border px-4 py-2 text-sm">{te("edit")}</Link>
                 </li>
               );
             })}

@@ -40,7 +40,7 @@ export const clipStatusEnum = pgEnum("clip_status", [
   "candidate", "selected", "rendering", "rendered", "failed",
 ]);
 export const jobTypeEnum = pgEnum("job_type", [
-  "ingest", "analyze", "transcribe", "preview", "render", "tts", "ai_video", "publish",
+  "ingest", "analyze", "transcribe", "vision", "preview", "render", "tts", "ai_video", "publish",
 ]);
 export const jobStatusEnum = pgEnum("job_status", [
   "queued", "running", "succeeded", "failed", "cancelled",
@@ -180,6 +180,8 @@ export const sourceAssets = pgTable("source_assets", {
   durationS: real("duration_s"),
   language: text("language"),
   transcript: jsonb("transcript"),
+  // Scene cuts, 9:16 crop track and audio peaks from worker/vision.py.
+  vision: jsonb("vision"),
   purgeAfter: ts("purge_after"), // set to imported_at + 30 d
   createdAt: createdAt(),
 }, (t) => [index("source_assets_ws").on(t.workspaceId)]);

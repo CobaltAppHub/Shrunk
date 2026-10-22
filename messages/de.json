@@ -200,5 +200,73 @@
       "no_audio": "Dieses Video hat keine Tonspur und kann nicht transkribiert werden.",
       "worker_failed": "Die Verarbeitung ist bei uns fehlgeschlagen. Versuche es später erneut."
     }
+  },
+  "editor": {
+    "title": "Clip-Editor",
+    "back": "Zurück zum Projekt",
+    "edit": "Bearbeiten",
+    "previewNote": "Vorschau in niedriger Auflösung mit dem ursprünglichen Bildausschnitt. Das finale Rendering wird auf 9:16 zugeschnitten.",
+    "trim": "Schnitt",
+    "start": "Anfang (s)",
+    "end": "Ende (s)",
+    "setStart": "Hier beginnen",
+    "setEnd": "Hier enden",
+    "duration": "Länge: {seconds} s",
+    "captions": "Untertitel",
+    "captionsEnabled": "Untertitel anzeigen",
+    "wordsHelp": "Klicke auf die Schaltfläche eines Wortes, um im Video dorthin zu springen. Enter wechselt zum nächsten Wort.",
+    "word": "Wort {n}",
+    "seek": "Zu {word} springen",
+    "emphasis": "Hervorheben",
+    "style": "Stil",
+    "presetLabel": "Vorlage",
+    "preset": {
+      "bold": "Fett",
+      "clean": "Schlicht",
+      "karaoke": "Karaoke"
+    },
+    "positionLabel": "Position",
+    "position": {
+      "bottom": "Unten",
+      "center": "Mitte",
+      "top": "Oben"
+    },
+    "color": "Textfarbe",
+    "highlight": "Farbe des aktiven Wortes",
+    "uppercase": "Großbuchstaben",
+    "size": "Größe",
+    "crop": "9:16-Ausschnitt",
+    "cropMode": {
+      "auto": "Dem Hauptgesicht folgen",
+      "center": "Zentriert",
+      "manual": "Feste Position"
+    },
+    "cropX": "Horizontale Position",
+    "noVision": "Die Bildanalyse ist für diese Quelle nicht verfügbar: Der Ausschnitt wird zentriert.",
+    "music": "Musik",
+    "musicUnavailable": "Noch ist keine lizenzierte Musikbibliothek verfügbar, daher vorerst keine Musik.",
+    "saving": "Wird gespeichert…",
+    "saved": "Gespeichert",
+    "saveError": "Nicht gespeichert: {reason}",
+    "renderTitle": "Finales Rendering",
+    "cost": "{quality}: {credits, plural, one {# Credit} other {# Credits}}, nur abgebucht, wenn das Rendering geliefert wird.",
+    "balance": "Guthaben: {credits, plural, =0 {keine Credits} one {# Credit} other {# Credits}}",
+    "qualityHd": "HD 1080p ohne Wasserzeichen",
+    "qualitySd": "720p mit Wasserzeichen (kostenloser Tarif)",
+    "renderBtn": "Rendering starten",
+    "rendering": "Rendering läuft…",
+    "rendered": "Rendering fertig",
+    "download": "MP4 herunterladen",
+    "failed": "Das letzte Rendering ist fehlgeschlagen: Die reservierten Credits wurden zurückgebucht.",
+    "buyCredits": "Credits kaufen",
+    "errors": {
+      "insufficient_credits": "Nicht genug Guthaben für dieses Rendering.",
+      "already_rendering": "Es läuft bereits ein Rendering.",
+      "not_saved": "Speichere deine Änderungen vor dem Rendering.",
+      "trim_invalid": "Der Schnitt ist ungültig.",
+      "trim_too_short": "Ein Clip muss mindestens 5 Sekunden lang sein.",
+      "trim_too_long": "Ein Clip darf höchstens 120 Sekunden lang sein.",
+      "not_found": "Clip nicht gefunden."
+    }
   }
 }

@@ -200,5 +200,73 @@
       "no_audio": "This video has no audio track, so it cannot be transcribed.",
       "worker_failed": "Processing failed on our side. Try again later."
     }
+  },
+  "editor": {
+    "title": "Clip editor",
+    "back": "Back to project",
+    "edit": "Edit",
+    "previewNote": "Low-resolution preview in the original framing. The final render is cropped to 9:16.",
+    "trim": "Trim",
+    "start": "Start (s)",
+    "end": "End (s)",
+    "setStart": "Start here",
+    "setEnd": "End here",
+    "duration": "Length: {seconds} s",
+    "captions": "Captions",
+    "captionsEnabled": "Show captions",
+    "wordsHelp": "Click a word's button to jump to it in the video. Enter moves to the next word.",
+    "word": "Word {n}",
+    "seek": "Go to {word}",
+    "emphasis": "Emphasise",
+    "style": "Style",
+    "presetLabel": "Preset",
+    "preset": {
+      "bold": "Bold",
+      "clean": "Clean",
+      "karaoke": "Karaoke"
+    },
+    "positionLabel": "Position",
+    "position": {
+      "bottom": "Bottom",
+      "center": "Centre",
+      "top": "Top"
+    },
+    "color": "Text colour",
+    "highlight": "Active word colour",
+    "uppercase": "Uppercase",
+    "size": "Size",
+    "crop": "9:16 framing",
+    "cropMode": {
+      "auto": "Follow the main face",
+      "center": "Centred",
+      "manual": "Fixed position"
+    },
+    "cropX": "Horizontal position",
+    "noVision": "Visual analysis is unavailable for this source: the crop will be centred.",
+    "music": "Music",
+    "musicUnavailable": "No licensed music library is available yet, so no music for now.",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "saveError": "Not saved: {reason}",
+    "renderTitle": "Final render",
+    "cost": "{quality}: {credits, plural, one {# credit} other {# credits}}, charged only if the render is delivered.",
+    "balance": "Balance: {credits, plural, =0 {no credits} one {# credit} other {# credits}}",
+    "qualityHd": "HD 1080p, no watermark",
+    "qualitySd": "720p with watermark (free plan)",
+    "renderBtn": "Start render",
+    "rendering": "Rendering…",
+    "rendered": "Render ready",
+    "download": "Download MP4",
+    "failed": "The last render failed: the reserved credits were returned.",
+    "buyCredits": "Buy credits",
+    "errors": {
+      "insufficient_credits": "Not enough credits for this render.",
+      "already_rendering": "A render is already running.",
+      "not_saved": "Save your changes before rendering.",
+      "trim_invalid": "The trim is not valid.",
+      "trim_too_short": "A clip must be at least 5 seconds long.",
+      "trim_too_long": "A clip cannot be longer than 120 seconds.",
+      "not_found": "Clip not found."
+    }
   }
 }

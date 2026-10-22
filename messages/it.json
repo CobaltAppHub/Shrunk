@@ -200,5 +200,73 @@
       "no_audio": "Questo video non ha una traccia audio: impossibile trascriverlo.",
       "worker_failed": "L'elaborazione non è riuscita da parte nostra. Riprova più tardi."
     }
+  },
+  "editor": {
+    "title": "Editor della clip",
+    "back": "Torna al progetto",
+    "edit": "Modifica",
+    "previewNote": "Anteprima a bassa risoluzione con l'inquadratura originale. Il rendering finale è ritagliato in 9:16.",
+    "trim": "Taglio",
+    "start": "Inizio (s)",
+    "end": "Fine (s)",
+    "setStart": "Inizia qui",
+    "setEnd": "Finisci qui",
+    "duration": "Durata: {seconds} s",
+    "captions": "Sottotitoli",
+    "captionsEnabled": "Mostra i sottotitoli",
+    "wordsHelp": "Clicca sul pulsante di una parola per raggiungerla nel video. Invio passa alla parola successiva.",
+    "word": "Parola {n}",
+    "seek": "Vai a {word}",
+    "emphasis": "Metti in evidenza",
+    "style": "Stile",
+    "presetLabel": "Modello",
+    "preset": {
+      "bold": "Grassetto",
+      "clean": "Sobrio",
+      "karaoke": "Karaoke"
+    },
+    "positionLabel": "Posizione",
+    "position": {
+      "bottom": "In basso",
+      "center": "Al centro",
+      "top": "In alto"
+    },
+    "color": "Colore del testo",
+    "highlight": "Colore della parola attiva",
+    "uppercase": "Maiuscolo",
+    "size": "Dimensione",
+    "crop": "Inquadratura 9:16",
+    "cropMode": {
+      "auto": "Segui il volto principale",
+      "center": "Centrata",
+      "manual": "Posizione fissa"
+    },
+    "cropX": "Posizione orizzontale",
+    "noVision": "Analisi visiva non disponibile per questa fonte: il ritaglio sarà centrato.",
+    "music": "Musica",
+    "musicUnavailable": "Nessuna libreria musicale con licenza è ancora disponibile: per ora niente musica.",
+    "saving": "Salvataggio…",
+    "saved": "Salvato",
+    "saveError": "Non salvato: {reason}",
+    "renderTitle": "Rendering finale",
+    "cost": "{quality}: {credits, plural, one {# credito} other {# crediti}}, addebitati solo se il rendering viene consegnato.",
+    "balance": "Saldo: {credits, plural, =0 {nessun credito} one {# credito} other {# crediti}}",
+    "qualityHd": "HD 1080p senza filigrana",
+    "qualitySd": "720p con filigrana (piano gratuito)",
+    "renderBtn": "Avvia il rendering",
+    "rendering": "Rendering in corso…",
+    "rendered": "Rendering pronto",
+    "download": "Scarica l'MP4",
+    "failed": "L'ultimo rendering non è riuscito: i crediti riservati sono stati restituiti.",
+    "buyCredits": "Acquista crediti",
+    "errors": {
+      "insufficient_credits": "Saldo insufficiente per questo rendering.",
+      "already_rendering": "Un rendering è già in corso.",
+      "not_saved": "Salva le modifiche prima del rendering.",
+      "trim_invalid": "Il taglio non è valido.",
+      "trim_too_short": "La clip deve durare almeno 5 secondi.",
+      "trim_too_long": "La clip non può superare i 120 secondi.",
+      "not_found": "Clip non trovata."
+    }
   }
 }

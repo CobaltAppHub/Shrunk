@@ -6,7 +6,7 @@ import { clips, jobs, projects, sourceAssets, workspaces } from "@/db/schema";
 import { selectClips, type Transcript } from "@/lib/clip-selection";
 import { env } from "@/lib/env";
 import { PLANS } from "@/lib/pricing";
-import { getJson, previewKey, signedGetUrl, signedPutUrl, transcriptKey } from "@/lib/storage";
+import { getJson, previewKey, signedGetUrl, signedPutUrl, transcriptKey, visionKey } from "@/lib/storage";
 import { submitWorkerJob, workerJobKey } from "@/lib/worker";
 import { inngest } from "./client";
 
@@ -17,9 +17,9 @@ const setProject = (assetId: string, v: Partial<typeof projects.$inferInsert>) =
   db.update(projects).set(v).where(eq(projects.sourceAssetId, assetId));
 
 /** One worker sub-job per (kind, asset): created once, dispatched once, settled by the callback route. */
-async function ensureJob(workspaceId: string, assetId: string, kind: "transcribe" | "previews") {
+async function ensureJob(workspaceId: string, assetId: string, kind: "transcribe" | "previews" | "vision") {
   const key = workerJobKey(kind, assetId);
-  await db.insert(jobs).values({ workspaceId, refId: assetId, type: kind === "transcribe" ? "transcribe" : "preview", idempotencyKey: key })
+  await db.insert(jobs).values({ workspaceId, refId: assetId, type: kind === "previews" ? "preview" : kind, idempotencyKey: key })
     .onConflictDoNothing({ target: jobs.idempotencyKey });
   const [job] = await db.select().from(jobs).where(eq(jobs.idempotencyKey, key));
   return job!;
@@ -40,7 +40,7 @@ export const analyzeSource = inngest.createFunction(
     const { assetId, workspaceId } = event.data as { assetId: string; workspaceId: string };
 
     // Polls the DB (source of truth); the callback's event only shortens the wait.
-    const awaitWorker = async (kind: "transcribe" | "previews", hours: number) => {
+    const awaitWorker = async (kind: "transcribe" | "previews" | "vision", hours: number) => {
       const key = workerJobKey(kind, assetId);
       for (let i = 0; i < hours * 6; i++) {
         const job = await step.run(`${kind}-check-${i}`, async () => {
@@ -88,7 +88,21 @@ export const analyzeSource = inngest.createFunction(
       await db.update(sourceAssets).set({ transcript, durationS: r.duration_s, language: r.language }).where(eq(sourceAssets.id, assetId));
     });
 
-    // 2. Moment selection (Claude, structured output validated by Zod).
+    // 2a. Scenes, faces and audio peaks (CPU worker), running while Claude selects moments.
+    await step.run("dispatch-vision", async () => {
+      const job = await ensureJob(workspaceId, assetId, "vision");
+      if (job.status !== "queued") return;
+      const [asset] = await db.select({ key: sourceAssets.storageKey }).from(sourceAssets).where(eq(sourceAssets.id, assetId));
+      await db.update(jobs).set({ status: "running", startedAt: new Date(), attempts: 1 }).where(eq(jobs.id, job.id));
+      await submitWorkerJob(env.WORKER_URL, env.WORKER_TOKEN, {
+        kind: "vision",
+        ref: assetId,
+        source_url: await signedGetUrl(asset!.key!, 4 * 3600),
+        vision_put_url: await signedPutUrl(visionKey(workspaceId, assetId), "application/json", 4 * 3600),
+      });
+    });
+
+    // 2b. Moment selection (Claude, structured output validated by Zod).
     await stage("select");
     const selected = await step.run("select", async () => {
       const [asset] = await db.select({ transcript: sourceAssets.transcript }).from(sourceAssets).where(eq(sourceAssets.id, assetId));
@@ -101,6 +115,13 @@ export const analyzeSource = inngest.createFunction(
           .onConflictDoNothing({ target: jobs.idempotencyKey });
       });
       return { projectId: project!.id, count: candidates.length };
+    });
+
+    // Vision only improves framing: if it fails, renders fall back to a centred crop and say so.
+    const vision = await awaitWorker("vision", 3);
+    await step.run("store-vision", async () => {
+      if (vision.status !== "succeeded") return;
+      await db.update(sourceAssets).set({ vision: await getJson(visionKey(workspaceId, assetId)) }).where(eq(sourceAssets.id, assetId));
     });
 
     // No candidate is a real outcome: the project is ready and says so; nothing is invented.

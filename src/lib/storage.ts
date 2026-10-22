@@ -16,8 +16,12 @@ export async function putStream(key: string, body: Readable, contentType: string
   await new Upload({ client: s3, params: { Bucket: env.R2_BUCKET, Key: key, Body: body, ContentType: contentType }, partSize: 16 * 1024 * 1024, queueSize: 4 }).done();
 }
 
-export const signedGetUrl = (key: string, expiresIn = 900) =>
-  getSignedUrl(s3, new GetObjectCommand({ Bucket: env.R2_BUCKET, Key: key }), { expiresIn });
+export const signedGetUrl = (key: string, expiresIn = 900, downloadName?: string) =>
+  getSignedUrl(s3, new GetObjectCommand({
+    Bucket: env.R2_BUCKET,
+    Key: key,
+    ...(downloadName ? { ResponseContentDisposition: `attachment; filename="${downloadName.replace(/[^\w.-]+/g, "_")}"` } : {}),
+  }), { expiresIn });
 
 export const signedPutUrl = (key: string, contentType: string, expiresIn = 3600) =>
   getSignedUrl(s3, new PutObjectCommand({ Bucket: env.R2_BUCKET, Key: key, ContentType: contentType }), { expiresIn });
@@ -39,3 +43,5 @@ export async function headSize(key: string): Promise<number | null> {
 export const sourceKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/source`;
 export const transcriptKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/transcript.json`;
 export const previewKey = (workspaceId: string, clipId: string) => `ws/${workspaceId}/previews/${clipId}.mp4`;
+export const visionKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/vision.json`;
+export const renderKey = (workspaceId: string, clipId: string, jobId: string) => `ws/${workspaceId}/renders/${clipId}/${jobId}.mp4`;

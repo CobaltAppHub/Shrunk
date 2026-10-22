@@ -200,5 +200,73 @@
       "no_audio": "Cette vidéo n'a pas de piste audio : impossible de la transcrire.",
       "worker_failed": "Le traitement a échoué de notre côté. Réessaie plus tard."
     }
+  },
+  "editor": {
+    "title": "Éditeur d'extrait",
+    "back": "Retour au projet",
+    "edit": "Modifier",
+    "previewNote": "Aperçu basse définition, cadrage d'origine. Le rendu final est recadré en 9:16.",
+    "trim": "Découpe",
+    "start": "Début (s)",
+    "end": "Fin (s)",
+    "setStart": "Début ici",
+    "setEnd": "Fin ici",
+    "duration": "Durée : {seconds} s",
+    "captions": "Sous-titres",
+    "captionsEnabled": "Afficher les sous-titres",
+    "wordsHelp": "Clique sur le bouton d'un mot pour t'y rendre dans la vidéo. Entrée passe au mot suivant.",
+    "word": "Mot {n}",
+    "seek": "Aller à {word}",
+    "emphasis": "Mettre en avant",
+    "style": "Style",
+    "presetLabel": "Modèle",
+    "preset": {
+      "bold": "Gras",
+      "clean": "Sobre",
+      "karaoke": "Karaoké"
+    },
+    "positionLabel": "Position",
+    "position": {
+      "bottom": "Bas",
+      "center": "Centre",
+      "top": "Haut"
+    },
+    "color": "Couleur du texte",
+    "highlight": "Couleur du mot actif",
+    "uppercase": "Majuscules",
+    "size": "Taille",
+    "crop": "Cadrage 9:16",
+    "cropMode": {
+      "auto": "Suivre le visage principal",
+      "center": "Centré",
+      "manual": "Position fixe"
+    },
+    "cropX": "Position horizontale",
+    "noVision": "Analyse visuelle indisponible pour cette source : le recadrage sera centré.",
+    "music": "Musique",
+    "musicUnavailable": "Aucune bibliothèque musicale sous licence n'est encore disponible : pas de musique pour l'instant.",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré",
+    "saveError": "Non enregistré : {reason}",
+    "renderTitle": "Rendu final",
+    "cost": "{quality} : {credits, plural, one {# crédit} other {# crédits}}, débité seulement si le rendu est livré.",
+    "balance": "Solde : {credits, plural, =0 {aucun crédit} one {# crédit} other {# crédits}}",
+    "qualityHd": "HD 1080p sans filigrane",
+    "qualitySd": "720p avec filigrane (formule gratuite)",
+    "renderBtn": "Lancer le rendu",
+    "rendering": "Rendu en cours…",
+    "rendered": "Rendu prêt",
+    "download": "Télécharger le MP4",
+    "failed": "Le dernier rendu a échoué : les crédits réservés ont été rendus.",
+    "buyCredits": "Acheter des crédits",
+    "errors": {
+      "insufficient_credits": "Solde insuffisant pour ce rendu.",
+      "already_rendering": "Un rendu est déjà en cours.",
+      "not_saved": "Enregistre tes modifications avant le rendu.",
+      "trim_invalid": "La découpe n'est pas valide.",
+      "trim_too_short": "L'extrait doit durer au moins 5 secondes.",
+      "trim_too_long": "L'extrait ne peut pas dépasser 120 secondes.",
+      "not_found": "Extrait introuvable."
+    }
   }
 }

@@ -1,0 +1,4 @@
+scenedetect==0.6.4
+opencv-python-headless
+mediapipe==1.1.1
+numpy

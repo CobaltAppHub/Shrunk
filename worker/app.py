@@ -22,9 +22,13 @@ secrets = [modal.Secret.from_name("shrunk-worker")]
 
 cpu_image = (
     modal.Image.debian_slim(python_version="3.11")
-    .apt_install("ffmpeg")
-    .pip_install("fastapi[standard]")
-    .add_local_python_source("media")
+    .apt_install("ffmpeg", "fonts-inter", "curl")
+    .pip_install("fastapi[standard]", "numpy", "scenedetect==0.6.4", "opencv-python-headless", "mediapipe==1.1.1")
+    # MediaPipe Tasks face detector model (Google, Apache-2.0), baked into the image at build time.
+    .run_commands("mkdir -p /opt/mp && curl -fsSL -o /opt/mp/blaze_face_short_range.tflite "
+                  "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite")
+    .env({"MP_FACE_MODEL": "/opt/mp/blaze_face_short_range.tflite"})
+    .add_local_python_source("media", "vision", "render")
 )
 gpu_image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -116,6 +120,49 @@ def run_previews(req: dict) -> None:
               "cost_usd": cost(time.time() - t0, "CPU_USD_PER_S")})
 
 
+@app.function(image=cpu_image, cpu=4, secrets=secrets, timeout=3 * 3600, region="eu")
+def run_vision(req: dict) -> None:
+    """Scenes, faces and audio peaks of a whole source → crop track, written to R2 as JSON."""
+    from media import probe
+    from vision import crop_track, detect_scenes, make_proxy, peaks_from_rms, rms_windows, sample_faces
+
+    t0 = time.time()
+    head = {"kind": "vision", "ref": req["ref"]}
+    try:
+        info = probe(req["source_url"])
+        with tempfile.TemporaryDirectory() as d:
+            make_proxy(req["source_url"], f"{d}/p.mp4")
+            scenes = detect_scenes(f"{d}/p.mp4", info["duration_s"])
+            track = crop_track(sample_faces(f"{d}/p.mp4"), scenes, info["width"], info["height"])
+            result = {"width": info["width"], "height": info["height"], "scenes": scenes, "track": track,
+                      "peaks": peaks_from_rms(rms_windows(req["source_url"]))}
+            with open(f"{d}/v.json", "w") as f:
+                json.dump(result, f)
+            put(f"{d}/v.json", req["vision_put_url"], "application/json")
+        callback({**head, "ok": True, "cost_usd": cost(time.time() - t0, "CPU_USD_PER_S")})
+    except Exception:
+        callback({**head, "ok": False, "error_code": "worker_failed"})
+        raise
+
+
+@app.function(image=cpu_image, cpu=8, secrets=secrets, timeout=900, region="eu")
+def run_render(req: dict) -> None:
+    """Paid HD render of one clip; `ref` is the job id (the callback settles that job only)."""
+    from render import render
+
+    t0 = time.time()
+    head = {"kind": "render", "ref": req["ref"]}
+    try:
+        with tempfile.TemporaryDirectory() as d:
+            out = render(req["source_url"], req["start"], req["end"], req["words"], req["style"], req["track"],
+                         req["height"], req["watermark"], d, src_size=tuple(req["src_size"]) if req.get("src_size") else None)
+            put(out, req["render_put_url"], "video/mp4")
+        callback({**head, "ok": True, "cost_usd": cost(time.time() - t0, "CPU_USD_PER_S")})
+    except Exception:
+        callback({**head, "ok": False, "error_code": "render_failed"})
+        raise
+
+
 @app.function(image=cpu_image, secrets=secrets, region="eu")
 @modal.asgi_app()
 def api():
@@ -128,7 +175,7 @@ def api():
     def jobs(body: dict, authorization: str = Header("")):
         if not hmac.compare_digest(authorization, f"Bearer {os.environ['WORKER_TOKEN']}"):
             raise HTTPException(status_code=401)
-        fn = {"transcribe": run_transcribe, "previews": run_previews}.get(body.get("kind"))
+        fn = {"transcribe": run_transcribe, "previews": run_previews, "vision": run_vision, "render": run_render}.get(body.get("kind"))
         if not fn:
             raise HTTPException(status_code=400)
         call = fn.spawn(body)

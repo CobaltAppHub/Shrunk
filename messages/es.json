@@ -200,5 +200,73 @@
       "no_audio": "Este vídeo no tiene pista de audio: no se puede transcribir.",
       "worker_failed": "El procesamiento ha fallado por nuestra parte. Inténtalo más tarde."
     }
+  },
+  "editor": {
+    "title": "Editor de clips",
+    "back": "Volver al proyecto",
+    "edit": "Editar",
+    "previewNote": "Vista previa en baja resolución con el encuadre original. El renderizado final se recorta a 9:16.",
+    "trim": "Recorte",
+    "start": "Inicio (s)",
+    "end": "Fin (s)",
+    "setStart": "Empezar aquí",
+    "setEnd": "Terminar aquí",
+    "duration": "Duración: {seconds} s",
+    "captions": "Subtítulos",
+    "captionsEnabled": "Mostrar subtítulos",
+    "wordsHelp": "Haz clic en el botón de una palabra para ir a ella en el vídeo. Intro pasa a la palabra siguiente.",
+    "word": "Palabra {n}",
+    "seek": "Ir a {word}",
+    "emphasis": "Destacar",
+    "style": "Estilo",
+    "presetLabel": "Plantilla",
+    "preset": {
+      "bold": "Negrita",
+      "clean": "Sobrio",
+      "karaoke": "Karaoke"
+    },
+    "positionLabel": "Posición",
+    "position": {
+      "bottom": "Abajo",
+      "center": "Centro",
+      "top": "Arriba"
+    },
+    "color": "Color del texto",
+    "highlight": "Color de la palabra activa",
+    "uppercase": "Mayúsculas",
+    "size": "Tamaño",
+    "crop": "Encuadre 9:16",
+    "cropMode": {
+      "auto": "Seguir el rostro principal",
+      "center": "Centrado",
+      "manual": "Posición fija"
+    },
+    "cropX": "Posición horizontal",
+    "noVision": "El análisis visual no está disponible para esta fuente: el recorte será centrado.",
+    "music": "Música",
+    "musicUnavailable": "Aún no hay ninguna biblioteca musical con licencia: por ahora, sin música.",
+    "saving": "Guardando…",
+    "saved": "Guardado",
+    "saveError": "No guardado: {reason}",
+    "renderTitle": "Renderizado final",
+    "cost": "{quality}: {credits, plural, one {# crédito} other {# créditos}}, solo se cobra si se entrega el renderizado.",
+    "balance": "Saldo: {credits, plural, =0 {ningún crédito} one {# crédito} other {# créditos}}",
+    "qualityHd": "HD 1080p sin marca de agua",
+    "qualitySd": "720p con marca de agua (plan gratuito)",
+    "renderBtn": "Iniciar el renderizado",
+    "rendering": "Renderizando…",
+    "rendered": "Renderizado listo",
+    "download": "Descargar el MP4",
+    "failed": "El último renderizado ha fallado: se han devuelto los créditos reservados.",
+    "buyCredits": "Comprar créditos",
+    "errors": {
+      "insufficient_credits": "Saldo insuficiente para este renderizado.",
+      "already_rendering": "Ya hay un renderizado en curso.",
+      "not_saved": "Guarda tus cambios antes de renderizar.",
+      "trim_invalid": "El recorte no es válido.",
+      "trim_too_short": "El clip debe durar al menos 5 segundos.",
+      "trim_too_long": "El clip no puede superar los 120 segundos.",
+      "not_found": "Clip no encontrado."
+    }
   }
 }

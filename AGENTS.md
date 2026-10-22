@@ -13,6 +13,7 @@ Instructions for coding agents (Codex and others). The product spec and decision
 pnpm install          # pnpm only; .npmrc uses node-linker=hoisted (Windows path length)
 pnpm lint && pnpm typecheck && pnpm test   # must all pass before a commit
 python -I worker/test_media.py             # worker media self-check (needs ffmpeg)
+python -I worker/test_render.py            # vision + 9:16 render self-check (pip install -r worker/requirements-dev.txt)
 pnpm e2e:preflight    # configuration + services, nothing paid
 pnpm e2e              # real pipeline on the public-domain demo video; writes reports/e2e/*
 ```
