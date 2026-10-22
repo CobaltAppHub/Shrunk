@@ -23,6 +23,15 @@ export const envSchema = z.object({
   WORKER_URL: z.url(), // Modal asgi app base URL
   WORKER_TOKEN: z.string().min(32),
   WORKER_CALLBACK_SECRET: z.string().min(32),
+  // Publishing (J4). Missing credentials = platform hidden, never faked.
+  TIKTOK_CLIENT_KEY: z.string().optional(),
+  TIKTOK_CLIENT_SECRET: z.string().optional(),
+  TIKTOK_AUDITED: z.enum(["0", "1"]).default("0"), // "1" only once TikTok has audited the app: direct post instead of inbox
+  YOUTUBE_CLIENT_ID: z.string().optional(),
+  YOUTUBE_CLIENT_SECRET: z.string().optional(),
+  YOUTUBE_DAILY_UPLOADS: z.coerce.number().int().positive().default(100), // Google Cloud project's "Video Uploads" quota
+  INSTAGRAM_APP_ID: z.string().optional(),
+  INSTAGRAM_APP_SECRET: z.string().optional(),
   VIMEO_CLIENT_ID: z.string().optional(),
   VIMEO_CLIENT_SECRET: z.string().optional(),
   GOOGLE_PICKER_API_KEY: z.string().optional(),

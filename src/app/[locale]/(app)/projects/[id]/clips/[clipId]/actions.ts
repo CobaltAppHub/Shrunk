@@ -9,6 +9,7 @@ import { editState, validateEdit, type EditState } from "@/lib/edit-state";
 import { CREDIT_COSTS } from "@/lib/pricing";
 import { requireWorkspace } from "@/lib/workspace";
 import { inngest } from "@/inngest/client";
+import { scheduleInput, schedulePosts } from "@/lib/posts";
 
 /** The clip, only if it belongs to the caller's workspace. */
 async function ownedClip(clipId: string, workspaceId: string) {
@@ -59,4 +60,9 @@ export async function requestRender(clipId: string, idempotencyKey: string) {
   await db.insert(auditLog).values({ workspaceId: workspace.id, actorId: user.id, action: "clip.render", target: row.clip.id, meta: { jobId: job!.id, cost } });
   await inngest.send({ id: job!.id, name: "clip/render.requested", data: { jobId: job!.id, workspaceId: workspace.id } });
   return { ok: true as const };
+}
+
+export async function schedule(input: z.input<typeof scheduleInput>) {
+  const { user, workspace } = await requireWorkspace("editor");
+  return schedulePosts({ userId: user.id, workspace }, input);
 }

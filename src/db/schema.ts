@@ -49,7 +49,7 @@ export const ledgerKindEnum = pgEnum("ledger_kind", [
   "grant", "reserve", "capture", "release", "refund", "purchase", "expire",
 ]);
 export const postStatusEnum = pgEnum("post_status", [
-  "scheduled", "publishing", "published", "failed", "draft_sent",
+  "scheduled", "publishing", "published", "failed", "draft_sent", "cancelled",
 ]);
 
 // ── Auth (Better-Auth core tables; `users` carries product fields) ───────────
@@ -138,6 +138,9 @@ export const socialAccounts = pgTable("social_accounts", {
   scopes: text("scopes").array(),
   expiresAt: ts("expires_at"),
   status: text("status").notNull().default("connected"), // connected | expired | revoked
+  lastError: text("last_error"),
+  connectedBy: text("connected_by").references(() => users.id),
+  connectedAt: ts("connected_at").notNull().defaultNow(),
 }, (t) => [uniqueIndex("social_accounts_ws_platform_ext").on(t.workspaceId, t.platform, t.externalId)]);
 
 export const brandKits = pgTable("brand_kits", {
@@ -259,6 +262,7 @@ export const stripeEvents = pgTable("stripe_events", {
 // ── Publishing & analytics ───────────────────────────────────────────────────
 export const scheduledPosts = pgTable("scheduled_posts", {
   id: id(),
+  workspaceId: uuid("workspace_id").notNull().references(() => workspaces.id, { onDelete: "cascade" }),
   clipId: uuid("clip_id").notNull().references(() => clips.id, { onDelete: "cascade" }),
   socialAccountId: uuid("social_account_id").notNull().references(() => socialAccounts.id, { onDelete: "cascade" }),
   caption: text("caption").notNull(),
@@ -266,7 +270,14 @@ export const scheduledPosts = pgTable("scheduled_posts", {
   status: postStatusEnum("status").notNull().default("scheduled"),
   externalPostId: text("external_post_id"),
   error: text("error"),
-});
+  options: jsonb("options").$type<Record<string, unknown>>().notNull().default({}),
+  idempotencyKey: text("idempotency_key").notNull().unique(), // "<form key>:<account id>"
+  aiGenerated: boolean("ai_generated").notNull().default(false),
+  // Set right before the first platform call: counts against quotas and blocks blind re-uploads.
+  attemptedAt: ts("attempted_at"),
+  publishedAt: ts("published_at"),
+  createdAt: createdAt(),
+}, (t) => [index("scheduled_posts_ws_time").on(t.workspaceId, t.scheduledAt)]);
 
 export const postMetrics = pgTable("post_metrics", {
   postId: uuid("post_id").notNull().references(() => scheduledPosts.id, { onDelete: "cascade" }),

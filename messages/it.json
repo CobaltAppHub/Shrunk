@@ -140,6 +140,10 @@
     "creditsReturned": {
       "subject": "Crediti restituiti",
       "body": "Un rendering non è stato completato. I crediti riservati sono stati riaccreditati sul tuo saldo."
+    },
+    "accountDisconnected": {
+      "subject": "Account {platform} scollegato",
+      "body": "L'account {account} ({platform}) non è più autorizzato. Le pubblicazioni programmate su questo account non partiranno finché non lo ricolleghi: Account social › Ricollega."
     }
   },
   "newProject": {
@@ -267,6 +271,107 @@
       "trim_too_short": "La clip deve durare almeno 5 secondi.",
       "trim_too_long": "La clip non può superare i 120 secondi.",
       "not_found": "Clip non trovata."
+    }
+  },
+  "accounts": {
+    "title": "Account social",
+    "platforms": {
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "instagram": "Instagram"
+    },
+    "connect": "Collega {platform}",
+    "reconnect": "Ricollega",
+    "disconnect": "Scollega",
+    "status": {
+      "connected": "Collegato",
+      "expired": "Scollegato: va ricollegato",
+      "revoked": "Rimosso"
+    },
+    "expires": "Accesso valido fino al {date}",
+    "lastError": "Ultimo errore: {error}",
+    "none": "Nessun account collegato per ora.",
+    "unavailable": "Non disponibile su questo deployment: {list}.",
+    "tiktokDraft": "Finché TikTok non avrà verificato l'app, ogni video arriva nella casella di TikTok dell'account: apri la notifica nell'app per completare la pubblicazione. Massimo 5 invii in sospeso ogni 24 ore.",
+    "youtubeQuota": "I caricamenti su YouTube passano da una coda che rispetta la quota del progetto ({n} al giorno): oltre, partono dopo la mezzanotte (ora del Pacifico).",
+    "instagramNote": "Serve un account professionale (Business o Creator). Massimo 100 pubblicazioni ogni 24 ore.",
+    "planLimit": "Il tuo piano consente {n, plural, =0 {nessun account collegato} one {# account collegato} other {# account collegati}}.",
+    "connected": "Account {platform} collegato.",
+    "errors": {
+      "unavailable": "Questa piattaforma non è disponibile.",
+      "plan_limit": "Hai raggiunto il limite di account del tuo piano.",
+      "state": "Il collegamento è scaduto o non è partito da questa sessione. Ricomincia.",
+      "denied": "Collegamento annullato.",
+      "connect_failed": "Collegamento non riuscito. Riprova.",
+      "not_eligible": "Questo account non può pubblicare tramite API (serve un account professionale o un canale)."
+    },
+    "planUnlimited": "Account social illimitati con il tuo piano."
+  },
+  "schedule": {
+    "title": "Pubblica o programma",
+    "accounts": "Account",
+    "noAccounts": "Collega un account social per pubblicare.",
+    "manage": "Gestisci gli account",
+    "caption": "Didascalia",
+    "captionCount": "{n} caratteri",
+    "when": "Data e ora",
+    "slots": "Fasce libere",
+    "slotsNote": "Fasce senza pubblicazioni previste su questi account. Ancora nessun suggerimento basato sulle tue statistiche.",
+    "youtubePrivacy": "Visibilità su YouTube",
+    "privacy": {
+      "public": "Pubblico",
+      "unlisted": "Non in elenco",
+      "private": "Privato"
+    },
+    "tiktokDraft": "TikTok: il video arriverà nella tua casella di TikTok, da completare nell'app.",
+    "submit": "Programma",
+    "submitNow": "Pubblica ora",
+    "done": "{n, plural, =0 {Già programmato.} one {# pubblicazione programmata.} other {# pubblicazioni programmate.}}",
+    "seeCalendar": "Apri il calendario",
+    "creditLabel": "Credito:",
+    "aiLabel": "Contenuto generato dall'IA",
+    "upgrade": "La pubblicazione automatica è inclusa a partire dal piano Starter.",
+    "errors": {
+      "plan_no_autopublish": "Il tuo piano non include la pubblicazione automatica.",
+      "not_rendered": "Prima esegui il rendering della clip.",
+      "account_unavailable": "Uno degli account non è più collegato.",
+      "caption_too_long": "Didascalia troppo lunga per una delle piattaforme.",
+      "date_invalid": "Data non valida."
+    }
+  },
+  "calendar": {
+    "title": "Calendario",
+    "week": "Settimana",
+    "month": "Mese",
+    "prev": "Precedente",
+    "next": "Successivo",
+    "today": "Oggi",
+    "empty": "Nessuna pubblicazione in questo periodo.",
+    "dragHelp": "Trascina una pubblicazione su un altro giorno per spostarla (l'ora resta invariata), oppure aprila per cambiare la data da tastiera.",
+    "status": {
+      "scheduled": "Programmata",
+      "publishing": "In pubblicazione",
+      "published": "Pubblicata",
+      "failed": "Errore",
+      "draft_sent": "Bozza TikTok inviata",
+      "cancelled": "Annullata"
+    },
+    "save": "Salva",
+    "cancelPost": "Annulla la pubblicazione",
+    "retry": "Riprova",
+    "view": "Vedi la pubblicazione",
+    "draftNote": "Inviata nella casella di TikTok: apri la notifica nell'app per pubblicare.",
+    "errors": {
+      "not_editable": "Questa pubblicazione non può più essere modificata.",
+      "date_invalid": "Data non valida."
+    },
+    "postError": {
+      "uncertain_state": "L'invio potrebbe essere andato a buon fine: controlla sulla piattaforma prima di riprovare.",
+      "account_disconnected": "Account scollegato: ricollegalo e riprova.",
+      "quota_wait": "In attesa della quota della piattaforma.",
+      "platform_timeout": "La piattaforma non ha confermato in tempo: controlla sulla piattaforma.",
+      "not_rendered": "Il rendering della clip non è stato trovato.",
+      "other": "Rifiutata dalla piattaforma: {detail}"
     }
   }
 }

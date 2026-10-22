@@ -70,4 +70,5 @@ Voir [docs/SOURCES.md](docs/SOURCES.md) : matrice, conditions vérifiées, dépe
 - [x] **J2 bis** : scènes (PySceneDetect), visages (MediaPipe Tasks), pics audio → trajectoire de recadrage 9:16 par scène
 - [x] **J3** (cœur) : éditeur (découpe, sous-titres éditables mot à mot avec mise en avant, style, cadrage auto/centré/fixe, aperçu des sous-titres en direct), rendu payant 1 crédit (réservé, débité seulement si le fichier est livré), 1080p ou 720p + filigrane selon la formule, -14 LUFS, téléchargement
 - [ ] J3 reste : timeline visuelle, B-roll, emoji, brand kits (Pro), bibliothèque musicale sous licence (le rendu sait déjà atténuer une musique sous la voix)
-- [ ] J4 publication · J5 faceless + Veo · J6 analytics + équipes
+- [x] **J4** : publication TikTok (brouillon dans l'inbox tant que l'app n'est pas auditée, puis directe), YouTube (file qui respecte le quota du projet), Instagram Reels ; interface `PublisherProvider` ; OAuth PKCE ; jetons chiffrés et rafraîchis ; statut des comptes + alerte e-mail ; calendrier semaine/mois avec glisser-déposer et alternative clavier ; créneaux libres. Voir [docs/PUBLISHING.md](docs/PUBLISHING.md)
+- [ ] J5 faceless + Veo · J6 analytics (dont métriques des publications) + équipes

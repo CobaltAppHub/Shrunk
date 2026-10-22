@@ -11,6 +11,7 @@ import { emailWorkspaceOwner } from "@/lib/stripe";
 import { providerById } from "@/sources";
 import { analyzeSource } from "./analyze";
 import { inngest } from "./client";
+import { publishPost, refreshSocialTokens } from "./publish";
 import { renderClip } from "./render";
 
 const MAX_SOURCE_BYTES = 4 * 1024 ** 3;
@@ -122,4 +123,4 @@ export const expireCredits = inngest.createFunction(
   },
 );
 
-export const functions = [ingestSource, analyzeSource, renderClip, releaseStuckJobs, monthlyGrants, expireCredits];
+export const functions = [ingestSource, analyzeSource, renderClip, publishPost, refreshSocialTokens, releaseStuckJobs, monthlyGrants, expireCredits];

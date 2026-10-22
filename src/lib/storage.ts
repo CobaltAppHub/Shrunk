@@ -45,3 +45,9 @@ export const transcriptKey = (workspaceId: string, assetId: string) => `ws/${wor
 export const previewKey = (workspaceId: string, clipId: string) => `ws/${workspaceId}/previews/${clipId}.mp4`;
 export const visionKey = (workspaceId: string, assetId: string) => `ws/${workspaceId}/sources/${assetId}/vision.json`;
 export const renderKey = (workspaceId: string, clipId: string, jobId: string) => `ws/${workspaceId}/renders/${clipId}/${jobId}.mp4`;
+
+/** Inclusive byte range of an object (publishing uploads renders in chunks). */
+export async function readRange(key: string, start: number, end: number): Promise<Uint8Array> {
+  const res = await s3.send(new GetObjectCommand({ Bucket: env.R2_BUCKET, Key: key, Range: `bytes=${start}-${end}` }));
+  return res.Body!.transformToByteArray();
+}

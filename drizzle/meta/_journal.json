@@ -22,6 +22,13 @@
       "when": 1792707076128,
       "tag": "0002_j3_render",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792708023834,
+      "tag": "0003_j4_publish",
+      "breakpoints": true
     }
   ]
 }

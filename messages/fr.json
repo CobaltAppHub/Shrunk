@@ -140,6 +140,10 @@
     "creditsReturned": {
       "subject": "Crédits rendus",
       "body": "Un rendu n'a pas pu aboutir. Les crédits réservés ont été remis sur ton solde."
+    },
+    "accountDisconnected": {
+      "subject": "Compte {platform} déconnecté",
+      "body": "Le compte {account} ({platform}) n'est plus autorisé. Les publications programmées sur ce compte ne partiront pas tant qu'il n'est pas reconnecté : Comptes sociaux › Reconnecter."
     }
   },
   "newProject": {
@@ -267,6 +271,107 @@
       "trim_too_short": "L'extrait doit durer au moins 5 secondes.",
       "trim_too_long": "L'extrait ne peut pas dépasser 120 secondes.",
       "not_found": "Extrait introuvable."
+    }
+  },
+  "accounts": {
+    "title": "Comptes sociaux",
+    "platforms": {
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "instagram": "Instagram"
+    },
+    "connect": "Connecter {platform}",
+    "reconnect": "Reconnecter",
+    "disconnect": "Déconnecter",
+    "status": {
+      "connected": "Connecté",
+      "expired": "Déconnecté : reconnexion nécessaire",
+      "revoked": "Retiré"
+    },
+    "expires": "Accès valable jusqu'au {date}",
+    "lastError": "Dernière erreur : {error}",
+    "none": "Aucun compte connecté pour l'instant.",
+    "unavailable": "Non disponible sur ce déploiement : {list}.",
+    "tiktokDraft": "Tant que l'app n'est pas auditée par TikTok, chaque vidéo arrive dans la boîte de réception TikTok du compte : ouvre la notification dans l'app pour finir la publication. 5 envois en attente maximum par 24 h.",
+    "youtubeQuota": "Les envois YouTube passent par une file qui respecte le quota du projet ({n} par jour) : au-delà, ils partent après minuit (heure du Pacifique).",
+    "instagramNote": "Compte professionnel (Business ou Créateur) requis. 100 publications maximum par 24 h.",
+    "planLimit": "Ta formule permet {n, plural, =0 {aucun compte} one {# compte} other {# comptes}} connecté(s).",
+    "connected": "Compte {platform} connecté.",
+    "errors": {
+      "unavailable": "Cette plateforme n'est pas disponible.",
+      "plan_limit": "Limite de comptes de ta formule atteinte.",
+      "state": "La connexion a expiré ou n'a pas été lancée depuis cette session. Recommence.",
+      "denied": "Connexion annulée.",
+      "connect_failed": "La connexion a échoué. Réessaie.",
+      "not_eligible": "Ce compte ne peut pas publier par l'API (compte professionnel ou chaîne requis)."
+    },
+    "planUnlimited": "Comptes sociaux illimités sur ta formule."
+  },
+  "schedule": {
+    "title": "Publier ou programmer",
+    "accounts": "Comptes",
+    "noAccounts": "Connecte un compte social pour publier.",
+    "manage": "Gérer les comptes",
+    "caption": "Légende",
+    "captionCount": "{n} caractères",
+    "when": "Date et heure",
+    "slots": "Créneaux libres",
+    "slotsNote": "Créneaux sans publication prévue sur ces comptes. Pas encore de suggestion fondée sur tes statistiques.",
+    "youtubePrivacy": "Visibilité YouTube",
+    "privacy": {
+      "public": "Publique",
+      "unlisted": "Non répertoriée",
+      "private": "Privée"
+    },
+    "tiktokDraft": "TikTok : la vidéo arrivera dans ta boîte de réception TikTok, à finaliser dans l'app.",
+    "submit": "Programmer",
+    "submitNow": "Publier maintenant",
+    "done": "{n, plural, =0 {Déjà programmé.} one {# publication programmée.} other {# publications programmées.}}",
+    "seeCalendar": "Voir le calendrier",
+    "creditLabel": "Crédit :",
+    "aiLabel": "Contenu généré par IA",
+    "upgrade": "La publication automatique est incluse à partir de la formule Starter.",
+    "errors": {
+      "plan_no_autopublish": "Ta formule n'inclut pas la publication automatique.",
+      "not_rendered": "Lance d'abord le rendu de l'extrait.",
+      "account_unavailable": "Un des comptes n'est plus connecté.",
+      "caption_too_long": "Légende trop longue pour une des plateformes.",
+      "date_invalid": "Date invalide."
+    }
+  },
+  "calendar": {
+    "title": "Calendrier",
+    "week": "Semaine",
+    "month": "Mois",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "today": "Aujourd'hui",
+    "empty": "Aucune publication sur cette période.",
+    "dragHelp": "Glisse une publication sur un autre jour pour la déplacer (l'heure est conservée), ou ouvre-la pour changer la date au clavier.",
+    "status": {
+      "scheduled": "Programmée",
+      "publishing": "En cours",
+      "published": "Publiée",
+      "failed": "Échec",
+      "draft_sent": "Brouillon TikTok envoyé",
+      "cancelled": "Annulée"
+    },
+    "save": "Enregistrer",
+    "cancelPost": "Annuler la publication",
+    "retry": "Réessayer",
+    "view": "Voir la publication",
+    "draftNote": "Envoyée dans la boîte de réception TikTok : ouvre la notification dans l'app pour publier.",
+    "errors": {
+      "not_editable": "Cette publication ne peut plus être modifiée.",
+      "date_invalid": "Date invalide."
+    },
+    "postError": {
+      "uncertain_state": "L'envoi a peut-être abouti : vérifie sur la plateforme avant de réessayer.",
+      "account_disconnected": "Compte déconnecté : reconnecte-le puis réessaie.",
+      "quota_wait": "En attente du quota de la plateforme.",
+      "platform_timeout": "La plateforme n'a pas confirmé à temps : vérifie sur la plateforme.",
+      "not_rendered": "Le rendu de l'extrait est introuvable.",
+      "other": "Refusée par la plateforme : {detail}"
     }
   }
 }

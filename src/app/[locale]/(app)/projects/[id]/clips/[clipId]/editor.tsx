@@ -5,9 +5,10 @@ import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 import type { EditState } from "@/lib/edit-state";
 import { requestRender, saveEdit } from "./actions";
+import { ScheduleForm, type PublishInfo } from "./schedule";
 
 type RenderInfo = { status: string; lastFailed: boolean; downloadUrl: string | null; cost: number; balance: number; hd: boolean };
-type Props = { clipId: string; bounds: { start: number; end: number }; initial: EditState; previewUrl: string | null; hasVision: boolean; canEdit: boolean; render: RenderInfo };
+type Props = { clipId: string; bounds: { start: number; end: number }; initial: EditState; previewUrl: string | null; hasVision: boolean; canEdit: boolean; render: RenderInfo; publish: PublishInfo };
 type Word = EditState["captions"]["words"][number];
 
 const field = "min-h-11 rounded-[var(--r-sm)] border border-border bg-surface px-3";
@@ -27,7 +28,7 @@ function lineAt(words: Word[], t: number): { line: Word[]; active: number } | nu
   return line ? { line, active: line.findIndex((w, i) => t >= w.s && t < (line[i + 1]?.s ?? line.at(-1)!.e + 0.01)) } : null;
 }
 
-export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit, render }: Props) {
+export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit, render, publish }: Props) {
   const t = useTranslations("editor");
   const router = useRouter();
   const [state, setState] = useState<EditState>(initial);
@@ -81,6 +82,7 @@ export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit
         </div>
         <p className="text-sm text-muted">{t("previewNote")}</p>
         <RenderPanel clipId={clipId} info={render} canEdit={canEdit} saving={save === "saving"} onRendered={() => router.refresh()} />
+        {render.downloadUrl && canEdit && <ScheduleForm clipId={clipId} info={publish} />}
       </section>
 
       <fieldset disabled={!canEdit} className="flex flex-col gap-8">

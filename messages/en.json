@@ -140,6 +140,10 @@
     "creditsReturned": {
       "subject": "Credits returned",
       "body": "A render could not be completed. The reserved credits are back in your balance."
+    },
+    "accountDisconnected": {
+      "subject": "{platform} account disconnected",
+      "body": "The account {account} ({platform}) is no longer authorised. Posts scheduled on it will not go out until it is reconnected: Social accounts › Reconnect."
     }
   },
   "newProject": {
@@ -267,6 +271,107 @@
       "trim_too_short": "A clip must be at least 5 seconds long.",
       "trim_too_long": "A clip cannot be longer than 120 seconds.",
       "not_found": "Clip not found."
+    }
+  },
+  "accounts": {
+    "title": "Social accounts",
+    "platforms": {
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "instagram": "Instagram"
+    },
+    "connect": "Connect {platform}",
+    "reconnect": "Reconnect",
+    "disconnect": "Disconnect",
+    "status": {
+      "connected": "Connected",
+      "expired": "Disconnected: reconnect needed",
+      "revoked": "Removed"
+    },
+    "expires": "Access valid until {date}",
+    "lastError": "Last error: {error}",
+    "none": "No account connected yet.",
+    "unavailable": "Not available on this deployment: {list}.",
+    "tiktokDraft": "Until TikTok has audited the app, each video lands in the account's TikTok inbox: open the notification in the app to finish posting. At most 5 pending shares per 24 h.",
+    "youtubeQuota": "YouTube uploads go through a queue that respects the project quota ({n} per day): beyond that, they go out after midnight Pacific Time.",
+    "instagramNote": "A professional (Business or Creator) account is required. At most 100 posts per 24 h.",
+    "planLimit": "Your plan allows {n, plural, =0 {no connected accounts} one {# connected account} other {# connected accounts}}.",
+    "connected": "{platform} account connected.",
+    "errors": {
+      "unavailable": "This platform is not available.",
+      "plan_limit": "Your plan's account limit is reached.",
+      "state": "The connection expired or was not started from this session. Please start again.",
+      "denied": "Connection cancelled.",
+      "connect_failed": "The connection failed. Please try again.",
+      "not_eligible": "This account cannot post through the API (a professional account or a channel is required)."
+    },
+    "planUnlimited": "Unlimited social accounts on your plan."
+  },
+  "schedule": {
+    "title": "Publish or schedule",
+    "accounts": "Accounts",
+    "noAccounts": "Connect a social account to publish.",
+    "manage": "Manage accounts",
+    "caption": "Caption",
+    "captionCount": "{n} characters",
+    "when": "Date and time",
+    "slots": "Free slots",
+    "slotsNote": "Slots with nothing scheduled on these accounts. No suggestions based on your stats yet.",
+    "youtubePrivacy": "YouTube visibility",
+    "privacy": {
+      "public": "Public",
+      "unlisted": "Unlisted",
+      "private": "Private"
+    },
+    "tiktokDraft": "TikTok: the video will land in your TikTok inbox, to finish in the app.",
+    "submit": "Schedule",
+    "submitNow": "Publish now",
+    "done": "{n, plural, =0 {Already scheduled.} one {# post scheduled.} other {# posts scheduled.}}",
+    "seeCalendar": "Open the calendar",
+    "creditLabel": "Credit:",
+    "aiLabel": "AI-generated content",
+    "upgrade": "Automatic publishing is included from the Starter plan.",
+    "errors": {
+      "plan_no_autopublish": "Your plan does not include automatic publishing.",
+      "not_rendered": "Render the clip first.",
+      "account_unavailable": "One of the accounts is no longer connected.",
+      "caption_too_long": "The caption is too long for one of the platforms.",
+      "date_invalid": "Invalid date."
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "week": "Week",
+    "month": "Month",
+    "prev": "Previous",
+    "next": "Next",
+    "today": "Today",
+    "empty": "No posts in this period.",
+    "dragHelp": "Drag a post onto another day to move it (the time is kept), or open it to change the date with the keyboard.",
+    "status": {
+      "scheduled": "Scheduled",
+      "publishing": "Publishing",
+      "published": "Published",
+      "failed": "Failed",
+      "draft_sent": "TikTok draft sent",
+      "cancelled": "Cancelled"
+    },
+    "save": "Save",
+    "cancelPost": "Cancel post",
+    "retry": "Try again",
+    "view": "View post",
+    "draftNote": "Sent to the TikTok inbox: open the notification in the app to publish.",
+    "errors": {
+      "not_editable": "This post can no longer be changed.",
+      "date_invalid": "Invalid date."
+    },
+    "postError": {
+      "uncertain_state": "The upload may have gone through: check the platform before trying again.",
+      "account_disconnected": "Account disconnected: reconnect it, then try again.",
+      "quota_wait": "Waiting for the platform quota.",
+      "platform_timeout": "The platform did not confirm in time: check the platform.",
+      "not_rendered": "The clip render cannot be found.",
+      "other": "Refused by the platform: {detail}"
     }
   }
 }

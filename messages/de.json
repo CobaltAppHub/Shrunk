@@ -140,6 +140,10 @@
     "creditsReturned": {
       "subject": "Credits zurückgebucht",
       "body": "Ein Rendering konnte nicht abgeschlossen werden. Die reservierten Credits wurden deinem Guthaben gutgeschrieben."
+    },
+    "accountDisconnected": {
+      "subject": "{platform}-Konto getrennt",
+      "body": "Das Konto {account} ({platform}) ist nicht mehr autorisiert. Darauf geplante Beiträge werden erst veröffentlicht, wenn du es neu verbindest: Social-Media-Konten › Neu verbinden."
     }
   },
   "newProject": {
@@ -267,6 +271,107 @@
       "trim_too_short": "Ein Clip muss mindestens 5 Sekunden lang sein.",
       "trim_too_long": "Ein Clip darf höchstens 120 Sekunden lang sein.",
       "not_found": "Clip nicht gefunden."
+    }
+  },
+  "accounts": {
+    "title": "Social-Media-Konten",
+    "platforms": {
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "instagram": "Instagram"
+    },
+    "connect": "{platform} verbinden",
+    "reconnect": "Neu verbinden",
+    "disconnect": "Trennen",
+    "status": {
+      "connected": "Verbunden",
+      "expired": "Getrennt: neu verbinden nötig",
+      "revoked": "Entfernt"
+    },
+    "expires": "Zugriff gültig bis {date}",
+    "lastError": "Letzter Fehler: {error}",
+    "none": "Noch kein Konto verbunden.",
+    "unavailable": "In dieser Umgebung nicht verfügbar: {list}.",
+    "tiktokDraft": "Solange TikTok die App nicht geprüft hat, landet jedes Video im TikTok-Posteingang des Kontos: Öffne die Benachrichtigung in der App, um die Veröffentlichung abzuschließen. Höchstens 5 ausstehende Uploads pro 24 Std.",
+    "youtubeQuota": "YouTube-Uploads laufen über eine Warteschlange, die das Projektkontingent einhält ({n} pro Tag): Darüber hinaus gehen sie nach Mitternacht (pazifische Zeit) raus.",
+    "instagramNote": "Ein professionelles Konto (Business oder Creator) ist erforderlich. Höchstens 100 Beiträge pro 24 Std.",
+    "planLimit": "Dein Tarif erlaubt {n, plural, =0 {kein verbundenes Konto} one {# verbundenes Konto} other {# verbundene Konten}}.",
+    "connected": "{platform}-Konto verbunden.",
+    "errors": {
+      "unavailable": "Diese Plattform ist nicht verfügbar.",
+      "plan_limit": "Das Kontolimit deines Tarifs ist erreicht.",
+      "state": "Die Verbindung ist abgelaufen oder wurde nicht in dieser Sitzung gestartet. Bitte neu beginnen.",
+      "denied": "Verbindung abgebrochen.",
+      "connect_failed": "Die Verbindung ist fehlgeschlagen. Bitte erneut versuchen.",
+      "not_eligible": "Dieses Konto kann nicht über die API veröffentlichen (professionelles Konto oder Kanal erforderlich)."
+    },
+    "planUnlimited": "Unbegrenzte Social-Media-Konten in deinem Tarif."
+  },
+  "schedule": {
+    "title": "Veröffentlichen oder planen",
+    "accounts": "Konten",
+    "noAccounts": "Verbinde ein Social-Media-Konto, um zu veröffentlichen.",
+    "manage": "Konten verwalten",
+    "caption": "Beschreibung",
+    "captionCount": "{n} Zeichen",
+    "when": "Datum und Uhrzeit",
+    "slots": "Freie Zeitfenster",
+    "slotsNote": "Zeitfenster ohne geplante Beiträge auf diesen Konten. Noch keine Vorschläge auf Basis deiner Statistiken.",
+    "youtubePrivacy": "Sichtbarkeit auf YouTube",
+    "privacy": {
+      "public": "Öffentlich",
+      "unlisted": "Nicht gelistet",
+      "private": "Privat"
+    },
+    "tiktokDraft": "TikTok: Das Video landet in deinem TikTok-Posteingang und wird in der App fertiggestellt.",
+    "submit": "Planen",
+    "submitNow": "Jetzt veröffentlichen",
+    "done": "{n, plural, =0 {Bereits geplant.} one {# Beitrag geplant.} other {# Beiträge geplant.}}",
+    "seeCalendar": "Kalender öffnen",
+    "creditLabel": "Quelle:",
+    "aiLabel": "KI-generierter Inhalt",
+    "upgrade": "Automatisches Veröffentlichen ist ab dem Starter-Tarif enthalten.",
+    "errors": {
+      "plan_no_autopublish": "Dein Tarif enthält kein automatisches Veröffentlichen.",
+      "not_rendered": "Rendere zuerst den Clip.",
+      "account_unavailable": "Eines der Konten ist nicht mehr verbunden.",
+      "caption_too_long": "Die Beschreibung ist für eine der Plattformen zu lang.",
+      "date_invalid": "Ungültiges Datum."
+    }
+  },
+  "calendar": {
+    "title": "Kalender",
+    "week": "Woche",
+    "month": "Monat",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "today": "Heute",
+    "empty": "Keine Beiträge in diesem Zeitraum.",
+    "dragHelp": "Ziehe einen Beitrag auf einen anderen Tag, um ihn zu verschieben (die Uhrzeit bleibt), oder öffne ihn, um das Datum per Tastatur zu ändern.",
+    "status": {
+      "scheduled": "Geplant",
+      "publishing": "Wird veröffentlicht",
+      "published": "Veröffentlicht",
+      "failed": "Fehlgeschlagen",
+      "draft_sent": "TikTok-Entwurf gesendet",
+      "cancelled": "Abgesagt"
+    },
+    "save": "Speichern",
+    "cancelPost": "Beitrag absagen",
+    "retry": "Erneut versuchen",
+    "view": "Beitrag ansehen",
+    "draftNote": "An den TikTok-Posteingang gesendet: Öffne die Benachrichtigung in der App, um zu veröffentlichen.",
+    "errors": {
+      "not_editable": "Dieser Beitrag kann nicht mehr geändert werden.",
+      "date_invalid": "Ungültiges Datum."
+    },
+    "postError": {
+      "uncertain_state": "Der Upload ist möglicherweise angekommen: Prüfe die Plattform, bevor du es erneut versuchst.",
+      "account_disconnected": "Konto getrennt: Verbinde es neu und versuche es erneut.",
+      "quota_wait": "Wartet auf das Kontingent der Plattform.",
+      "platform_timeout": "Die Plattform hat nicht rechtzeitig bestätigt: Prüfe die Plattform.",
+      "not_rendered": "Das Rendering des Clips wurde nicht gefunden.",
+      "other": "Von der Plattform abgelehnt: {detail}"
     }
   }
 }
