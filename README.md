@@ -54,6 +54,10 @@ Le navigateur envoie le fichier directement sur R2 (URL signée PUT, 4 Go max). 
 
 Voir `.env.example`. Validées au démarrage par Zod (`src/lib/env.ts`). Les connecteurs optionnels sans clés sont masqués dans l'interface : aucun faux import n'est simulé.
 
+## Test de bout en bout et rapports
+
+`pnpm e2e:preflight` puis `pnpm e2e` : voir [docs/E2E.md](docs/E2E.md). Chaque exécution écrit `reports/e2e/latest.md`. Chaque session de travail laisse un rapport dans `reports/sessions/` (règles pour les agents dans [AGENTS.md](AGENTS.md)).
+
 ## Sources
 
 Voir [docs/SOURCES.md](docs/SOURCES.md) : matrice, conditions vérifiées, dépendance bloquante pour YouTube.

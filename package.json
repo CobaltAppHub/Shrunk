@@ -12,7 +12,10 @@
     "test": "vitest run",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "inngest:dev": "npx inngest-cli@latest dev -u http://localhost:3000/api/inngest"
+    "inngest:dev": "npx inngest-cli@latest dev -u http://localhost:3000/api/inngest",
+    "db:seed": "tsx scripts/seed.ts",
+    "e2e": "tsx scripts/e2e.ts",
+    "e2e:preflight": "tsx scripts/e2e.ts --preflight"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.1.0",
@@ -49,6 +52,7 @@
     "eslint-config-next": "15.5.28",
     "postcss": "^8.5.31",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
   }
