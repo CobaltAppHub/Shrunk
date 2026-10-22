@@ -4,8 +4,9 @@ Instructions for coding agents (Codex and others). The product spec and decision
 
 ## Start here
 
-1. Read the latest session handoff: the newest file in `reports/sessions/`.
-2. Read the latest E2E result: `reports/e2e/latest.md`. Its "Pour Codex" section lists open failures and the files to check for each.
+1. Read `HANDOFF.md`: current state, what is verified and what is not, next tasks in order.
+2. Read the latest session report: the newest file in `reports/sessions/`.
+3. Read the latest E2E result: `reports/e2e/latest.md`. Its "Pour Codex" section lists open failures and the files to check for each.
 
 ## Commands
 
