@@ -10,6 +10,7 @@ export const env = new Proxy({} as Env, {
   get(_target, property: string | symbol) {
     if (typeof property !== "string" || !(property in envSchema.shape)) return undefined;
     const key = property as EnvKey;
-    return envSchema.shape[key].parse(process.env[key]);
+    const result = envSchema.shape[key].safeParse(process.env[key]);
+    return result.success ? result.data : undefined;
   },
 });
