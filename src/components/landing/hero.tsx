@@ -26,7 +26,7 @@ export async function Hero({ locale }: { locale: string }) {
       <p className="text-sm text-muted">{t("hero.reassurance")}</p>
       <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
         <a href="#pricing" className="rounded-sm underline underline-offset-4">{t("hero.seePricing")}</a>
-        <Link href="/new?tab=upload" className="rounded-sm underline underline-offset-4">{t("hero.uploadLink")}</Link>
+        <Link href="/new?tab=upload" prefetch={false} className="rounded-sm underline underline-offset-4">{t("hero.uploadLink")}</Link>
       </div>
       <div id="hero-help" className="flex max-w-xl flex-col gap-2 text-sm text-muted">
         <p>{t("hero.youtubeNote")}</p>

@@ -12,8 +12,8 @@ export async function PublicHeader({ withNav = true }: { withNav?: boolean }) {
       {withNav && (
         <nav aria-label={t("navLabel")} className="flex items-center gap-5 text-sm">
           <a href="#pricing" className="rounded-sm underline-offset-4 hover:underline">{nav("pricing")}</a>
-          <Link href="/sign-in" className="rounded-sm underline-offset-4 hover:underline">{nav("signIn")}</Link>
-          <Link href="/studio" className="rounded-sm underline-offset-4 hover:underline">{studio("nav.studio")}</Link>
+          <Link href="/sign-in" prefetch={false} className="rounded-sm underline-offset-4 hover:underline">{nav("signIn")}</Link>
+          <Link href="/studio" prefetch={false} className="rounded-sm underline-offset-4 hover:underline">{studio("nav.studio")}</Link>
         </nav>
       )}
     </header>

@@ -49,7 +49,7 @@ export function Pricing() {
                 {plan.maxHeight === 1080 && !plan.watermark && <li>{t("hd")}</li>}
               </ul>
               <p className="text-sm text-muted">{t("videos", { videos: hourVideosPerMonth(id), clips: CLIPS_PER_EXAMPLE_VIDEO })}</p>
-              <Link href="/new" className={`${ctaClass} mt-auto`}>{trial("cta")}</Link>
+              <Link href="/new" prefetch={false} className={`${ctaClass} mt-auto`}>{trial("cta")}</Link>
             </li>
           );
         })}

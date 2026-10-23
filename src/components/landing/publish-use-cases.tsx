@@ -32,7 +32,7 @@ export async function UseCases() {
           </li>
         ))}
       </ul>
-      <Link href="/new" className={`${ctaClass} w-full sm:w-fit`}>{hero("cta")}</Link>
+      <Link href="/new" prefetch={false} className={`${ctaClass} w-full sm:w-fit`}>{hero("cta")}</Link>
     </section>
   );
 }
