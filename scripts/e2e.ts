@@ -3,6 +3,10 @@
 //   pnpm e2e:preflight    services and configuration only, nothing paid is called
 // Writes reports/e2e/<timestamp>.md + .json and reports/e2e/latest.md on every run, pass or fail.
 import { randomUUID } from "node:crypto";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
+import { e2eOptions } from "./e2e-options";
+import type { Transcript } from "@/lib/clip-selection";
 import { readFileSync } from "node:fs";
 import { envSchema } from "@/lib/env-schema";
 import { Report, errorText } from "./report";
@@ -10,7 +14,6 @@ import { DEMO, seedDemo } from "./seed";
 
 try { process.loadEnvFile(".env.local"); } catch { /* env from the shell / CI secrets */ }
 const preflightOnly = process.argv.includes("--preflight");
-const timeoutMin = Number(process.argv.find((a) => a.startsWith("--timeout="))?.split("=")[1] ?? 30);
 const report = new Report(preflightOnly ? "preflight" : "full");
 
 const FILES = {
@@ -26,9 +29,18 @@ const FILES = {
   select: ["src/lib/clip-selection.ts", "src/inngest/analyze.ts"],
   preview: ["worker/media.py", "worker/app.py", "src/inngest/analyze.ts"],
   security: ["src/sources/safe-fetch.ts"],
+  render: ["src/lib/renders.ts", "src/inngest/render.ts", "scripts/e2e-render.ts", "worker/render.py"],
+  publish: ["scripts/e2e-publish.ts", "src/lib/posts.ts", "src/inngest/publish.ts", "src/publish/youtube.ts"],
 };
 
 async function main() {
+  const { timeoutMin, youtubeAccountId } = e2eOptions(process.argv.slice(2));
+  report.facts["YouTube privé demandé"] = !!youtubeAccountId;
+  if (!youtubeAccountId) report.add({ id: "youtube-disabled", section: "flow", title: "Publication YouTube privée", status: "skip", optional: true, detail: "désactivée ; activer avec --publish-youtube=<UUID du compte de test>" });
+  const ffprobeOk = await report.run({ id: "ffprobe", section: "preflight", title: "ffprobe disponible pour vérifier le vrai rendu", files: FILES.render }, async () => {
+    try { await promisify(execFile)(process.env.FFPROBE_PATH || "ffprobe", ["-version"], { timeout: 10_000 }); }
+    catch { throw new Error("Installer ffmpeg ou définir FFPROBE_PATH ; aucun rendu payant ne sera lancé sans ce contrôle"); }
+  });
   // ── 1. Configuration ───────────────────────────────────────────────────────
   const parsed = envSchema.safeParse(process.env);
   report.add({
@@ -143,7 +155,7 @@ async function main() {
   const storage = await import("@/lib/storage");
 
   if (preflightOnly) return skipRest("mode préflight");
-  const ready = [dbOk, r2Ok, llmOk, workerOk, appOk, demoOk].every((s) => s === "pass") && inngestOk && !local;
+  const ready = [dbOk, r2Ok, llmOk, workerOk, appOk, demoOk, ffprobeOk].every((s) => s === "pass") && inngestOk && !local;
   if (!ready) return skipRest("préflight en échec : le parcours payant n'est pas lancé");
 
   // ── 4. Full flow ───────────────────────────────────────────────────────────
@@ -151,6 +163,13 @@ async function main() {
   const { eq } = await import("drizzle-orm");
   const { startLinkImport } = await import("@/lib/imports");
   const actor = await seedDemo(db);
+  if (youtubeAccountId) {
+    const { testYoutubeAccount } = await import("./e2e-publish");
+    const accountReady = await report.run({ id: "youtube-account", section: "preflight", title: "Compte YouTube de test connecté dans l'espace E2E", files: FILES.publish }, async () => {
+      await testYoutubeAccount(actor, youtubeAccountId);
+    });
+    if (accountReady !== "pass") return skipRest("compte YouTube indisponible : aucun parcours payant lancé");
+  }
   const key = randomUUID();
   const input = { url: DEMO.url, rightsBasis: "licensed" as const, licenseReference: DEMO.license, creditLine: DEMO.credit, attested: true as const, idempotencyKey: key };
 
@@ -222,11 +241,24 @@ async function main() {
   const costs = await db.select({ type: schema.jobs.type, key: schema.jobs.idempotencyKey, cost: schema.jobs.costUsd, status: schema.jobs.status })
     .from(schema.jobs).where(eq(schema.jobs.refId, asset!.id));
   for (const j of costs) report.facts[`Job ${j.key}`] = `${j.status}, coût ${j.cost ?? "inconnu"} $`;
-  report.facts["Crédits de rendu consommés"] = "0 (import, analyse et aperçus sont gratuits)";
+  report.facts["Crédits de rendu consommés"] = "non mesurés (aucun rendu livré vérifié)";
+  const best = [...list].sort((a, b) => b.score - a.score)[0];
+  if (project!.status !== "ready" || bad.length || !best) return skipRest("aucun extrait valide d'un projet prêt pour le rendu");
+  const { renderBestClip } = await import("./e2e-render");
+  const words = (asset!.transcript as Transcript).segments.flatMap((segment) => segment.words);
+  const renderedClipId = await renderBestClip(report, actor, best, timeoutMin, words);
+  if (!renderedClipId) return skipRest("rendu non vérifié : publication non lancée");
+  if (youtubeAccountId) {
+    const { publishPrivateDemo } = await import("./e2e-publish");
+    await publishPrivateDemo(report, actor, renderedClipId, youtubeAccountId, timeoutMin);
+  }
 }
 
 function skipRest(reason: string) {
-  for (const [id, title] of [["start", "Import"], ["transcript", "Transcription"], ["clips", "Extraits"], ["previews", "Aperçus"]] as const) {
+  if (process.argv.some((a) => a.startsWith("--publish-youtube")) && !report.checks.some((c) => c.id === "youtube-private")) {
+    report.add({ id: "youtube-private", section: "flow", title: "Publication YouTube privée vérifiée", status: "skip", detail: reason, files: FILES.publish });
+  }
+  for (const [id, title] of [["start", "Import"], ["transcript", "Transcription"], ["clips", "Extraits"], ["previews", "Aperçus"], ["render-request", "Demande de rendu"], ["render-delivered", "Livraison et capture"], ["render-media", "Vérification du MP4"], ["render-replay", "Rejeu sans double débit"]] as const) {
     if (!report.checks.some((c) => c.id === id)) report.add({ id, section: "flow", title, status: "skip", detail: reason });
   }
 }

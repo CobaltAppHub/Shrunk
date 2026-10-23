@@ -25,7 +25,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <body className="min-h-dvh antialiased">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:p-3">{t("skip")}</a>
         <NextIntlClientProvider>
-          <main id="main" className="mx-auto w-full max-w-5xl px-4 py-10">{children}</main>
+          <div className="page-root">{children}</div>
         </NextIntlClientProvider>
       </body>
     </html>

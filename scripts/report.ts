@@ -13,6 +13,8 @@ export type Check = {
   detail?: string;
   /** Where to look when it fails: repo paths or doc anchors. */
   files?: string[];
+  /** A deliberately disabled optional extension does not make the core run incomplete. */
+  optional?: boolean;
 };
 
 export class Report {
@@ -42,7 +44,7 @@ export class Report {
 
   get verdict(): "PASS" | "FAIL" | "INCOMPLETE" {
     if (this.checks.some((c) => c.status === "fail")) return "FAIL";
-    if (this.mode === "preflight" || this.checks.some((c) => c.status === "skip")) return "INCOMPLETE";
+    if (this.mode === "preflight" || this.checks.some((c) => c.status === "skip" && !c.optional)) return "INCOMPLETE";
     return "PASS";
   }
 
@@ -77,7 +79,7 @@ export class Report {
 - Résultat : ${this.checks.filter((c) => c.status === "pass").length} OK, ${failed.length} échec(s), ${warned.length} avertissement(s), ${this.checks.filter((c) => c.status === "skip").length} non exécuté(s)
 
 ${section("preflight", "Préflight (services et configuration)")}
-${section("flow", "Parcours URL → import → transcription → extraits → aperçus")}
+${section("flow", "Parcours URL → import → transcription → extraits → aperçus → rendu ; YouTube privé en option")}
 ${section("security", "Contrôles de sécurité")}
 ## Mesures
 

@@ -5,3 +5,6 @@ node_modules
 *.tsbuildinfo
 next-env.d.ts
 worker/.venv
+work/
+__pycache__/
+*.pyc

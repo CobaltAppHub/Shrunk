@@ -1,4 +1,4 @@
-# HANDOFF — Shrunk, state as of 2026-10-23 (commit after `a45f467`)
+# HANDOFF — Shrunk, 2026-10-23 — reprise Codex depuis `2681f09` (changements non commités)
 
 You are taking over a Next.js 15 + Python SaaS that turns long videos into short clips. Read this file fully, then `AGENTS.md` (rules), then act. Everything below is checked against the repository, not assumed.
 
@@ -10,19 +10,27 @@ A user pastes a video link (or uploads a file), confirms they hold the rights, a
 
 | Milestone | State | Where |
 |---|---|---|
+| Design gaming / tech et Studio | intégré dans les composants Next.js ; aperçu sans session `/preview` | `src/components/`, `src/app/studio.css`, pages `/studio`, `/projects` |
 | J1: auth, Stripe, credit ledger, URL import core | done | `src/lib/{auth,credits,ledger,pricing,stripe*}.ts`, `src/sources/*` |
 | J2: Modal worker, Claude clip selection, New project screen, live progress | done | `worker/{app,media,transcribe}.py`, `src/lib/clip-selection.ts`, `src/inngest/analyze.ts` |
 | J2 bis: scenes, faces, audio peaks → crop track | done | `worker/vision.py` |
 | J3 core: editor + paid 9:16 render | done | `worker/render.py`, `src/lib/edit-state.ts`, `src/inngest/render.ts`, `src/app/[locale]/(app)/projects/[id]/clips/[clipId]/*` |
 | J3 rest: visual timeline, B-roll, emoji, brand kits, licensed music library | **todo** | — |
+| Harness rendu HD + YouTube privé explicite | implémenté, testé localement ; aucun run réel | `src/lib/renders.ts`, `scripts/e2e-{render,publish,media,options}.ts` |
 | J4: publishing + calendar | done | `src/publish/*`, `src/inngest/publish.ts`, `src/lib/posts.ts`, pages `accounts`, `calendar` |
 | J5: faceless mode (script → TTS → Veo behind `VideoGenProvider` → assembly), C2PA + AI label | **todo** | — |
 | J6: post metrics (every 6 h for 7 days, then daily), statistics page, teams (Agency = 5 seats), multiple brand kits | **todo** | — |
-| Not built yet from the spec | **todo** | Dashboard, Onboarding (3 questions), Help centre, Status page, legal pages (mentions légales, CGV, confidentialité, cookies), cookie banner (no tracking before consent), PostHog/Sentry, GDPR data export/deletion, public DSA report form (`content_reports` table exists, no UI), landing sections beyond the hero, Vimeo/Drive/Dropbox connectors (`docs/SOURCES.md`) |
+| Not built yet from the spec | **todo** | Onboarding (3 questions), Help centre, Status page, legal pages (mentions légales, CGV, confidentialité, cookies), cookie banner (no tracking before consent), PostHog/Sentry, GDPR data export/deletion, public DSA report form (`content_reports` table exists, no UI), landing sections beyond the hero, Vimeo/Drive/Dropbox connectors (`docs/SOURCES.md`) |
 
 ## 3. What has been verified, and what has not
 
-**Verified locally (all green at the last commit):**
+**Reprise Codex du 23/10/2026 (copie de travail, aucun secret transféré) :**
+- `pnpm lint`, `pnpm typecheck`, `pnpm test` : **128/128** (24 nouveaux tests). Le test DNS existant échoue dans le réseau restreint (`ENOTFOUND`) et passe avec accès réseau autorisé, sans modifier son assertion.
+- Build Next.js 15 réussi avec des variables factices limitées au processus ; elles ne donnent accès à aucun service. Le compilateur natif Windows nécessite une exécution hors du bac à sable sur cette machine.
+- `probeFile` + `assertHdRender` testés sur un vrai fichier local synthétique de 2 s : MP4, 1080×1920, 30 i/s et audio. Ce fichier est un fixture technique, pas une vidéo utilisateur ni un résultat du worker.
+- Aucun E2E réel lancé ; `reports/e2e/latest.md` inchangé. Voir `reports/sessions/2026-10-23-e2e-render-publish.md`.
+
+**Vérifications historiques de Claude (non relancées pour le worker dans cette reprise) :**
 - `pnpm lint`, `pnpm typecheck`, `pnpm test` (104 tests; Stripe idempotency, the ledger and scheduling run on a real Postgres via PGlite) and `next build`.
 - `python -I worker/test_media.py` and `python -I worker/test_render.py` (real ffmpeg: 1080x1920, 30 fps, -14 LUFS ±1.5, moving crop, captions burnt in, watermark).
 - `pnpm e2e:preflight`: the SSRF blocks and the demo-video check pass for real.
@@ -34,7 +42,7 @@ A user pastes a video link (or uploads a file), confirms they hold the rights, a
 
 ## 4. Unblocking the real run (owner actions)
 
-1. Fill `.env.local` (template `.env.example`, account list in `docs/E2E.md`). It is git-ignored and already holds 4 generated secrets plus `INNGEST_DEV=1`.
+1. Fill `.env.local` (template `.env.example`, account list in `docs/E2E.md`). It is git-ignored. The original Claude workspace held generated secrets; this source delivery intentionally includes no `.env.local`.
 2. Run `pnpm db:migrate && pnpm db:seed`. There are 4 migrations (`drizzle/0000`–`0003`).
 3. `modal secret create shrunk-worker ...`, then `modal deploy worker/app.py`. `WORKER_TOKEN` and `CALLBACK_SECRET` must match `.env.local`.
 4. Make `APP_URL` public: tunnel or Vercel preview. Then start `pnpm dev` and the Inngest dev server.
@@ -43,11 +51,10 @@ A user pastes a video link (or uploads a file), confirms they hold the rights, a
 
 ## 5. Recommended next tasks, in order
 
-1. **Extend `scripts/e2e.ts`** with:
-   - (a) a paid render of the best clip. Move the core of `requestRender` from `clips/[clipId]/actions.ts` into `src/lib/`, the same way `startLinkImport` was moved. Assert capture, a 1080x1920 MP4 and no double charge on replay.
-   - (b) a guarded private YouTube upload.
-2. **Spec screens not yet built**, legal and compliance first, because they block the launch: legal pages, cookie banner, GDPR export/delete, DSA form, then Dashboard and Onboarding.
-3. **J6**, then **J5**, then the rest of J3. J5 must add the C2PA label and set `scheduled_posts.ai_generated`. The caption builder already supports an AI label.
+1. **Exécuter le parcours réel après configuration** : `pnpm e2e:preflight`, puis `pnpm e2e` (inclut maintenant le rendu payant, contrôle du MP4 et rejeu sans double débit). Les services et les secrets restent à fournir ; aucun succès réel n'est revendiqué.
+2. **Valider YouTube sur une chaîne de test** : `pnpm e2e --publish-youtube=<UUID>`. Compte connecté dans l'espace du seed, confidentialité privée imposée, vérification par lecture de l'API Google ; voir `docs/E2E.md`. Sans option, aucun appel YouTube.
+3. **Écrans de lancement** : pages légales, consentement cookies, export/suppression RGPD, formulaire DSA, puis Onboarding. Les coordonnées légales de l'éditeur doivent être fournies ; ne pas les inventer.
+4. **J6**, puis **J5**, puis la suite de J3. J5 doit ajouter C2PA et renseigner `scheduled_posts.ai_generated`.
 
 ## 6. Known risks and deliberate simplifications (grep `ponytail:`)
 
@@ -62,6 +69,8 @@ A user pastes a video link (or uploads a file), confirms they hold the rights, a
 - **Import, analysis and quotas**: import and analysis quotas are first guesses (`src/lib/pricing.ts`). `COSTS.md` contains formulas but no measured cost yet.
 - **Unverified by fetch**: the Instagram OAuth endpoints. MediaPipe is pinned to 1.1.1 (Tasks API; there is no `mp.solutions`).
 
+- **Envoi du rendu** : le job et la réservation sont atomiques ; après un échec d’envoi Inngest, le même identifiant de requête renvoie le même événement. Il n’y a pas encore d’outbox durable : sans rejeu, un job peut rester en attente.
+
 ## 7. Environment gotchas (Windows dev machine)
 
 - The repository path is very long, so `.npmrc` uses `node-linker=hoisted`, and `package.json` pins a single esbuild version.
@@ -74,3 +83,9 @@ A user pastes a video link (or uploads a file), confirms they hold the rights, a
 Sessions in chronological order: `reports/sessions/2026-10-22-e2e-harness.md` → `2026-10-22-e2e-first-run.md` → `2026-10-23-e2e-config-fixes.md` → `2026-10-23-j2bis-j3-editor-render.md` → `2026-10-23-j4-publishing.md`.
 
 **After your own session**, write `reports/sessions/<date>-<topic>.md` with these sections: what changed, verified, not verified, risks, next. Update sections 2, 3 and 5 of this file.
+
+Dernière reprise : `reports/sessions/2026-10-23-e2e-render-publish.md`.
+
+Reprise design du 23/10 : interface intégrée, 129 tests réussis, voir `reports/sessions/2026-10-23-neon-ui-integration.md`. Le dépôt d’origine reçoit les changements de la reprise, sans modification de `.env.local`.
+
+Logo du propriétaire intégré dans la navigation et l'accueil : `public/brand/shrunk-logo.png`, composant partagé `Brand`. Voir `reports/sessions/2026-10-23-logo-integration.md`.

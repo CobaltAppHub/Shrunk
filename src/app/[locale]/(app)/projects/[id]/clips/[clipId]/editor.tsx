@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
+import { Icon } from "@/components/icon";
 import type { EditState } from "@/lib/edit-state";
 import { requestRender, saveEdit } from "./actions";
 import { ScheduleForm, type PublishInfo } from "./schedule";
 
 type RenderInfo = { status: string; lastFailed: boolean; downloadUrl: string | null; cost: number; balance: number; hd: boolean };
-type Props = { clipId: string; bounds: { start: number; end: number }; initial: EditState; previewUrl: string | null; hasVision: boolean; canEdit: boolean; render: RenderInfo; publish: PublishInfo };
+type Props = { previewMode?: boolean; clipId: string; bounds: { start: number; end: number }; initial: EditState; previewUrl: string | null; hasVision: boolean; canEdit: boolean; render: RenderInfo; publish: PublishInfo };
 type Word = EditState["captions"]["words"][number];
 
 const field = "min-h-11 rounded-[var(--r-sm)] border border-border bg-surface px-3";
@@ -28,7 +29,7 @@ function lineAt(words: Word[], t: number): { line: Word[]; active: number } | nu
   return line ? { line, active: line.findIndex((w, i) => t >= w.s && t < (line[i + 1]?.s ?? line.at(-1)!.e + 0.01)) } : null;
 }
 
-export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit, render, publish }: Props) {
+export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit, render, publish, previewMode = false }: Props) {
   const t = useTranslations("editor");
   const router = useRouter();
   const [state, setState] = useState<EditState>(initial);
@@ -41,14 +42,14 @@ export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit
   // Autosave 800 ms after the last change; the server re-validates everything.
   useEffect(() => {
     if (first.current) { first.current = false; return; }
-    if (!canEdit) return;
+    if (!canEdit || previewMode) return;
     setSave("saving");
     const id = setTimeout(async () => {
       const r = await saveEdit(clipId, state);
       setSave(r.ok ? "saved" : { error: t(`errors.${r.error}`) });
     }, 800);
     return () => clearTimeout(id);
-  }, [state, clipId, canEdit, t]);
+  }, [state, clipId, canEdit, t, previewMode]);
 
   const set = <K extends keyof EditState>(k: K, v: EditState[K]) => setState((s) => ({ ...s, [k]: v }));
   const style = state.captions.style;
@@ -62,14 +63,17 @@ export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit
   const pos = { bottom: "bottom-[18%]", center: "top-1/2 -translate-y-1/2", top: "top-[10%]" }[style.position];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-      <section className="flex flex-col gap-3">
-        <div className="relative overflow-hidden rounded-[var(--r-md)] bg-black">
+    <div className="clip-editor">
+      <section className="editor-preview-column">
+        <div className="editor-stage">
+        <div className={previewMode ? "editor-demo-portrait" : "editor-video-wrap"}>
+          {previewMode && <><span>{t("designPreview")}</span><p className="editor-demo-caption" style={{ color: style.color, fontSize: `${style.size / 3.5}px`, fontWeight: style.preset === "clean" ? 500 : 850 }}>{t("demoLine")}<br /><em style={{ color: style.preset === "karaoke" ? "#132009" : style.highlight, background: style.preset === "karaoke" ? style.highlight : undefined }}>{t("demoAccent")}</em></p></>}
+          {!previewMode && !previewUrl && <div className="editor-placeholder"><div><Icon name="film" /><p>{t("previewMissing")}</p></div></div>}
           {previewUrl && (
             <video ref={video} src={previewUrl} controls preload="metadata" className="aspect-video w-full"
               onTimeUpdate={(e) => setNow(bounds.start + e.currentTarget.currentTime)} />
           )}
-          {cue && (
+          {!previewMode && cue && (
             <p aria-hidden className={`pointer-events-none absolute inset-x-4 text-center font-black ${pos}`}
               style={{ color: style.color, fontSize: `${style.size / 4}px`, textShadow: "0 0 4px #000, 0 0 4px #000" }}>
               {cue.line.map((w, i) => (
@@ -80,12 +84,14 @@ export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit
             </p>
           )}
         </div>
-        <p className="text-sm text-muted">{t("previewNote")}</p>
-        <RenderPanel clipId={clipId} info={render} canEdit={canEdit} saving={save === "saving"} onRendered={() => router.refresh()} />
-        {render.downloadUrl && canEdit && <ScheduleForm clipId={clipId} info={publish} />}
+        </div>
+        <p className="editor-preview-note">{previewMode ? t("designPreviewNote") : t("previewNote")}</p>
+        <div className="editor-presets" role="group" aria-label={t("presetLabel")}>{(["bold", "clean", "karaoke"] as const).map((preset) => <button key={preset} type="button" disabled={!canEdit} aria-pressed={style.preset === preset} onClick={() => setStyle({ preset })}>{t(`preset.${preset}`)}</button>)}</div>
+        <RenderPanel previewMode={previewMode} clipId={clipId} info={render} canEdit={canEdit} saving={save === "saving"} onRendered={() => router.refresh()} />
+        {!previewMode && render.downloadUrl && canEdit && <ScheduleForm clipId={clipId} info={publish} />}
       </section>
 
-      <fieldset disabled={!canEdit} className="flex flex-col gap-8">
+      <fieldset disabled={!canEdit} className="editor-settings">
         <p role="status" aria-live="polite" className="text-sm text-muted">
           {save === "saving" ? t("saving") : save === "saved" ? t("saved") : typeof save === "object" ? t("saveError", { reason: save.error }) : ""}
         </p>
@@ -174,7 +180,7 @@ export function Editor({ clipId, bounds, initial, previewUrl, hasVision, canEdit
   );
 }
 
-function RenderPanel({ clipId, info, canEdit, saving, onRendered }: { clipId: string; info: RenderInfo; canEdit: boolean; saving: boolean; onRendered: () => void }) {
+function RenderPanel({ clipId, info, canEdit, saving, onRendered, previewMode = false }: { previewMode?: boolean; clipId: string; info: RenderInfo; canEdit: boolean; saving: boolean; onRendered: () => void }) {
   const t = useTranslations("editor");
   const [key, setKey] = useState(() => crypto.randomUUID()); // one render per click sequence
   const [error, setError] = useState<string | null>(null);
@@ -183,12 +189,13 @@ function RenderPanel({ clipId, info, canEdit, saving, onRendered }: { clipId: st
 
   // While a render runs, refresh the server page every 5 s to pick up the real status.
   useEffect(() => {
-    if (!rendering) return;
+    if (!rendering || previewMode) return;
     const id = setInterval(onRendered, 5000);
     return () => clearInterval(id);
-  }, [rendering, onRendered]);
+  }, [rendering, onRendered, previewMode]);
 
   const go = () => start(async () => {
+    if (previewMode) return;
     setError(null);
     const r = await requestRender(clipId, key);
     if (!r.ok) setError(t(`errors.${r.error}`));
@@ -200,7 +207,7 @@ function RenderPanel({ clipId, info, canEdit, saving, onRendered }: { clipId: st
     <section aria-labelledby="render-title" className="flex flex-col gap-2 rounded-[var(--r-md)] bg-surface p-4">
       <h2 id="render-title" className="font-semibold">{t("renderTitle")}</h2>
       <p className="text-sm">{t("cost", { quality: t(info.hd ? "qualityHd" : "qualitySd"), credits: info.cost })}</p>
-      <p className="text-sm text-muted">{t("balance", { credits: info.balance })}</p>
+      <p className="text-sm text-muted">{previewMode ? t("previewNoCharge") : t("balance", { credits: info.balance })}</p>
       {info.lastFailed && !rendering && <p className="text-sm text-danger">{t("failed")}</p>}
       <div role="status" aria-live="polite" className="text-sm">
         {rendering ? t("rendering") : info.downloadUrl ? t("rendered") : null}
@@ -208,11 +215,11 @@ function RenderPanel({ clipId, info, canEdit, saving, onRendered }: { clipId: st
       </div>
       <div className="flex flex-wrap gap-3">
         {canEdit && (
-          <button type="button" disabled={pending || rendering || saving || info.balance < info.cost} onClick={go}
+          <button type="button" disabled={previewMode || pending || rendering || saving || info.balance < info.cost} onClick={go}
             className="min-h-11 rounded-[var(--r-full)] bg-primary px-5 font-semibold text-on-primary disabled:opacity-50">{t("renderBtn")}</button>
         )}
         {info.downloadUrl && <a href={info.downloadUrl} className="min-h-11 rounded-[var(--r-full)] border border-border px-5 py-2.5">{t("download")}</a>}
-        {info.balance < info.cost && <Link href="/billing" className="self-center text-sm underline">{t("buyCredits")}</Link>}
+        {!previewMode && info.balance < info.cost && <Link href="/billing" className="self-center text-sm underline">{t("buyCredits")}</Link>}
       </div>
     </section>
   );

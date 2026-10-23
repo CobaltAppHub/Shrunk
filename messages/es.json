@@ -271,7 +271,13 @@
       "trim_too_short": "El clip debe durar al menos 5 segundos.",
       "trim_too_long": "El clip no puede superar los 120 segundos.",
       "not_found": "Clip no encontrado."
-    }
+    },
+    "designPreview": "Ilustración de demostración",
+    "demoLine": "TU PRÓXIMO",
+    "demoAccent": "GRAN MOMENTO.",
+    "designPreviewNote": "Ilustración de diseño, sin vídeo. Los ajustes son locales y no se guardan.",
+    "previewMissing": "Vista previa de vídeo no disponible para este clip.",
+    "previewNoCharge": "Solo vista previa: no se cobrarán créditos."
   },
   "accounts": {
     "title": "Cuentas sociales",
@@ -372,6 +378,74 @@
       "platform_timeout": "La plataforma no ha confirmado a tiempo: compruébalo en la plataforma.",
       "not_rendered": "No se encuentra el renderizado del clip.",
       "other": "Rechazada por la plataforma: {detail}"
+    }
+  },
+  "studio": {
+    "home": "Inicio de Shrunk",
+    "workspace": "Espacio de trabajo",
+    "navigation": "Navegación principal",
+    "motto": "Crea. Recorta. Repite.",
+    "promo": "Contenido largo. Momentos que perduran.",
+    "plans": "Explorar planes",
+    "previewMode": "Vista previa del diseño",
+    "editor": "Editor",
+    "credits": "{n, plural, one {# crédito} other {# créditos}}",
+    "language": "Idioma",
+    "previewBanner": "Vista previa integrada · sin acceso a datos; importaciones y renders desactivados.",
+    "signIn": "Iniciar sesión",
+    "eyebrow": "Tu siguiente nivel creativo",
+    "headline": "Menos edición.",
+    "headlineAccent": "Más impacto.",
+    "description": "Convierte tus vídeos largos en clips cortos. Tu contenido. Tu estilo. Tu estudio.",
+    "importTitle": "Todo empieza con un vídeo.",
+    "urlLabel": "Enlace a un vídeo que te pertenece",
+    "urlPlaceholder": "Pega el enlace de tu vídeo…",
+    "createClips": "Crear mis clips",
+    "upload": "o subir un archivo",
+    "rights": "Solo vídeos cuyos derechos posees",
+    "recentProjects": "Tus proyectos recientes",
+    "allProjects": "Todos los proyectos",
+    "clipCount": "{n, plural, =0 {Sin clips} one {# clip} other {# clips}}",
+    "emptyTitle": "Tu primer gran momento empieza aquí.",
+    "emptyDescription": "Importa un vídeo para ver aquí tus proyectos y clips.",
+    "firstProject": "Crear mi primer proyecto",
+    "workflowTitle": "Un estudio. Todo tu proceso.",
+    "workflowNote": "De la idea a la publicación",
+    "footer": "Contenido largo. Momentos que perduran.",
+    "previewWorkspace": "Mi estudio",
+    "previewNavigation": "Pantallas de vista previa",
+    "previewProtectedTitle": "Inicia sesión para usar esta función.",
+    "previewProtectedDescription": "La vista previa comparte el diseño de la aplicación. Las importaciones, cuentas sociales y pagos requieren una sesión.",
+    "nav": {
+      "studio": "Estudio",
+      "projects": "Mis proyectos",
+      "new": "Nuevo proyecto",
+      "calendar": "Calendario",
+      "accounts": "Cuentas sociales",
+      "billing": "Facturación"
+    },
+    "status": {
+      "draft": "Borrador",
+      "importing": "Importando",
+      "analyzing": "Analizando",
+      "ready": "Listo",
+      "rendering": "Renderizando",
+      "done": "Terminado",
+      "failed": "Error"
+    },
+    "workflow": {
+      "import": {
+        "title": "Importa tu contenido",
+        "description": "Añade un vídeo y confirma tus derechos."
+      },
+      "edit": {
+        "title": "Encuentra tu estilo",
+        "description": "Ajusta el recorte, el encuadre y los subtítulos."
+      },
+      "publish": {
+        "title": "Publica a tu ritmo",
+        "description": "Conecta tus cuentas y programa tus clips."
+      }
     }
   }
 }

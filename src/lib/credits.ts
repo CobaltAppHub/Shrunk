@@ -31,7 +31,7 @@ export function grant(db: Db | Tx, p: { workspaceId: string; amount: number; key
 }
 
 /** Hold credits for a job. Idempotent per job; throws if the balance is too low. */
-export async function reserve(db: Db, p: { workspaceId: string; jobId: string; cost: number; reason: string }) {
+export async function reserve(db: Db | Tx, p: { workspaceId: string; jobId: string; cost: number; reason: string }) {
   if (p.cost <= 0) return;
   await db.transaction(async (tx) => {
     await lockWorkspace(tx, p.workspaceId);

@@ -13,7 +13,7 @@ pnpm inngest:dev
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
-`pnpm test` : 74 tests (barème, ledger, idempotence Stripe sur un vrai Postgres embarqué via PGlite, SSRF, détection de contenu, fenêtrage/score/dédoublonnage des extraits, signature du worker compatible Python). Ils ne nécessitent ni réseau ni base de données, sauf le test DNS anti-rebinding qui résout `127.0.0.1.nip.io`.
+`pnpm test` : 129 tests (barème, ledger, idempotence Stripe, demandes de rendu et programmation sur Postgres embarqué via PGlite, isolation des espaces, contrôles E2E/YouTube privé, SSRF, détection de contenu, sélection des extraits et signature du worker). Aucun service payant ni base externe requis ; le test DNS anti-rebinding résout `127.0.0.1.nip.io` et nécessite le réseau.
 
 ## Configuration Stripe (une fois)
 
@@ -72,3 +72,9 @@ Voir [docs/SOURCES.md](docs/SOURCES.md) : matrice, conditions vérifiées, dépe
 - [ ] J3 reste : timeline visuelle, B-roll, emoji, brand kits (Pro), bibliothèque musicale sous licence (le rendu sait déjà atténuer une musique sous la voix)
 - [x] **J4** : publication TikTok (brouillon dans l'inbox tant que l'app n'est pas auditée, puis directe), YouTube (file qui respecte le quota du projet), Instagram Reels ; interface `PublisherProvider` ; OAuth PKCE ; jetons chiffrés et rafraîchis ; statut des comptes + alerte e-mail ; calendrier semaine/mois avec glisser-déposer et alternative clavier ; créneaux libres. Voir [docs/PUBLISHING.md](docs/PUBLISHING.md)
 - [ ] J5 faceless + Veo · J6 analytics (dont métriques des publications) + équipes
+
+## Interface et aperçu
+
+Le design gaming / tech est intégré aux composants Next.js. Après connexion, `/studio` affiche les vrais projets de l’espace et `/projects` leur liste. La coque commune entoure l’import, l’éditeur, le calendrier, les comptes et la facturation.
+
+`/preview` utilise les mêmes composants sans session : Studio vide, éditeur avec illustration explicitement signalée et calendrier sans publications. Les imports, sauvegardes, rendus et actions externes y sont désactivés. Une configuration d’environnement reste requise pour démarrer le serveur, mais l’aperçu ne lit pas de données client.

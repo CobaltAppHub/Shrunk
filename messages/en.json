@@ -271,7 +271,13 @@
       "trim_too_short": "A clip must be at least 5 seconds long.",
       "trim_too_long": "A clip cannot be longer than 120 seconds.",
       "not_found": "Clip not found."
-    }
+    },
+    "designPreview": "Demo illustration",
+    "demoLine": "YOUR NEXT",
+    "demoAccent": "GREAT MOMENT.",
+    "designPreviewNote": "Design illustration, no video. Settings stay local and are not saved.",
+    "previewMissing": "Video preview unavailable for this clip.",
+    "previewNoCharge": "Preview only: no credits will be charged."
   },
   "accounts": {
     "title": "Social accounts",
@@ -372,6 +378,74 @@
       "platform_timeout": "The platform did not confirm in time: check the platform.",
       "not_rendered": "The clip render cannot be found.",
       "other": "Refused by the platform: {detail}"
+    }
+  },
+  "studio": {
+    "home": "Shrunk home",
+    "workspace": "Workspace",
+    "navigation": "Main navigation",
+    "motto": "Create. Clip. Repeat.",
+    "promo": "Long-form content. Moments that stay.",
+    "plans": "Explore plans",
+    "previewMode": "Design preview",
+    "editor": "Editor",
+    "credits": "{n, plural, one {# credit} other {# credits}}",
+    "language": "Language",
+    "previewBanner": "Integrated preview · no data access; imports and renders are disabled.",
+    "signIn": "Sign in",
+    "eyebrow": "Your next level of creation",
+    "headline": "Less editing.",
+    "headlineAccent": "More impact.",
+    "description": "Turn your long videos into short clips. Your content. Your style. Your studio.",
+    "importTitle": "It all starts with a video.",
+    "urlLabel": "Link to a video you own",
+    "urlPlaceholder": "Paste your video link…",
+    "createClips": "Create my clips",
+    "upload": "or upload a file",
+    "rights": "Only videos you have the rights to use",
+    "recentProjects": "Your recent projects",
+    "allProjects": "All projects",
+    "clipCount": "{n, plural, =0 {No clips} one {# clip} other {# clips}}",
+    "emptyTitle": "Your first great moment starts here.",
+    "emptyDescription": "Import a video to see your projects and clips here.",
+    "firstProject": "Create my first project",
+    "workflowTitle": "One studio. Your whole workflow.",
+    "workflowNote": "From idea to publication",
+    "footer": "Long-form content. Moments that stay.",
+    "previewWorkspace": "My studio",
+    "previewNavigation": "Preview screens",
+    "previewProtectedTitle": "Sign in to use this feature.",
+    "previewProtectedDescription": "This preview shares the app’s design. Imports, social accounts and payments require a session.",
+    "nav": {
+      "studio": "Studio",
+      "projects": "My projects",
+      "new": "New project",
+      "calendar": "Calendar",
+      "accounts": "Social accounts",
+      "billing": "Billing"
+    },
+    "status": {
+      "draft": "Draft",
+      "importing": "Importing",
+      "analyzing": "Analyzing",
+      "ready": "Ready",
+      "rendering": "Rendering",
+      "done": "Done",
+      "failed": "Failed"
+    },
+    "workflow": {
+      "import": {
+        "title": "Import your content",
+        "description": "Add a video and confirm your rights."
+      },
+      "edit": {
+        "title": "Find your style",
+        "description": "Refine your trim, framing and captions."
+      },
+      "publish": {
+        "title": "Publish at your pace",
+        "description": "Connect your accounts and schedule your clips."
+      }
     }
   }
 }

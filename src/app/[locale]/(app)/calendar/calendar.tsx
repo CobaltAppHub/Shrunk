@@ -16,7 +16,7 @@ const dayKey = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padSt
 const toLocalInput = (d: Date) => new Date(d.getTime() - d.getTimezoneOffset() * 60_000).toISOString().slice(0, 16);
 const KNOWN_ERRORS = ["uncertain_state", "account_disconnected", "quota_wait", "platform_timeout", "not_rendered"] as const;
 
-export function Calendar({ view, anchor, posts, canEdit }: { view: "week" | "month"; anchor: string; posts: Post[]; canEdit: boolean }) {
+export function Calendar({ view, anchor, posts, canEdit, preview = false }: { preview?: boolean; view: "week" | "month"; anchor: string; posts: Post[]; canEdit: boolean }) {
   const t = useTranslations("calendar");
   const f = useFormatter();
   const router = useRouter();
@@ -28,10 +28,11 @@ export function Calendar({ view, anchor, posts, canEdit }: { view: "week" | "mon
     const k = dayKey(new Date(p.at));
     byDay.set(k, [...(byDay.get(k) ?? []), p]);
   }
+  const calendarHref = (v: string, d?: string) => `${preview ? "/preview?screen=calendar&" : "/calendar?"}view=${v}${d ? `&d=${d}` : ""}`;
   const shift = (n: number) => {
     const [y, m, d] = anchor.split("-").map(Number) as [number, number, number];
     const next = view === "week" ? new Date(y, m - 1, d + 7 * n) : new Date(y, m - 1 + n, 1);
-    return `/calendar?view=${view}&d=${dayKey(next)}`;
+    return calendarHref(view, dayKey(next));
   };
   const run = (fn: () => Promise<{ ok: boolean; error?: string }>) => start(async () => {
     const r = await fn();
@@ -49,11 +50,11 @@ export function Calendar({ view, anchor, posts, canEdit }: { view: "week" | "mon
     <div className="flex flex-col gap-4">
       <nav className="flex flex-wrap items-center gap-2" aria-label={t("title")}>
         <Link href={shift(-1)} className="min-h-11 rounded-[var(--r-full)] border border-border px-4 py-2.5">{t("prev")}</Link>
-        <Link href={`/calendar?view=${view}`} className="min-h-11 rounded-[var(--r-full)] border border-border px-4 py-2.5">{t("today")}</Link>
+        <Link href={calendarHref(view)} className="min-h-11 rounded-[var(--r-full)] border border-border px-4 py-2.5">{t("today")}</Link>
         <Link href={shift(1)} className="min-h-11 rounded-[var(--r-full)] border border-border px-4 py-2.5">{t("next")}</Link>
         <span className="mx-2 font-semibold">{f.dateTime(days[view === "week" ? 0 : 7]!, view === "week" ? { day: "numeric", month: "long", year: "numeric" } : { month: "long", year: "numeric" })}</span>
-        <Link href={`/calendar?view=week&d=${anchor}`} aria-current={view === "week" ? "page" : undefined} className="min-h-11 rounded-[var(--r-full)] px-4 py-2.5 aria-[current=page]:bg-surface">{t("week")}</Link>
-        <Link href={`/calendar?view=month&d=${anchor}`} aria-current={view === "month" ? "page" : undefined} className="min-h-11 rounded-[var(--r-full)] px-4 py-2.5 aria-[current=page]:bg-surface">{t("month")}</Link>
+        <Link href={calendarHref("week", anchor)} aria-current={view === "week" ? "page" : undefined} className="min-h-11 rounded-[var(--r-full)] px-4 py-2.5 aria-[current=page]:bg-surface">{t("week")}</Link>
+        <Link href={calendarHref("month", anchor)} aria-current={view === "month" ? "page" : undefined} className="min-h-11 rounded-[var(--r-full)] px-4 py-2.5 aria-[current=page]:bg-surface">{t("month")}</Link>
       </nav>
       {canEdit && <p className="text-sm text-muted">{t("dragHelp")}</p>}
       <p role="status" aria-live="polite" className="text-sm text-danger">{msg}</p>

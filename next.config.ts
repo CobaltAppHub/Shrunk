@@ -4,6 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 export default withNextIntl({
+  outputFileTracingRoot: process.cwd(),
   // R2 objects are served through signed URLs, never through next/image.
   poweredByHeader: false,
 } satisfies NextConfig);

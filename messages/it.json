@@ -271,7 +271,13 @@
       "trim_too_short": "La clip deve durare almeno 5 secondi.",
       "trim_too_long": "La clip non può superare i 120 secondi.",
       "not_found": "Clip non trovata."
-    }
+    },
+    "designPreview": "Illustrazione dimostrativa",
+    "demoLine": "IL TUO PROSSIMO",
+    "demoAccent": "GRANDE MOMENTO.",
+    "designPreviewNote": "Illustrazione di design, senza video. Le impostazioni restano locali e non vengono salvate.",
+    "previewMissing": "Anteprima video non disponibile per questa clip.",
+    "previewNoCharge": "Solo anteprima: non verranno addebitati crediti."
   },
   "accounts": {
     "title": "Account social",
@@ -372,6 +378,74 @@
       "platform_timeout": "La piattaforma non ha confermato in tempo: controlla sulla piattaforma.",
       "not_rendered": "Il rendering della clip non è stato trovato.",
       "other": "Rifiutata dalla piattaforma: {detail}"
+    }
+  },
+  "studio": {
+    "home": "Home di Shrunk",
+    "workspace": "Spazio di lavoro",
+    "navigation": "Navigazione principale",
+    "motto": "Crea. Ritaglia. Ripeti.",
+    "promo": "Contenuti lunghi. Momenti che restano.",
+    "plans": "Esplora i piani",
+    "previewMode": "Anteprima del design",
+    "editor": "Editor",
+    "credits": "{n, plural, one {# credito} other {# crediti}}",
+    "language": "Lingua",
+    "previewBanner": "Anteprima integrata · nessun accesso ai dati; importazioni e rendering disattivati.",
+    "signIn": "Accedi",
+    "eyebrow": "Il tuo prossimo livello creativo",
+    "headline": "Meno montaggio.",
+    "headlineAccent": "Più impatto.",
+    "description": "Trasforma i tuoi video lunghi in clip brevi. I tuoi contenuti. Il tuo stile. Il tuo studio.",
+    "importTitle": "Tutto inizia con un video.",
+    "urlLabel": "Link a un video di tua proprietà",
+    "urlPlaceholder": "Incolla il link del tuo video…",
+    "createClips": "Crea le mie clip",
+    "upload": "o carica un file",
+    "rights": "Solo video di cui possiedi i diritti",
+    "recentProjects": "I tuoi progetti recenti",
+    "allProjects": "Tutti i progetti",
+    "clipCount": "{n, plural, =0 {Nessuna clip} one {# clip} other {# clip}}",
+    "emptyTitle": "Il tuo primo grande momento inizia qui.",
+    "emptyDescription": "Importa un video per vedere qui i tuoi progetti e le clip.",
+    "firstProject": "Crea il mio primo progetto",
+    "workflowTitle": "Uno studio. Tutto il tuo flusso.",
+    "workflowNote": "Dall’idea alla pubblicazione",
+    "footer": "Contenuti lunghi. Momenti che restano.",
+    "previewWorkspace": "Il mio studio",
+    "previewNavigation": "Schermate di anteprima",
+    "previewProtectedTitle": "Accedi per usare questa funzione.",
+    "previewProtectedDescription": "L’anteprima condivide il design dell’applicazione. Importazioni, account social e pagamenti richiedono una sessione.",
+    "nav": {
+      "studio": "Studio",
+      "projects": "I miei progetti",
+      "new": "Nuovo progetto",
+      "calendar": "Calendario",
+      "accounts": "Account social",
+      "billing": "Fatturazione"
+    },
+    "status": {
+      "draft": "Bozza",
+      "importing": "Importazione",
+      "analyzing": "Analisi",
+      "ready": "Pronto",
+      "rendering": "Rendering",
+      "done": "Completato",
+      "failed": "Errore"
+    },
+    "workflow": {
+      "import": {
+        "title": "Importa i tuoi contenuti",
+        "description": "Aggiungi un video e conferma i tuoi diritti."
+      },
+      "edit": {
+        "title": "Trova il tuo stile",
+        "description": "Perfeziona taglio, inquadratura e sottotitoli."
+      },
+      "publish": {
+        "title": "Pubblica al tuo ritmo",
+        "description": "Collega i tuoi account e programma le clip."
+      }
     }
   }
 }
