@@ -12,13 +12,131 @@
   "landing": {
     "tagline": "Your content, multiplied. Honestly.",
     "title": "One long video. Several clips ready to share.",
-    "linkLabel": "Paste your video link",
-    "linkPlaceholder": "https://…/my-video.mp4",
-    "continue": "Continue",
-    "orUpload": "Or upload a file",
-    "worksWith": "Works with: direct links to a video file{platforms, select, none {} other {, {platforms}}}.",
-    "youtubeNote": "YouTube link? We show the video's details, then you upload the file: YouTube does not allow third-party services to download it.",
-    "rightsNote": "A public video is not automatically free to reuse. You confirm your rights before every import."
+    "navLabel": "Main navigation",
+    "hero": {
+      "linkLabel": "Paste your video link or drop a file",
+      "linkPlaceholder": "Paste your video link or drop a file",
+      "cta": "Try 7 days for €1",
+      "reassurance": "7 days for €1 · cancel in one click · prices include VAT",
+      "seePricing": "See pricing",
+      "uploadLink": "Upload a file",
+      "youtubeNote": "YouTube link? We show the video card, then you upload the file.",
+      "worksWith": "Works with: direct links to a video file{platforms, select, none {} other {, {platforms}}}.",
+      "rightsNote": "A public video is not automatically free to reuse. You confirm your rights before every import."
+    },
+    "media": {
+      "label": "Real example · NASA video, public domain",
+      "aria": "NASA demonstration video, in the public domain, used as an example",
+      "fallback": "Your browser cannot play this video.",
+      "credit": "Credit: {credit}"
+    },
+    "scoring": {
+      "title": "How a clip is scored",
+      "intro": "Each clip gets a score out of 100: five criteria, each rated from 0 to 20.",
+      "exampleLabel": "Real example",
+      "exampleEmpty": "Real demo coming soon",
+      "exampleEmptyBody": "The scored example will appear here once Shrunk has produced the clips of the NASA video.",
+      "outOf": "{points}/{max}",
+      "aiNote": "The first four criteria are rated by an AI model, with a one-sentence explanation. Duration is computed without AI.",
+      "criteria": {
+        "hook": {
+          "name": "Hook (0-3 s)",
+          "desc": "Do the first three seconds make people stop scrolling?"
+        },
+        "standalone": {
+          "name": "Standalone message",
+          "desc": "Can the passage be understood without the rest of the video?"
+        },
+        "emotion": {
+          "name": "Emotion",
+          "desc": "Humour, surprise, tension, conviction or a strong opinion."
+        },
+        "pace": {
+          "name": "Pace",
+          "desc": "Dense talk, no long pauses or filler."
+        },
+        "duration": {
+          "name": "Ideal length (20-45 s)",
+          "desc": "Computed without AI: 20 points between 20 and 45 s, then decreasing to 0 points at 10 s and at 90 s."
+        }
+      }
+    },
+    "stay": {
+      "title": "From a long video to the moments that stay",
+      "intro": "A public-domain NASA video, analysed by Shrunk.",
+      "timelineAlt": "Timeline of the source video ({duration}) with {count} clips found",
+      "sourceLabel": "Source video · {duration}",
+      "clipsLabel": "{count} clips",
+      "placeholderTitle": "Real demo coming soon",
+      "placeholderBody": "The clips of this {duration} video will appear here with their titles, time ranges and score breakdown once they have been produced.",
+      "range": "{start} – {end}",
+      "score": "Score {score}/100"
+    },
+    "publish": {
+      "title": "Publish from Shrunk",
+      "summary": "YouTube and Instagram publish directly; TikTok sends the video to your TikTok inbox so you finish in the app."
+    },
+    "useCases": {
+      "title": "Who it is for",
+      "podcasters": {
+        "name": "Podcasters",
+        "line": "Paste the episode, keep the passages that stand alone, captioned in 9:16."
+      },
+      "founders": {
+        "name": "Founders",
+        "line": "Turn your product demo or talk into short clips to post on your accounts."
+      },
+      "agencies": {
+        "name": "Agencies",
+        "line": "{seats} seats and unlimited social accounts with the Agency plan."
+      }
+    },
+    "calculator": {
+      "title": "Which plan fits your volume?",
+      "intro": "Enter what you plan to process each month. The calculation uses the plan quotas and the credit price list.",
+      "minutesLabel": "Minutes of source video per month",
+      "clipsLabel": "Clips rendered per month",
+      "resultTitle": "Minimum plan: {plan}",
+      "resultPrice": "{price} / month incl. VAT",
+      "needs": "You need {credits} render credits ({cost, plural, one {# credit} other {# credits}} per HD render) and {minutes} analysis minutes per month.",
+      "none": "This volume exceeds the quotas of the current plans.",
+      "importsNote": "Monthly imports are also limited: {limits}.",
+      "extrasNote": "Options (voice-over, faceless video…) use extra credits."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "intro": "Every plan includes the 7-day trial for €1.",
+      "legend": "Billing",
+      "monthly": "Monthly",
+      "yearly": "Yearly (−{percent}%)",
+      "perMonth": "{price} / month incl. VAT",
+      "perYear": "{price} / year incl. VAT",
+      "credits": "{n} credits per month",
+      "accounts": "{n, plural, one {# social account} other {# social accounts}}",
+      "accountsUnlimited": "Unlimited social accounts",
+      "hd": "1080p without watermark",
+      "videos": "≈ {videos} one-hour videos with {clips} clips each"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": "Do I need editing skills?",
+      "a1": "No. Shrunk suggests the clips, reframes them to 9:16 and generates captions from the transcript. The editor lets you adjust trimming, captions and framing, but it is never required.",
+      "q2": "Which platforms?",
+      "a2": "YouTube and Instagram publish directly; TikTok sends the video to your TikTok inbox so you finish in the app. Instagram requires a professional account (Business or Creator). To import, drop a video file or paste a direct link to a file.",
+      "q3": "Can I cancel?",
+      "a3": "Yes, in one click from Billing. The subscription stops at the end of the current period, with no further charge. You can also request a refund within {days} days of subscribing if fewer than {max} renders were delivered.",
+      "q4": "What happens after the 7 days?",
+      "a4": "Unless you cancel before the 7 days end, the subscription to the plan you chose continues at the displayed price, VAT included, until you cancel. You can cancel at any time from Billing.",
+      "q5": "Do my videos stay private?",
+      "a5": "Your videos and clips are stored in your account's workspace and are only reachable through time-limited signed links. Nothing is published without your action. To suggest clips, your video's transcript is analysed by an AI model (Anthropic).",
+      "q6": "Can I use another creator's video?",
+      "a6": "Only if you have the right to: the author's permission or a licence that allows it. A public video is not automatically free to reuse. You confirm your rights before every import.",
+      "q7": "Why no direct YouTube link?",
+      "a7": "YouTube does not allow third-party services to download its videos. When you paste a YouTube link, we show the video card, then you upload the matching file."
+    },
+    "sticky": {
+      "label": "Shrunk trial"
+    }
   },
   "auth": {
     "title": "Sign in",
@@ -447,5 +565,20 @@
         "description": "Connect your accounts and schedule your clips."
       }
     }
+  },
+  "legal": {
+    "company": "[Company name to be completed]",
+    "copyright": "© {year} {company}",
+    "footerLabel": "Legal information",
+    "titles": {
+      "mentions": "Legal notice",
+      "cgv": "Terms of sale",
+      "privacy": "Privacy policy",
+      "cookies": "Cookies",
+      "report": "Report content"
+    },
+    "draftTitle": "Page being written",
+    "draftBody": "This content will be published soon.",
+    "back": "Back to home"
   }
 }

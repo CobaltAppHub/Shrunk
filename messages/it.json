@@ -12,13 +12,131 @@
   "landing": {
     "tagline": "I tuoi contenuti, moltiplicati. Onestamente.",
     "title": "Un video lungo. Più clip pronte da condividere.",
-    "linkLabel": "Incolla il link del tuo video",
-    "linkPlaceholder": "https://…/il-mio-video.mp4",
-    "continue": "Continua",
-    "orUpload": "Oppure carica un file",
-    "worksWith": "Funziona con: link diretti a un file video{platforms, select, none {} other {, {platforms}}}.",
-    "youtubeNote": "Link di YouTube? Mostriamo la scheda del video, poi carichi tu il file: YouTube non consente a servizi terzi di scaricarlo.",
-    "rightsNote": "Un video pubblico non è automaticamente libero da riutilizzare. Confermi i tuoi diritti prima di ogni importazione."
+    "navLabel": "Navigazione principale",
+    "hero": {
+      "linkLabel": "Incolla il link del tuo video o trascina un file",
+      "linkPlaceholder": "Incolla il link del tuo video o trascina un file",
+      "cta": "Prova 7 giorni a 1 €",
+      "reassurance": "7 giorni a 1 € · disdici con un clic · prezzi IVA inclusa",
+      "seePricing": "Vedi i prezzi",
+      "uploadLink": "Carica un file",
+      "youtubeNote": "Link YouTube? Mostriamo la scheda, poi carichi il file.",
+      "worksWith": "Funziona con: link diretti a un file video{platforms, select, none {} other {, {platforms}}}.",
+      "rightsNote": "Un video pubblico non è automaticamente libero da riutilizzare. Confermi i tuoi diritti prima di ogni importazione."
+    },
+    "media": {
+      "label": "Esempio reale · video NASA, pubblico dominio",
+      "aria": "Video dimostrativo della NASA, di pubblico dominio, usato come esempio",
+      "fallback": "Il tuo browser non può riprodurre questo video.",
+      "credit": "Crediti: {credit}"
+    },
+    "scoring": {
+      "title": "Come viene valutata una clip",
+      "intro": "Ogni clip riceve un punteggio su 100: cinque criteri, ciascuno da 0 a 20.",
+      "exampleLabel": "Esempio reale",
+      "exampleEmpty": "Demo reale in arrivo",
+      "exampleEmptyBody": "L'esempio con i punteggi apparirà qui appena Shrunk avrà prodotto le clip del video NASA.",
+      "outOf": "{points}/{max}",
+      "aiNote": "I primi quattro criteri sono valutati da un modello di IA, con una frase di spiegazione. La durata è calcolata senza IA.",
+      "criteria": {
+        "hook": {
+          "name": "Aggancio (0-3 s)",
+          "desc": "I primi tre secondi fanno smettere di scorrere?"
+        },
+        "standalone": {
+          "name": "Autonomia del discorso",
+          "desc": "Il passaggio si capisce senza il resto del video?"
+        },
+        "emotion": {
+          "name": "Emozione",
+          "desc": "Umorismo, sorpresa, tensione, convinzione o opinione forte."
+        },
+        "pace": {
+          "name": "Ritmo",
+          "desc": "Discorso denso, senza lunghe pause né riempitivi."
+        },
+        "duration": {
+          "name": "Durata ideale (20-45 s)",
+          "desc": "Calcolata senza IA: 20 punti tra 20 e 45 s, poi in calo fino a 0 punti a 10 s e a 90 s."
+        }
+      }
+    },
+    "stay": {
+      "title": "Dal video lungo ai momenti che restano",
+      "intro": "Un video NASA di pubblico dominio, analizzato da Shrunk.",
+      "timelineAlt": "Cronologia del video originale ({duration}) con {count} clip individuate",
+      "sourceLabel": "Video originale · {duration}",
+      "clipsLabel": "{count} clip",
+      "placeholderTitle": "Demo reale in arrivo",
+      "placeholderBody": "Le clip di questo video di {duration} appariranno qui con titoli, intervalli di tempo e dettaglio dei punteggi appena saranno state prodotte.",
+      "range": "{start} – {end}",
+      "score": "Punteggio {score}/100"
+    },
+    "publish": {
+      "title": "Pubblicare da Shrunk",
+      "summary": "YouTube e Instagram pubblicano direttamente; TikTok invia il video nella casella di posta di TikTok per finire nell'app."
+    },
+    "useCases": {
+      "title": "Per chi",
+      "podcasters": {
+        "name": "Podcaster",
+        "line": "Incolla l'episodio, tieni i passaggi che si capiscono da soli, sottotitolati in 9:16."
+      },
+      "founders": {
+        "name": "Fondatori",
+        "line": "Trasforma la demo del prodotto o il tuo intervento in clip brevi da pubblicare sui tuoi account."
+      },
+      "agencies": {
+        "name": "Agenzie",
+        "line": "{seats} postazioni e account social illimitati con il piano Agenzia."
+      }
+    },
+    "calculator": {
+      "title": "Quale piano per il tuo volume?",
+      "intro": "Indica cosa prevedi di elaborare ogni mese. Il calcolo usa le quote dei piani e il listino in crediti.",
+      "minutesLabel": "Minuti di video originale al mese",
+      "clipsLabel": "Clip renderizzate al mese",
+      "resultTitle": "Piano minimo: {plan}",
+      "resultPrice": "{price} / mese IVA incl.",
+      "needs": "Servono {credits} crediti di rendering ({cost, plural, one {# credito} other {# crediti}} per rendering HD) e {minutes} minuti di analisi al mese.",
+      "none": "Questo volume supera le quote dei piani attuali.",
+      "importsNote": "Anche le importazioni mensili sono limitate: {limits}.",
+      "extrasNote": "Le opzioni (voce fuori campo, video senza volto…) consumano crediti aggiuntivi."
+    },
+    "pricing": {
+      "title": "Prezzi",
+      "intro": "Tutti i piani includono la prova di 7 giorni a 1 €.",
+      "legend": "Fatturazione",
+      "monthly": "Mensile",
+      "yearly": "Annuale (−{percent}%)",
+      "perMonth": "{price} / mese IVA incl.",
+      "perYear": "{price} / anno IVA incl.",
+      "credits": "{n} crediti al mese",
+      "accounts": "{n, plural, one {# account social} other {# account social}}",
+      "accountsUnlimited": "Account social illimitati",
+      "hd": "1080p senza watermark",
+      "videos": "≈ {videos} video di un'ora con {clips} clip ciascuno"
+    },
+    "faq": {
+      "title": "Domande frequenti",
+      "q1": "Bisogna saper montare?",
+      "a1": "No. Shrunk propone le clip, le ritaglia in 9:16 e genera i sottotitoli dalla trascrizione. L'editor permette di regolare il taglio, i sottotitoli e l'inquadratura, ma non è mai obbligatorio.",
+      "q2": "Quali piattaforme?",
+      "a2": "YouTube e Instagram pubblicano direttamente; TikTok invia il video nella casella di posta di TikTok per finire nell'app. Instagram richiede un account professionale (Business o Creator). Per importare, carica un file video o incolla un link diretto a un file.",
+      "q3": "Posso disdire?",
+      "a3": "Sì, con un clic da Fatturazione. L'abbonamento termina alla fine del periodo in corso, senza altri addebiti. Puoi anche chiedere un rimborso entro {days} giorni dalla sottoscrizione se sono stati consegnati meno di {max} rendering.",
+      "q4": "Cosa succede dopo i 7 giorni?",
+      "a4": "Se non disdici prima della fine dei 7 giorni, l'abbonamento al piano scelto continua al prezzo indicato, IVA inclusa, finché non disdici. Puoi disdire in qualsiasi momento da Fatturazione.",
+      "q5": "I miei video restano privati?",
+      "a5": "I tuoi video e le tue clip sono archiviati nello spazio di lavoro del tuo account e sono raggiungibili solo tramite link firmati a durata limitata. Nulla viene pubblicato senza una tua azione. Per proporre le clip, la trascrizione del tuo video è analizzata da un modello di IA (Anthropic).",
+      "q6": "Posso usare il video di un altro creator?",
+      "a6": "Solo se ne hai il diritto: permesso dell'autore o licenza che lo consente. Un video pubblico non è automaticamente libero da riutilizzare. Confermi i tuoi diritti prima di ogni importazione.",
+      "q7": "Perché niente link YouTube diretto?",
+      "a7": "YouTube non consente a servizi terzi di scaricare i suoi video. Quando incolli un link YouTube, mostriamo la scheda del video, poi carichi il file corrispondente."
+    },
+    "sticky": {
+      "label": "Prova Shrunk"
+    }
   },
   "auth": {
     "title": "Accedi",
@@ -447,5 +565,20 @@
         "description": "Collega i tuoi account e programma le clip."
       }
     }
+  },
+  "legal": {
+    "company": "[Ragione sociale da completare]",
+    "copyright": "© {year} {company}",
+    "footerLabel": "Informazioni legali",
+    "titles": {
+      "mentions": "Note legali",
+      "cgv": "Condizioni di vendita",
+      "privacy": "Informativa sulla privacy",
+      "cookies": "Cookie",
+      "report": "Segnala un contenuto"
+    },
+    "draftTitle": "Pagina in fase di redazione",
+    "draftBody": "Questo contenuto sarà pubblicato a breve.",
+    "back": "Torna alla home"
   }
 }
