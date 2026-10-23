@@ -21,7 +21,7 @@
       "seePricing": "See pricing",
       "uploadLink": "Upload a file",
       "youtubeNote": "YouTube link? We show the video card, then you upload the file.",
-      "worksWith": "Works with: direct links to a video file{platforms, select, none {} other {, {platforms}}}.",
+      "worksWith": "Works with: direct links to a video file.",
       "rightsNote": "A public video is not automatically free to reuse. You confirm your rights before every import."
     },
     "media": {

@@ -21,7 +21,7 @@
       "seePricing": "Ver precios",
       "uploadLink": "Subir un archivo",
       "youtubeNote": "¿Enlace de YouTube? Mostramos la ficha y luego subes el archivo.",
-      "worksWith": "Compatible con: enlaces directos a un archivo de vídeo{platforms, select, none {} other {, {platforms}}}.",
+      "worksWith": "Compatible con: enlaces directos a un archivo de vídeo.",
       "rightsNote": "Un vídeo público no es libre de reutilizar automáticamente. Confirmas tus derechos antes de cada importación."
     },
     "media": {

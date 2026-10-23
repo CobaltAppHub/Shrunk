@@ -21,7 +21,7 @@
       "seePricing": "Preise ansehen",
       "uploadLink": "Datei hochladen",
       "youtubeNote": "YouTube-Link? Wir zeigen die Videokarte, dann lädst du die Datei hoch.",
-      "worksWith": "Funktioniert mit: direkten Links zu einer Videodatei{platforms, select, none {} other {, {platforms}}}.",
+      "worksWith": "Funktioniert mit: direkten Links zu einer Videodatei.",
       "rightsNote": "Ein öffentliches Video ist nicht automatisch frei wiederverwendbar. Du bestätigst deine Rechte vor jedem Import."
     },
     "media": {

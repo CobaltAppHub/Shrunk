@@ -21,7 +21,7 @@
       "seePricing": "Voir les tarifs",
       "uploadLink": "Importer un fichier",
       "youtubeNote": "Lien YouTube ? On affiche la fiche, puis tu importes le fichier.",
-      "worksWith": "Fonctionne avec : liens directs vers un fichier vidéo{platforms, select, none {} other {, {platforms}}}.",
+      "worksWith": "Fonctionne avec : liens directs vers un fichier vidéo.",
       "rightsNote": "Une vidéo publique n'est pas automatiquement libre de réutilisation. Tu confirmes tes droits avant chaque import."
     },
     "media": {

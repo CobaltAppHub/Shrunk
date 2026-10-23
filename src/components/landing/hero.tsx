@@ -1,12 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { advertisedPlatforms } from "@/sources";
 import { DemoVideo } from "./demo-video";
 import { ctaClass } from "./styles";
 
 export async function Hero({ locale }: { locale: string }) {
   const t = await getTranslations("landing");
-  const platforms = advertisedPlatforms();
   return (
     <section id="hero" aria-labelledby="hero-title" className="flex flex-col items-center gap-6 pb-10 pt-12 text-center">
       <p className="text-sm font-medium text-primary">{t("tagline")}</p>
@@ -32,7 +30,7 @@ export async function Hero({ locale }: { locale: string }) {
       </div>
       <div id="hero-help" className="flex max-w-xl flex-col gap-2 text-sm text-muted">
         <p>{t("hero.youtubeNote")}</p>
-        <p>{t("hero.worksWith", { platforms: platforms.length ? platforms.join(", ") : "none" })}</p>
+        <p>{t("hero.worksWith")}</p>
         <p className="text-xs">{t("hero.rightsNote")}</p>
       </div>
       <DemoVideo />

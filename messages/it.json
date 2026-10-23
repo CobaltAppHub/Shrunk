@@ -21,7 +21,7 @@
       "seePricing": "Vedi i prezzi",
       "uploadLink": "Carica un file",
       "youtubeNote": "Link YouTube? Mostriamo la scheda, poi carichi il file.",
-      "worksWith": "Funziona con: link diretti a un file video{platforms, select, none {} other {, {platforms}}}.",
+      "worksWith": "Funziona con: link diretti a un file video.",
       "rightsNote": "Un video pubblico non è automaticamente libero da riutilizzare. Confermi i tuoi diritti prima di ogni importazione."
     },
     "media": {
