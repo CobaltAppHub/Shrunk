@@ -30,7 +30,7 @@ pip install modal && modal setup
 modal secret create shrunk-worker WORKER_TOKEN=... CALLBACK_SECRET=... CALLBACK_URL=https://<app>/api/worker/callback HF_TOKEN=...
 modal deploy worker/app.py      # → WORKER_URL = l'URL de la fonction `api`
 python -I worker/test_media.py  # vérif locale ffprobe / audio / aperçu (ffmpeg requis)
-pip install -r worker/requirements-dev.txt && python -I worker/test_render.py  # scènes, recadrage, sous-titres, rendu 9:16
+python -m pip install -r worker/requirements-dev.txt && python -I worker/test_render.py  # scènes, recadrage, sous-titres, rendu 9:16
 ```
 
 - Le sandbox ne reçoit **aucun identifiant de stockage ni de base** : seulement des URL R2 signées (lecture de la source, écriture des sorties) et le secret de callback. ffmpeg est limité aux protocoles `file,https,tls,tcp,crypto`.

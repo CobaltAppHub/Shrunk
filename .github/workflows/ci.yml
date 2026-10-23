@@ -13,5 +13,5 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: sudo apt-get install -y ffmpeg fonts-inter && python3 -I worker/test_media.py
-      - run: pip install -r worker/requirements-dev.txt && python3 -I worker/test_render.py
+      - run: python3 -m pip install -r worker/requirements-dev.txt && python3 -I worker/test_render.py
 # Preview deployments: connect the repo in Vercel (Git integration builds every PR).
