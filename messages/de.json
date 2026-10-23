@@ -10,15 +10,133 @@
     "skip": "Zum Inhalt springen"
   },
   "landing": {
-    "tagline": "Deine Inhalte, vervielfacht. Ehrlich.",
-    "title": "Ein langes Video. Mehrere Clips, bereit zum Teilen.",
-    "linkLabel": "Füge den Link zu deinem Video ein",
-    "linkPlaceholder": "https://…/mein-video.mp4",
-    "continue": "Weiter",
-    "orUpload": "Oder eine Datei hochladen",
-    "worksWith": "Funktioniert mit: direkten Links zu einer Videodatei{platforms, select, none {} other {, {platforms}}}.",
-    "youtubeNote": "YouTube-Link? Wir zeigen die Angaben zum Video, danach lädst du die Datei hoch: YouTube erlaubt Drittdiensten nicht, sie herunterzuladen.",
-    "rightsNote": "Ein öffentliches Video ist nicht automatisch frei wiederverwendbar. Du bestätigst deine Rechte vor jedem Import."
+    "tagline": "Dein Content, vervielfacht. Ehrlich.",
+    "title": "Ein langes Video. Mehrere Clips zum Teilen.",
+    "navLabel": "Hauptnavigation",
+    "hero": {
+      "linkLabel": "Füge den Link zu deinem Video ein oder lege eine Datei ab",
+      "linkPlaceholder": "Füge den Link zu deinem Video ein oder lege eine Datei ab",
+      "cta": "7 Tage für 1 € testen",
+      "reassurance": "7 Tage für 1 € · mit einem Klick kündbar · Preise inkl. MwSt.",
+      "seePricing": "Preise ansehen",
+      "uploadLink": "Datei hochladen",
+      "youtubeNote": "YouTube-Link? Wir zeigen die Videokarte, dann lädst du die Datei hoch.",
+      "worksWith": "Funktioniert mit: direkten Links zu einer Videodatei.",
+      "rightsNote": "Ein öffentliches Video ist nicht automatisch frei wiederverwendbar. Du bestätigst deine Rechte vor jedem Import."
+    },
+    "media": {
+      "label": "Echtes Beispiel · NASA-Video, gemeinfrei",
+      "aria": "Demonstrationsvideo der NASA, gemeinfrei, als Beispiel verwendet",
+      "fallback": "Dein Browser kann dieses Video nicht abspielen.",
+      "credit": "Quelle: {credit}"
+    },
+    "scoring": {
+      "title": "So wird ein Clip bewertet",
+      "intro": "Jeder Clip erhält eine Punktzahl von 100: fünf Kriterien, jeweils von 0 bis 20 bewertet.",
+      "exampleLabel": "Echtes Beispiel",
+      "exampleEmpty": "Echte Demo folgt bald",
+      "exampleEmptyBody": "Das Beispiel mit Punkten erscheint hier, sobald Shrunk die Clips des NASA-Videos erzeugt hat.",
+      "outOf": "{points}/{max}",
+      "aiNote": "Die ersten vier Kriterien bewertet ein KI-Modell mit einem erklärenden Satz. Die Länge wird ohne KI berechnet.",
+      "criteria": {
+        "hook": {
+          "name": "Hook (0-3 s)",
+          "desc": "Halten die ersten drei Sekunden vom Weiterscrollen ab?"
+        },
+        "standalone": {
+          "name": "Eigenständige Aussage",
+          "desc": "Ist die Passage ohne den Rest des Videos verständlich?"
+        },
+        "emotion": {
+          "name": "Emotion",
+          "desc": "Humor, Überraschung, Spannung, Überzeugung oder klare Meinung."
+        },
+        "pace": {
+          "name": "Tempo",
+          "desc": "Dichte Aussagen, keine langen Pausen oder Füllwörter."
+        },
+        "duration": {
+          "name": "Ideale Länge (20-45 s)",
+          "desc": "Ohne KI berechnet: 20 Punkte zwischen 20 und 45 s, danach abnehmend bis 0 Punkte bei 10 s und bei 90 s."
+        }
+      }
+    },
+    "stay": {
+      "title": "Vom langen Video zu den Momenten, die bleiben",
+      "intro": "Ein gemeinfreies NASA-Video, analysiert von Shrunk.",
+      "timelineAlt": "Zeitleiste des Quellvideos ({duration}) mit {count} gefundenen Clips",
+      "sourceLabel": "Quellvideo · {duration}",
+      "clipsLabel": "{count} Clips",
+      "placeholderTitle": "Echte Demo folgt bald",
+      "placeholderBody": "Die Clips dieses {duration} langen Videos erscheinen hier mit Titeln, Zeitbereichen und Punkteaufschlüsselung, sobald sie erzeugt wurden.",
+      "range": "{start} – {end}",
+      "score": "Score {score}/100"
+    },
+    "publish": {
+      "title": "Aus Shrunk veröffentlichen",
+      "summary": "YouTube und Instagram veröffentlichen direkt; TikTok sendet das Video in den TikTok-Posteingang, damit du es in der App abschließt."
+    },
+    "useCases": {
+      "title": "Für wen",
+      "podcasters": {
+        "name": "Podcaster",
+        "line": "Füge die Folge ein, behalte die Passagen, die für sich stehen, untertitelt in 9:16."
+      },
+      "founders": {
+        "name": "Gründer",
+        "line": "Mach aus deiner Produktdemo oder deinem Vortrag kurze Clips für deine Konten."
+      },
+      "agencies": {
+        "name": "Agenturen",
+        "line": "{seats} Plätze und unbegrenzte Social-Konten mit dem Agentur-Tarif."
+      }
+    },
+    "calculator": {
+      "title": "Welcher Tarif passt zu deinem Volumen?",
+      "intro": "Gib an, was du pro Monat verarbeiten willst. Die Berechnung nutzt die Kontingente der Tarife und die Credit-Preisliste.",
+      "minutesLabel": "Minuten Quellvideo pro Monat",
+      "clipsLabel": "Gerenderte Clips pro Monat",
+      "resultTitle": "Mindesttarif: {plan}",
+      "resultPrice": "{price} / Monat inkl. MwSt.",
+      "needs": "Du brauchst {credits} Render-Credits ({cost, plural, one {# Credit} other {# Credits}} pro HD-Render) und {minutes} Analyseminuten pro Monat.",
+      "none": "Dieses Volumen übersteigt die Kontingente der aktuellen Tarife.",
+      "importsNote": "Auch die monatlichen Importe sind begrenzt: {limits}.",
+      "extrasNote": "Optionen (Sprachausgabe, Video ohne Gesicht …) verbrauchen zusätzliche Credits."
+    },
+    "pricing": {
+      "title": "Preise",
+      "intro": "Alle Tarife enthalten die 7-Tage-Testphase für 1 €.",
+      "legend": "Abrechnung",
+      "monthly": "Monatlich",
+      "yearly": "Jährlich (−{percent} %)",
+      "perMonth": "{price} / Monat inkl. MwSt.",
+      "perYear": "{price} / Jahr inkl. MwSt.",
+      "credits": "{n} Credits pro Monat",
+      "accounts": "{n, plural, one {# Social-Konto} other {# Social-Konten}}",
+      "accountsUnlimited": "Unbegrenzte Social-Konten",
+      "hd": "1080p ohne Wasserzeichen",
+      "videos": "≈ {videos} einstündige Videos mit je {clips} Clips"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "q1": "Muss ich schneiden können?",
+      "a1": "Nein. Shrunk schlägt die Clips vor, schneidet sie auf 9:16 zu und erzeugt Untertitel aus dem Transkript. Im Editor kannst du Schnitt, Untertitel und Ausschnitt anpassen, das ist aber nie Pflicht.",
+      "q2": "Welche Plattformen?",
+      "a2": "YouTube und Instagram veröffentlichen direkt; TikTok sendet das Video in den TikTok-Posteingang, damit du es in der App abschließt. Instagram verlangt ein professionelles Konto (Business oder Creator). Zum Import legst du eine Videodatei ab oder fügst einen direkten Link zu einer Datei ein.",
+      "q3": "Kann ich kündigen?",
+      "a3": "Ja, mit einem Klick unter Abrechnung. Das Abo endet mit Ablauf des laufenden Zeitraums, ohne weitere Abbuchung. Innerhalb von {days} Tagen nach Abschluss kannst du außerdem eine Erstattung verlangen, wenn weniger als {max} Renders geliefert wurden.",
+      "q4": "Was passiert nach den 7 Tagen?",
+      "a4": "Wenn du nicht vor Ablauf der 7 Tage kündigst, läuft das Abo des gewählten Tarifs zum angezeigten Preis inkl. MwSt. weiter, bis du kündigst. Du kannst jederzeit unter Abrechnung kündigen.",
+      "q5": "Bleiben meine Videos privat?",
+      "a5": "Deine Videos und Clips liegen im Arbeitsbereich deines Kontos und sind nur über zeitlich begrenzte signierte Links erreichbar. Ohne dein Zutun wird nichts veröffentlicht. Um Clips vorzuschlagen, wird das Transkript deines Videos von einem KI-Modell (Anthropic) analysiert.",
+      "q6": "Kann ich das Video eines anderen Creators nutzen?",
+      "a6": "Nur wenn du das Recht dazu hast: Erlaubnis des Urhebers oder eine Lizenz, die es erlaubt. Ein öffentliches Video ist nicht automatisch frei wiederverwendbar. Du bestätigst deine Rechte vor jedem Import.",
+      "q7": "Warum kein direkter YouTube-Link?",
+      "a7": "YouTube erlaubt Drittanbietern nicht, seine Videos herunterzuladen. Wenn du einen YouTube-Link einfügst, zeigen wir die Videokarte, danach lädst du die passende Datei hoch."
+    },
+    "sticky": {
+      "label": "Shrunk testen"
+    }
   },
   "auth": {
     "title": "Anmelden",
@@ -447,5 +565,20 @@
         "description": "Verbinde deine Konten und plane deine Clips."
       }
     }
+  },
+  "legal": {
+    "company": "[Firmenname wird ergänzt]",
+    "copyright": "© {year} {company}",
+    "footerLabel": "Rechtliche Hinweise",
+    "titles": {
+      "mentions": "Impressum",
+      "cgv": "Verkaufsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "cookies": "Cookies",
+      "report": "Inhalt melden"
+    },
+    "draftTitle": "Seite in Bearbeitung",
+    "draftBody": "Dieser Inhalt wird in Kürze veröffentlicht.",
+    "back": "Zurück zur Startseite"
   }
 }

@@ -1,0 +1,13 @@
+/* Scroll-driven compression. --p is 0..1 and defaults to 1: the static, final state without JS or with reduced motion. */
+.compress[data-scroll="true"] { height: 220vh; }
+.compress[data-scroll="true"] .compress-stick { position: sticky; top: 0; min-height: 100dvh; justify-content: center; }
+.compress-gap { opacity: calc(1 - var(--p, 1)); }
+.compress-card {
+  --reveal: clamp(0, calc(var(--p, 1) * 3.4 - var(--i, 0)), 1);
+  opacity: var(--reveal);
+  transform: translateY(calc((1 - var(--reveal)) * 16px));
+}
+@media (prefers-reduced-motion: reduce) {
+  .compress-gap, .compress-card { opacity: unset; transform: none; transition: none; }
+  .compress-gap { opacity: 0; }
+}

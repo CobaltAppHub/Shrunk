@@ -12,13 +12,131 @@
   "landing": {
     "tagline": "Ton contenu, multiplié. Honnêtement.",
     "title": "Une vidéo longue. Plusieurs extraits prêts à partager.",
-    "linkLabel": "Colle le lien de ta vidéo",
-    "linkPlaceholder": "https://…/ma-video.mp4",
-    "continue": "Continuer",
-    "orUpload": "Ou importer un fichier",
-    "worksWith": "Fonctionne avec : liens directs vers un fichier vidéo{platforms, select, none {} other {, {platforms}}}.",
-    "youtubeNote": "Lien YouTube ? On affiche la fiche de la vidéo, puis tu importes le fichier : YouTube n'autorise pas son téléchargement par des services tiers.",
-    "rightsNote": "Une vidéo publique n'est pas automatiquement libre de réutilisation. Tu confirmes tes droits avant chaque import."
+    "navLabel": "Navigation principale",
+    "hero": {
+      "linkLabel": "Colle le lien de ta vidéo ou dépose un fichier",
+      "linkPlaceholder": "Colle le lien de ta vidéo ou dépose un fichier",
+      "cta": "Essayer 7 jours pour 1 €",
+      "reassurance": "7 jours pour 1 € · résiliation en un clic · prix TTC",
+      "seePricing": "Voir les tarifs",
+      "uploadLink": "Importer un fichier",
+      "youtubeNote": "Lien YouTube ? On affiche la fiche, puis tu importes le fichier.",
+      "worksWith": "Fonctionne avec : liens directs vers un fichier vidéo.",
+      "rightsNote": "Une vidéo publique n'est pas automatiquement libre de réutilisation. Tu confirmes tes droits avant chaque import."
+    },
+    "media": {
+      "label": "Exemple réel · vidéo NASA, domaine public",
+      "aria": "Vidéo de démonstration de la NASA, en domaine public, utilisée comme exemple",
+      "fallback": "Ton navigateur ne peut pas lire cette vidéo.",
+      "credit": "Crédit : {credit}"
+    },
+    "scoring": {
+      "title": "Comment un extrait est noté",
+      "intro": "Chaque extrait reçoit un score sur 100 : cinq critères, chacun noté de 0 à 20.",
+      "exampleLabel": "Exemple réel",
+      "exampleEmpty": "Démo réelle bientôt",
+      "exampleEmptyBody": "L'exemple chiffré s'affichera ici dès que les extraits de la vidéo NASA auront été produits par Shrunk.",
+      "outOf": "{points}/{max}",
+      "aiNote": "Les quatre premiers critères sont notés par un modèle d'IA, avec une phrase d'explication. La durée est calculée sans IA.",
+      "criteria": {
+        "hook": {
+          "name": "Accroche (0-3 s)",
+          "desc": "Les trois premières secondes donnent-elles envie de ne pas faire défiler ?"
+        },
+        "standalone": {
+          "name": "Autonomie du propos",
+          "desc": "Le passage se comprend-il sans le reste de la vidéo ?"
+        },
+        "emotion": {
+          "name": "Émotion",
+          "desc": "Humour, surprise, tension, conviction ou opinion marquée."
+        },
+        "pace": {
+          "name": "Rythme",
+          "desc": "Propos dense, sans longue pause ni remplissage."
+        },
+        "duration": {
+          "name": "Durée idéale (20-45 s)",
+          "desc": "Calculée sans IA : 20 points entre 20 et 45 s, puis dégressif jusqu'à 0 point à 10 s et à 90 s."
+        }
+      }
+    },
+    "stay": {
+      "title": "De la vidéo longue aux moments qui restent",
+      "intro": "Une vidéo de la NASA en domaine public, analysée par Shrunk.",
+      "timelineAlt": "Chronologie de la vidéo source ({duration}) avec {count} extraits repérés",
+      "sourceLabel": "Vidéo source · {duration}",
+      "clipsLabel": "{count} extraits",
+      "placeholderTitle": "Démo réelle bientôt",
+      "placeholderBody": "Les extraits de cette vidéo de {duration} seront affichés ici avec leurs titres, leurs plages horaires et le détail de leurs scores, dès qu'ils auront été produits.",
+      "range": "{start} – {end}",
+      "score": "Score {score}/100"
+    },
+    "publish": {
+      "title": "Publier depuis Shrunk",
+      "summary": "YouTube et Instagram publient directement ; TikTok envoie la vidéo dans la boîte de réception TikTok pour finir dans l'app."
+    },
+    "useCases": {
+      "title": "Pour qui",
+      "podcasters": {
+        "name": "Podcasteurs",
+        "line": "Colle l'épisode, garde les passages qui se comprennent seuls, sous-titrés en 9:16."
+      },
+      "founders": {
+        "name": "Fondateurs",
+        "line": "Transforme ta démo produit ou ton talk en extraits courts à poster sur tes comptes."
+      },
+      "agencies": {
+        "name": "Agences",
+        "line": "{seats} sièges et des comptes sociaux illimités avec la formule Agence."
+      }
+    },
+    "calculator": {
+      "title": "Quelle formule pour ton volume ?",
+      "intro": "Indique ce que tu comptes traiter chaque mois. Le calcul utilise les quotas et le prix en crédits des formules.",
+      "minutesLabel": "Minutes de vidéo source par mois",
+      "clipsLabel": "Clips rendus par mois",
+      "resultTitle": "Formule minimale : {plan}",
+      "resultPrice": "{price} / mois TTC",
+      "needs": "Il faut {credits} crédits de rendu ({cost, plural, one {# crédit} other {# crédits}} par rendu HD) et {minutes} minutes d'analyse par mois.",
+      "none": "Ce volume dépasse les quotas des formules actuelles.",
+      "importsNote": "Les imports mensuels sont aussi limités : {limits}.",
+      "extrasNote": "Les options (voix off, vidéo sans visage…) consomment des crédits en plus."
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "intro": "Toutes les formules incluent l'essai de 7 jours pour 1 €.",
+      "legend": "Facturation",
+      "monthly": "Mensuel",
+      "yearly": "Annuel (−{percent} %)",
+      "perMonth": "{price} / mois TTC",
+      "perYear": "{price} / an TTC",
+      "credits": "{n} crédits par mois",
+      "accounts": "{n, plural, one {# compte social} other {# comptes sociaux}}",
+      "accountsUnlimited": "Comptes sociaux illimités",
+      "hd": "1080p sans watermark",
+      "videos": "≈ {videos} vidéos d'une heure avec {clips} clips chacune"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": "Faut-il savoir monter ?",
+      "a1": "Non. Shrunk propose les extraits, les recadre en 9:16 et génère les sous-titres à partir de la transcription. L'éditeur permet d'ajuster la découpe, les sous-titres et le cadrage, mais ce n'est jamais obligatoire.",
+      "q2": "Quelles plateformes ?",
+      "a2": "YouTube et Instagram publient directement ; TikTok envoie la vidéo dans la boîte de réception TikTok pour finir dans l'app. Instagram demande un compte professionnel (Business ou Créateur). Pour importer, dépose un fichier vidéo ou colle un lien direct vers un fichier.",
+      "q3": "Puis-je annuler ?",
+      "a3": "Oui, en un clic depuis Facturation. L'abonnement s'arrête à la fin de la période en cours, sans autre prélèvement. Tu peux aussi demander un remboursement dans les {days} jours suivant la souscription si moins de {max} rendus ont été livrés.",
+      "q4": "Que se passe-t-il après les 7 jours ?",
+      "a4": "Sans résiliation de ta part avant la fin des 7 jours, l'abonnement de la formule choisie continue au tarif affiché, TTC, jusqu'à ce que tu résilies. Tu peux résilier à tout moment depuis Facturation.",
+      "q5": "Mes vidéos restent-elles privées ?",
+      "a5": "Tes vidéos et tes extraits sont stockés dans l'espace de travail de ton compte et ne sont accessibles que par des liens signés à durée limitée. Rien n'est publié sans ton action. Pour proposer les extraits, la transcription de ta vidéo est analysée par un modèle d'IA (Anthropic).",
+      "q6": "Puis-je utiliser la vidéo d'un autre créateur ?",
+      "a6": "Seulement si tu en as le droit : accord de l'auteur ou licence qui l'autorise. Une vidéo publique n'est pas automatiquement libre de réutilisation. Tu confirmes tes droits avant chaque import.",
+      "q7": "Pourquoi pas de lien YouTube direct ?",
+      "a7": "YouTube n'autorise pas le téléchargement de ses vidéos par des services tiers. Quand tu colles un lien YouTube, on affiche la fiche de la vidéo, puis tu importes le fichier correspondant."
+    },
+    "sticky": {
+      "label": "Essai Shrunk"
+    }
   },
   "auth": {
     "title": "Connexion",
@@ -447,5 +565,20 @@
         "description": "Connecte tes comptes et programme tes clips."
       }
     }
+  },
+  "legal": {
+    "company": "[Raison sociale à compléter]",
+    "copyright": "© {year} {company}",
+    "footerLabel": "Informations légales",
+    "titles": {
+      "mentions": "Mentions légales",
+      "cgv": "Conditions générales de vente",
+      "privacy": "Politique de confidentialité",
+      "cookies": "Cookies",
+      "report": "Signaler un contenu"
+    },
+    "draftTitle": "Page en cours de rédaction",
+    "draftBody": "Ce contenu sera publié prochainement.",
+    "back": "Retour à l'accueil"
   }
 }

@@ -4,20 +4,11 @@ import { eq } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "@/db/schema";
 import { grant } from "@/lib/credits";
+import { DEMO } from "@/lib/demo";
 import type { Db } from "@/db";
 
-/**
- * Verified 2026-10-22 through the Wikimedia Commons API (imageinfo + extmetadata):
- * licence "Public domain", author NASA's Scientific Visualization Studio, 237.4 s, 32 242 743 bytes,
- * VP8 1920x1080 + Opus audio. Source page: https://svs.gsfc.nasa.gov/14328
- */
-export const DEMO = {
-  url: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Hubble_Science-_Multiwavelength_Astronomy%2C_The_Big_Picture_%28SVS14328%29.webm",
-  bytes: 32_242_743,
-  durationS: 237.384,
-  license: "Public domain — NASA Scientific Visualization Studio, SVS 14328 (Wikimedia Commons)",
-  credit: "NASA's Scientific Visualization Studio",
-} as const;
+// The DEMO constant now lives in src/lib/demo.ts so the public landing can reuse it.
+export { DEMO };
 
 export const E2E_USER = { id: "e2e-user", email: "e2e@shrunk.test", name: "E2E" };
 

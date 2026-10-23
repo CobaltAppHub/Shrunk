@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./studio.css";
+@import "./landing.css";
 
 :root {
   --bg: #0a0d0f;
