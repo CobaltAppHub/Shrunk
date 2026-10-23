@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { Link, routing } from "@/i18n/routing";
 import { DemoVideo } from "./demo-video";
 import { ctaClass } from "./styles";
 
@@ -9,7 +9,7 @@ export async function Hero({ locale }: { locale: string }) {
     <section id="hero" aria-labelledby="hero-title" className="flex flex-col items-center gap-6 pb-10 pt-12 text-center">
       <p className="text-sm font-medium text-primary">{t("tagline")}</p>
       <h1 id="hero-title" className="max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">{t("title")}</h1>
-      <form action={`/${locale}/new`} method="get" className="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
+      <form action={locale === routing.defaultLocale ? "/new" : `/${locale}/new`} method="get" className="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
         <label htmlFor="url" className="sr-only">{t("hero.linkLabel")}</label>
         <input
           id="url"
