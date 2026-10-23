@@ -12,6 +12,9 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
-      - run: sudo apt-get install -y ffmpeg fonts-inter && python3 -I worker/test_media.py
-      - run: python3 -m pip install -r worker/requirements-dev.txt && python3 -I worker/test_render.py
+      # A real interpreter with writable site-packages: `python -I` ignores the user site that the system pip falls back to.
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get install -y ffmpeg fonts-inter && python -I worker/test_media.py
+      - run: python -m pip install -r worker/requirements-dev.txt && python -I worker/test_render.py
 # Preview deployments: connect the repo in Vercel (Git integration builds every PR).
