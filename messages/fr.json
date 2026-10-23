@@ -381,6 +381,7 @@
     }
   },
   "studio": {
+    "cuttingEyebrow":"La salle de montage","cuttingHeadline":"Découpe le bruit.","cuttingAccent":"Garde le moment.","cuttingDescription":"Tes projets, leurs vrais timecodes et les moments que Shrunk a repérés.","creditCounter":"Compteur de crédits","creditExpiry":"Les crédits mensuels expirent fin du mois suivant. Les packs n'expirent pas.","reelEyebrow":"Le reel","reelTitle":"Les moments en vue","reelLegend":"intensité = score","reelEmptyEyebrow":"Pellicule vierge","reelEmptyTitle":"Colle le lien de ta vidéo","reelEmptyDescription":"Ton premier projet donnera vie à ce reel.","pasteVideo":"Coller le lien","untitledClip":"Extrait sans titre","clipAccessible":"Extrait « {title} », {start}–{end}, score {score}","stageAccessible":"Étape : {stage}","stage":{"import":"Importation","transcribe":"Transcription","select":"Sélection","preview":"Aperçus"},"slateEyebrow":"La slate","slateTitle":"Les 7 prochains jours","allPosts":"Voir le calendrier","postAccessible":"{platform}, {title}, {time}","accountsEyebrow":"Les voyants","accountsTitle":"Comptes connectés","accountAccessible":"{platform}, {status}","connected":"Connecté","reconnect":"À reconnecter","accountsEmpty":"Aucun compte social connecté pour l'instant.",
     "home": "Accueil Shrunk",
     "workspace": "Espace de travail",
     "navigation": "Navigation principale",

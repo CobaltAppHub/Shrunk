@@ -381,6 +381,7 @@
     }
   },
   "studio": {
+    "cuttingEyebrow":"The cutting room","cuttingHeadline":"Cut the noise.","cuttingAccent":"Keep the moment.","cuttingDescription":"Your projects, their real timecodes, and the moments Shrunk found.","creditCounter":"Credit counter","creditExpiry":"Monthly credits expire at the end of the following month. Packs never expire.","reelEyebrow":"The reel","reelTitle":"Moments in view","reelLegend":"intensity = score","reelEmptyEyebrow":"Blank film","reelEmptyTitle":"Paste your video link","reelEmptyDescription":"Your first project will bring this reel to life.","pasteVideo":"Paste the link","untitledClip":"Untitled clip","clipAccessible":"Clip {title}, {start}–{end}, score {score}","stageAccessible":"Stage: {stage}","stage":{"import":"Import","transcribe":"Transcription","select":"Selection","preview":"Previews"},"slateEyebrow":"The slate","slateTitle":"Next 7 days","allPosts":"View calendar","postAccessible":"{platform}, {title}, {time}","accountsEyebrow":"Status lamps","accountsTitle":"Connected accounts","accountAccessible":"{platform}, {status}","connected":"Connected","reconnect":"Reconnect","accountsEmpty":"No social accounts connected yet.",
     "home": "Shrunk home",
     "workspace": "Workspace",
     "navigation": "Main navigation",

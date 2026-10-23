@@ -381,6 +381,7 @@
     }
   },
   "studio": {
+    "cuttingEyebrow":"La sala de montaje","cuttingHeadline":"Corta el ruido.","cuttingAccent":"Guarda el momento.","cuttingDescription":"Tus proyectos, sus códigos de tiempo reales y los momentos que encontró Shrunk.","creditCounter":"Contador de créditos","creditExpiry":"Los créditos mensuales caducan al final del mes siguiente. Los packs no caducan.","reelEyebrow":"El reel","reelTitle":"Momentos a la vista","reelLegend":"intensidad = puntuación","reelEmptyEyebrow":"Película virgen","reelEmptyTitle":"Pega el enlace de tu vídeo","reelEmptyDescription":"Tu primer proyecto dará vida a este reel.","pasteVideo":"Pegar enlace","untitledClip":"Clip sin título","clipAccessible":"Clip {title}, {start}–{end}, puntuación {score}","stageAccessible":"Etapa: {stage}","stage":{"import":"Importación","transcribe":"Transcripción","select":"Selección","preview":"Vistas previas"},"slateEyebrow":"La pizarra","slateTitle":"Próximos 7 días","allPosts":"Ver calendario","postAccessible":"{platform}, {title}, {time}","accountsEyebrow":"Luces de estado","accountsTitle":"Cuentas conectadas","accountAccessible":"{platform}, {status}","connected":"Conectada","reconnect":"Reconectar","accountsEmpty":"Aún no hay cuentas sociales conectadas.",
     "home": "Inicio de Shrunk",
     "workspace": "Espacio de trabajo",
     "navigation": "Navegación principal",

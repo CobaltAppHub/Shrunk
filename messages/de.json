@@ -381,6 +381,7 @@
     }
   },
   "studio": {
+    "cuttingEyebrow":"Der Schneideraum","cuttingHeadline":"Schneide das Rauschen.","cuttingAccent":"Behalte den Moment.","cuttingDescription":"Deine Projekte, ihre echten Timecodes und die Momente, die Shrunk gefunden hat.","creditCounter":"Kredit-Zähler","creditExpiry":"Monatliche Credits verfallen am Ende des Folgemonats. Pakete verfallen nie.","reelEyebrow":"Die Filmrolle","reelTitle":"Momente im Blick","reelLegend":"Intensität = Score","reelEmptyEyebrow":"Leerer Film","reelEmptyTitle":"Videolink einfügen","reelEmptyDescription":"Dein erstes Projekt erweckt diese Filmrolle zum Leben.","pasteVideo":"Link einfügen","untitledClip":"Clip ohne Titel","clipAccessible":"Clip {title}, {start}–{end}, Score {score}","stageAccessible":"Schritt: {stage}","stage":{"import":"Import","transcribe":"Transkription","select":"Auswahl","preview":"Vorschauen"},"slateEyebrow":"Die Tafel","slateTitle":"Nächste 7 Tage","allPosts":"Kalender öffnen","postAccessible":"{platform}, {title}, {time}","accountsEyebrow":"Statusleuchten","accountsTitle":"Verbundene Konten","accountAccessible":"{platform}, {status}","connected":"Verbunden","reconnect":"Neu verbinden","accountsEmpty":"Noch keine sozialen Konten verbunden.",
     "home": "Shrunk-Startseite",
     "workspace": "Arbeitsbereich",
     "navigation": "Hauptnavigation",
